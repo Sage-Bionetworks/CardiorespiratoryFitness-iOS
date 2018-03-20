@@ -122,7 +122,7 @@ public struct CRFTaskInfo : RSDTaskInfo, RSDEmbeddedIconVendor {
     public var schemaInfo: RSDSchemaInfo?
     
     /// Returns `task`.
-    public var taskTransformer: RSDTaskTransformer? {
+    public var resourceTransformer: RSDTaskTransformer? {
         return self.task
     }
     
@@ -173,5 +173,49 @@ public struct CRFTaskTransformer : RSDResourceTransformer, Decodable {
     
     public var classType: String? {
         return nil
+    }
+}
+
+public protocol CRFTask : RSDTask {
+    
+    /// For the heart rate steps, should the log file include the full pixel matrix or just the averaged value?
+    var shouldSaveBuffer: Bool { get set }
+    
+    /// The camera settings to use for the heart rate steps (nil resettable).
+    var cameraSettings : CRFCameraSettings? { get set }
+}
+
+extension RSDTaskObject : CRFTask {
+    
+    /// For the heart rate steps, should the log file include the full pixel matrix or just the averaged value?
+    public var shouldSaveBuffer: Bool {
+        get { return heartRateSteps().first?.shouldSaveBuffer ?? false }
+        set {
+            for step in heartRateSteps() {
+                step.shouldSaveBuffer = newValue
+            }
+        }
+    }
+    
+    /// The camera settings to use for the heart rate steps (nil resettable).
+    public var cameraSettings : CRFCameraSettings? {
+        get { return heartRateSteps().first?.cameraSettings ?? nil }
+        set {
+            for step in heartRateSteps() {
+                step.cameraSettings = newValue ?? CRFCameraSettings()
+            }
+        }
+    }
+
+    private func heartRateSteps() -> [CRFHeartRateStep] {
+        guard let navigator = self.stepNavigator as? RSDConditionalStepNavigator else { return [] }
+        let steps = navigator.steps.rsd_mapAndFilter { (step) -> CRFHeartRateStep? in
+            if let hrStep = step as? CRFHeartRateStep {
+                return hrStep
+            }
+            guard let sectionStep = step as? RSDSectionStep else { return nil }
+            return sectionStep.steps.first(where: { $0 is CRFHeartRateStep }) as? CRFHeartRateStep
+        }
+        return steps
     }
 }

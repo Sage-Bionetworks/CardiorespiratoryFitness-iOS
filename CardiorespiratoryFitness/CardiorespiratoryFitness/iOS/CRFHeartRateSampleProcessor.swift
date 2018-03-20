@@ -47,26 +47,27 @@ public let CRFHeartRateSettleSeconds = TimeInterval(3)
 
 // --- Code ported from Matlab
 
-fileprivate let fs: Double = 60                                  // frames / second
-fileprivate let window: Double = 10                              // seconds
+fileprivate let fs: Double = 60                                 // frames / second
+fileprivate let window: Double = 10                             // seconds
 fileprivate let window_len: Int = Int(round(fs * window))       // number of frames in the window
 
 /// channel, 60fps, 10sec window
-func findHeartRateValues(with channel:[Double]) -> [(heartRate: Int, confidence: Double)] {
+func findHeartRateValues(with channel:[Double]) -> [(heartRate: Double, confidence: Double)] {
     let nframes = Int(floor(Double(channel.count) / (Double(window_len)/2)) - 1)
     guard nframes >= 1 else { return [] }
-    var output: [(Int, Double)] = []
+    var output: [(Double, Double)] = []
     for frame_no in 1...nframes {
         let lower = (1 + ((frame_no - 1) * window_len / 2)) - 1
         let upper = ((frame_no + 1) * window_len / 2) - 1
-        let currframe = Array(red[lower...upper])
+        let currframe = Array(channel[lower...upper])
         output.append(calculateHeartRate(currframe))
     }
     return output
 }
 
 /// For a given window return the calculated heart rate and confidence.
-func calculateHeartRate(_ input: [Double]) -> (heartRate: Int, confidence: Double) {
+/// - note: The calculated heart rate is rounded.
+func calculateHeartRate(_ input: [Double]) -> (heartRate: Double, confidence: Double) {
 
     //% Preprocess and find the autocorrelation function
     let filteredValues = bandpassFiltered(input)
@@ -80,7 +81,7 @@ func calculateHeartRate(_ input: [Double]) -> (heartRate: Int, confidence: Doubl
     let lower = Int(round(60 * fs / 200))
     let upper = Int(round(60 * fs / 40))
     let (val, pos) = x.zeroReplace(lower-1, upper-1).seekMax()
-    return (Int(round(60 * fs / Double(pos + 1))), val / max_val)
+    return (round(60 * fs / Double(pos + 1)), val / max_val)
 }
 
 func maxSplice(_ input: [Double]) -> (maxValue: Double, [Double]) {

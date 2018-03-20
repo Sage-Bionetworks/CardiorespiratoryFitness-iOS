@@ -162,7 +162,7 @@ class HeartRateProcessorTests: XCTestCase {
         let red = getRedInput()
         let hrValues = findHeartRateValues(with: red)
         
-        let expectedHR: [Int] = [84, 82, 82, 77, 77, 78, 78, 80, 80, 84, 138]
+        let expectedHR: [Double] = [84, 82, 82, 77, 77, 78, 78, 80, 80, 84, 138]
         let expectedConfidence: [Double] = [0.7585, 0.8245, 0.7937, 0.8694, 0.8405, 0.8411, 0.8679, 0.8236, 0.8278, 0.8311, 0.1004]
         
         if hrValues.count == expectedHR.count {
