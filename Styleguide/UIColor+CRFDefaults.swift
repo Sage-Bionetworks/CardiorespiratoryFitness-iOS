@@ -1,5 +1,5 @@
 //
-//  CardiorespiratoryFitness.h
+//  UIColor+CRFDefaults.swift
 //  CardiorespiratoryFitness
 //
 //  Copyright © 2018 Sage Bionetworks. All rights reserved.
@@ -31,16 +31,42 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
-@import UIKit;
-@import ResearchStack2UI;
-@import ResearchStack2;
+import Foundation
+import ResearchStack2UI
 
-//! Project version number for CardiorespiratoryFitness.
-FOUNDATION_EXPORT double CardiorespiratoryFitnessVersionNumber;
-
-//! Project version string for CardiorespiratoryFitness.
-FOUNDATION_EXPORT const unsigned char CardiorespiratoryFitnessVersionString[];
-
-#import <CardiorespiratoryFitness/CRFHeartRateVideoProcessor.h>
-
-
+extension UIColor {
+    
+    // MARK: Primary Tint
+    
+    @objc open class var primaryTintColor: UIColor {
+        return UIColor(named: "dodgerBlue", in: Bundle(for: CRFFactory.self), compatibleWith: nil)!
+    }
+    
+    // MARK: Secondary Tint
+    
+    @objc open class var secondaryTintColor: UIColor {
+        return UIColor(named: "salmon", in: Bundle(for: CRFFactory.self), compatibleWith: nil)!
+    }
+    
+    // MARK: Progress indicators
+    
+    @objc open class var rsd_dialRing : UIColor {
+        return UIColor(named: "tealGreen", in: Bundle(for: CRFFactory.self), compatibleWith: nil)!
+    }
+    
+    @objc open class var rsd_dialRingBackgroundLightStyle: UIColor {
+        return UIColor.white
+    }
+    
+    @objc open class var rsd_dialRingBackground: UIColor {
+        return UIColor.appVeryLightGray
+    }
+    
+    @objc open class var rsd_progressBarBackgroundLightStyle: UIColor {
+        return UIColor.white
+    }
+    
+    @objc open class var rsd_progressBarBackground: UIColor {
+        return UIColor.appVeryLightGray
+    }
+}
