@@ -89,6 +89,7 @@ platform :ios do
 
   desc "This lane is for CI bots to archive and export"
   lane :ci_archive do |options|
+    project = options[:project]
     scheme = options[:scheme]
     export_method = options[:export_method]
     keychains
