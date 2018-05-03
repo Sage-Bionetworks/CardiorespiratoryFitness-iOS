@@ -39,24 +39,24 @@ platform :ios do
   desc "Fetches provisioning profile and certificates from github repo"
   lane :certificates do |options|
     export_method = options[:export_method]
-#    match(
-#      git_branch: ENV["TEAM_SAGEBIO_NOT_FOR_PROFIT"],
-#      type: "development",
-#      app_identifier: ENV["APP_ID"],
-#      team_id: ENV["TEAM_SAGEBIO_NOT_FOR_PROFIT"],
-#      keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
-#      keychain_password: ENV["MATCH_PASSWORD"],
-#      readonly: true
-#    )
-#    match(
-#      git_branch: ENV["TEAM_SAGEBIO_NOT_FOR_PROFIT"],
-#      type: "appstore",
-#      app_identifier: ENV["APP_ID"],
-#      team_id: ENV["TEAM_SAGEBIO_NOT_FOR_PROFIT"],
-#      keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
-#      keychain_password: ENV["MATCH_PASSWORD"],
-#      readonly: true
-#    )
+    match(
+      git_branch: ENV["TEAM_SAGEBIO_NOT_FOR_PROFIT"],
+      type: "development",
+      app_identifier: ENV["APP_ID"],
+      team_id: ENV["TEAM_SAGEBIO_NOT_FOR_PROFIT"],
+      keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
+      keychain_password: ENV["MATCH_PASSWORD"],
+      readonly: true
+    )
+    match(
+      git_branch: ENV["TEAM_SAGEBIO_NOT_FOR_PROFIT"],
+      type: "appstore",
+      app_identifier: ENV["APP_ID"],
+      team_id: ENV["TEAM_SAGEBIO_NOT_FOR_PROFIT"],
+      keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
+      keychain_password: ENV["MATCH_PASSWORD"],
+      readonly: true
+    )
   end
 
   desc "Execute tests"
