@@ -2,7 +2,7 @@ notifications:
   email:
   - apple.builds@sagebase.org
 language: objective-c
-osx_image: xcode9.3
+osx_image: xcode10
 xcode_project: CardiorespiratoryFitness/CardiorespiratoryFitness.xcodeproj 
 xcode_scheme: CRFTestApp
 cache:
