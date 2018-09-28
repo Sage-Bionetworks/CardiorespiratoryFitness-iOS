@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F806135E215ED36E001B1574 /* CardiorespiratoryFitness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8061351215ED330001B1574 /* CardiorespiratoryFitness.framework */; };
+		F806135F215ED36E001B1574 /* CardiorespiratoryFitness.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8061351215ED330001B1574 /* CardiorespiratoryFitness.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F8258597215DADA7007E7965 /* ParticipantIDStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8258596215DADA7007E7965 /* ParticipantIDStepViewController.swift */; };
 		F8F366B42155D5DE00A49F89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F366B32155D5DE00A49F89 /* AppDelegate.swift */; };
 		F8F366B62155D5DE00A49F89 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F366B52155D5DE00A49F89 /* MainViewController.swift */; };
@@ -15,8 +17,6 @@
 		F8F366E92155D65400A49F89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8F366E82155D65400A49F89 /* Assets.xcassets */; };
 		F8F366F12155D6A600A49F89 /* BridgeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8F366D22155D5F400A49F89 /* BridgeApp.framework */; };
 		F8F366F22155D6A600A49F89 /* BridgeApp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8F366D22155D5F400A49F89 /* BridgeApp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F8F367002155D7A000A49F89 /* CardiorespiratoryFitness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8F366E12155D60200A49F89 /* CardiorespiratoryFitness.framework */; };
-		F8F367012155D7A000A49F89 /* CardiorespiratoryFitness.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8F366E12155D60200A49F89 /* CardiorespiratoryFitness.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F8F367072155DA4000A49F89 /* BridgeInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8F367062155DA4000A49F89 /* BridgeInfo.plist */; };
 		F8F367092155DA8C00A49F89 /* crf-module.pem in Resources */ = {isa = PBXBuildFile; fileRef = F8F367082155DA8C00A49F89 /* crf-module.pem */; };
 		F8F3670B2155DA9C00A49F89 /* BridgeInfo-private.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8F3670A2155DA9C00A49F89 /* BridgeInfo-private.plist */; };
@@ -25,6 +25,41 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		F8061350215ED330001B1574 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8061349215ED330001B1574 /* CardiorespiratoryFitness.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F88725D92051C0F800A4B82F;
+			remoteInfo = CardiorespiratoryFitness;
+		};
+		F8061352215ED330001B1574 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8061349215ED330001B1574 /* CardiorespiratoryFitness.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F88725E22051C0F900A4B82F;
+			remoteInfo = CardiorespiratoryFitnessTests;
+		};
+		F8061354215ED330001B1574 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8061349215ED330001B1574 /* CardiorespiratoryFitness.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8BA7FE02051DC2D00A5B83A;
+			remoteInfo = CRFTestApp;
+		};
+		F8061356215ED330001B1574 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8061349215ED330001B1574 /* CardiorespiratoryFitness.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8BA7FF32051DC2E00A5B83A;
+			remoteInfo = CRFTestAppUITests;
+		};
+		F8061360215ED36E001B1574 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8061349215ED330001B1574 /* CardiorespiratoryFitness.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F88725D82051C0F800A4B82F;
+			remoteInfo = CardiorespiratoryFitness;
+		};
 		F8F366D12155D5F400A49F89 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F8F366C52155D5F300A49F89 /* BridgeApp.xcodeproj */;
@@ -46,47 +81,12 @@
 			remoteGlobalIDString = F83B450220324A33002825AE;
 			remoteInfo = BridgeAppExample;
 		};
-		F8F366E02155D60200A49F89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F8F366D72155D60200A49F89 /* CardiorespiratoryFitness.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F88725D92051C0F800A4B82F;
-			remoteInfo = CardiorespiratoryFitness;
-		};
-		F8F366E22155D60200A49F89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F8F366D72155D60200A49F89 /* CardiorespiratoryFitness.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F88725E22051C0F900A4B82F;
-			remoteInfo = CardiorespiratoryFitnessTests;
-		};
-		F8F366E42155D60200A49F89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F8F366D72155D60200A49F89 /* CardiorespiratoryFitness.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F8BA7FE02051DC2D00A5B83A;
-			remoteInfo = CRFTestApp;
-		};
-		F8F366E62155D60200A49F89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F8F366D72155D60200A49F89 /* CardiorespiratoryFitness.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F8BA7FF32051DC2E00A5B83A;
-			remoteInfo = CRFTestAppUITests;
-		};
 		F8F366F32155D6A600A49F89 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F8F366C52155D5F300A49F89 /* BridgeApp.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = F83B44A42032467D002825AE;
 			remoteInfo = "BridgeApp (iOS)";
-		};
-		F8F367022155D7A000A49F89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F8F366D72155D60200A49F89 /* CardiorespiratoryFitness.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = F88725D82051C0F800A4B82F;
-			remoteInfo = CardiorespiratoryFitness;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -97,7 +97,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F8F367012155D7A000A49F89 /* CardiorespiratoryFitness.framework in Embed Frameworks */,
+				F806135F215ED36E001B1574 /* CardiorespiratoryFitness.framework in Embed Frameworks */,
 				F8F366F22155D6A600A49F89 /* BridgeApp.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -106,6 +106,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F8061349215ED330001B1574 /* CardiorespiratoryFitness.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CardiorespiratoryFitness.xcodeproj; path = ../CardiorespiratoryFitness/CardiorespiratoryFitness.xcodeproj; sourceTree = "<group>"; };
 		F8258596215DADA7007E7965 /* ParticipantIDStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantIDStepViewController.swift; sourceTree = "<group>"; };
 		F8F366B02155D5DE00A49F89 /* CRFHeartRate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CRFHeartRate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8F366B32155D5DE00A49F89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -114,7 +115,6 @@
 		F8F366BD2155D5DF00A49F89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8F366BF2155D5DF00A49F89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8F366C52155D5F300A49F89 /* BridgeApp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BridgeApp.xcodeproj; path = ../BridgeApp/BridgeApp/BridgeApp.xcodeproj; sourceTree = "<group>"; };
-		F8F366D72155D60200A49F89 /* CardiorespiratoryFitness.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CardiorespiratoryFitness.xcodeproj; path = ../CardiorespiratoryFitness/CardiorespiratoryFitness/CardiorespiratoryFitness.xcodeproj; sourceTree = "<group>"; };
 		F8F366E82155D65400A49F89 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../CardiorespiratoryFitness-iOS/CardiorespiratoryFitness/CRFTestApp/Assets.xcassets"; sourceTree = "<group>"; };
 		F8F367042155D7B500A49F89 /* CRFHeartRate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CRFHeartRate.entitlements; sourceTree = "<group>"; };
 		F8F367062155DA4000A49F89 /* BridgeInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BridgeInfo.plist; sourceTree = "<group>"; };
@@ -129,7 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8F367002155D7A000A49F89 /* CardiorespiratoryFitness.framework in Frameworks */,
+				F806135E215ED36E001B1574 /* CardiorespiratoryFitness.framework in Frameworks */,
 				F8F366F12155D6A600A49F89 /* BridgeApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,6 +137,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F806134A215ED330001B1574 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F8061351215ED330001B1574 /* CardiorespiratoryFitness.framework */,
+				F8061353215ED330001B1574 /* CardiorespiratoryFitnessTests.xctest */,
+				F8061355215ED330001B1574 /* CRFTestApp.app */,
+				F8061357215ED330001B1574 /* CRFTestAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		F8258590215DACAB007E7965 /* Heart Rate */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,8 +162,8 @@
 			children = (
 				F8F366B22155D5DE00A49F89 /* CRFHeartRate */,
 				F8F366B12155D5DE00A49F89 /* Products */,
+				F8061349215ED330001B1574 /* CardiorespiratoryFitness.xcodeproj */,
 				F8F366C52155D5F300A49F89 /* BridgeApp.xcodeproj */,
-				F8F366D72155D60200A49F89 /* CardiorespiratoryFitness.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -185,17 +196,6 @@
 				F8F366D22155D5F400A49F89 /* BridgeApp.framework */,
 				F8F366D42155D5F400A49F89 /* BridgeAppTests.xctest */,
 				F8F366D62155D5F400A49F89 /* BridgeAppExample.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		F8F366D82155D60200A49F89 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				F8F366E12155D60200A49F89 /* CardiorespiratoryFitness.framework */,
-				F8F366E32155D60200A49F89 /* CardiorespiratoryFitnessTests.xctest */,
-				F8F366E52155D60200A49F89 /* CRFTestApp.app */,
-				F8F366E72155D60200A49F89 /* CRFTestAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -236,7 +236,7 @@
 			);
 			dependencies = (
 				F8F366F42155D6A600A49F89 /* PBXTargetDependency */,
-				F8F367032155D7A000A49F89 /* PBXTargetDependency */,
+				F8061361215ED36E001B1574 /* PBXTargetDependency */,
 			);
 			name = CRFHeartRate;
 			productName = CRFHeartRate;
@@ -289,8 +289,8 @@
 					ProjectRef = F8F366C52155D5F300A49F89 /* BridgeApp.xcodeproj */;
 				},
 				{
-					ProductGroup = F8F366D82155D60200A49F89 /* Products */;
-					ProjectRef = F8F366D72155D60200A49F89 /* CardiorespiratoryFitness.xcodeproj */;
+					ProductGroup = F806134A215ED330001B1574 /* Products */;
+					ProjectRef = F8061349215ED330001B1574 /* CardiorespiratoryFitness.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -301,6 +301,34 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		F8061351215ED330001B1574 /* CardiorespiratoryFitness.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CardiorespiratoryFitness.framework;
+			remoteRef = F8061350215ED330001B1574 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F8061353215ED330001B1574 /* CardiorespiratoryFitnessTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CardiorespiratoryFitnessTests.xctest;
+			remoteRef = F8061352215ED330001B1574 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F8061355215ED330001B1574 /* CRFTestApp.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = CRFTestApp.app;
+			remoteRef = F8061354215ED330001B1574 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F8061357215ED330001B1574 /* CRFTestAppUITests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CRFTestAppUITests.xctest;
+			remoteRef = F8061356215ED330001B1574 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		F8F366D22155D5F400A49F89 /* BridgeApp.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -320,34 +348,6 @@
 			fileType = wrapper.application;
 			path = BridgeAppExample.app;
 			remoteRef = F8F366D52155D5F400A49F89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		F8F366E12155D60200A49F89 /* CardiorespiratoryFitness.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CardiorespiratoryFitness.framework;
-			remoteRef = F8F366E02155D60200A49F89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		F8F366E32155D60200A49F89 /* CardiorespiratoryFitnessTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = CardiorespiratoryFitnessTests.xctest;
-			remoteRef = F8F366E22155D60200A49F89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		F8F366E52155D60200A49F89 /* CRFTestApp.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = CRFTestApp.app;
-			remoteRef = F8F366E42155D60200A49F89 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		F8F366E72155D60200A49F89 /* CRFTestAppUITests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = CRFTestAppUITests.xctest;
-			remoteRef = F8F366E62155D60200A49F89 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -384,15 +384,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		F8061361215ED36E001B1574 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CardiorespiratoryFitness;
+			targetProxy = F8061360215ED36E001B1574 /* PBXContainerItemProxy */;
+		};
 		F8F366F42155D6A600A49F89 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "BridgeApp (iOS)";
 			targetProxy = F8F366F32155D6A600A49F89 /* PBXContainerItemProxy */;
-		};
-		F8F367032155D7A000A49F89 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CardiorespiratoryFitness;
-			targetProxy = F8F367022155D7A000A49F89 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
