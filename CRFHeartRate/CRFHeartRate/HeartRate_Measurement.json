@@ -1,0 +1,34 @@
+{
+    "identifier"        : "HeartRate Measurement",
+    "shouldHideActions" : ["goBackward", "skip", "cancel"],
+    "progressMarkers"   : [],
+    "steps"             : [
+                           {
+                           "identifier"             : "participantID",
+                           "type"                   : "form",
+                           "text"                   : "Enter Participant ID",
+                           "inputFields"    : [{
+                                                   "type": "string",
+                                                   "uiHint": "textfield",
+                                                   "textFieldOptions" : {
+                                                       "keyboardType" : "numberPad"
+                                                   }
+                                                }],
+                           "colorTheme"             : { "usesLightStyle" : true }
+                           },
+                           {
+                           "identifier"         : "heartRate",
+                           "type"               : "heartRateSection",
+                           "asyncActions"       : [
+                                                   {
+                                                       "identifier"              : "motion",
+                                                       "type"                    : "motion",
+                                                       "startStepIdentifier"     : "heartRate",
+                                                       "StopStepIdentifier"      : "heartRate",
+                                                       "requiresBackgroundAudio" : true,
+                                                       "recorderTypes"           : ["accelerometer", "gyro"]
+                                                   }
+                                               ]
+                           }
+                           ]
+}
