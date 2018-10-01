@@ -83,9 +83,13 @@ public class CRFHeartRateStepViewController: RSDActiveStepViewController, CRFHea
         
         self.previewView.layer.cornerRadius = self.previewView.bounds.width / 2.0
         self.previewView.layer.masksToBounds = true
-        self.progressLabel?.isHidden = true
         self.skipButton?.isHidden = true
         self.heartImageView?.isHidden = true
+        
+        let localizationBundle = LocalizationBundle(Bundle(for: CRFHeartRateStepViewController.self))
+        Localization.insert(bundle: localizationBundle, at: 1)
+    
+        self.instructionLabel?.text = Localization.localizedString("HEARTRATE_CAPTURE_START_TEXT")
     }
     
     public override func viewDidAppear(_ animated: Bool) {
@@ -127,6 +131,15 @@ public class CRFHeartRateStepViewController: RSDActiveStepViewController, CRFHea
         // start the recorders
         let taskController = self.stepViewModel.rootPathComponent.taskController!
         taskController.startAsyncActions(for: [bpmRecorder!], showLoading: false, completion:{})
+        
+        // Speak the start instruction
+        let speakDelay = DispatchTime.now() + .milliseconds(100)
+        DispatchQueue.main.asyncAfter(deadline: speakDelay) { [weak self] in
+            if self?._currentLabel == nil {
+                let instruction = Localization.localizedString("HEARTRATE_CAPTURE_START_TEXT")
+                self?.speakInstruction(instruction, at: 0, completion: nil)
+            }
+        }
     }
     
     public func didFinishStartingCamera() {
@@ -212,16 +225,25 @@ public class CRFHeartRateStepViewController: RSDActiveStepViewController, CRFHea
             self.loadingIndicator?.isHidden = true
             if isCoveringLens {
                 self._startCountdownIfNeeded()
+                let instruction = Localization.localizedString("HEARTRATE_CAPTURE_CONTINUE_TEXT")
+                self.speakInstruction(instruction, at: 10, completion: nil)
             } else {
                 // zero out the BPM to indicate to the user that they need to cover the flash
                 // and show the initial instruction.
                 self.progressLabel?.text = "--"
                 self._markTime = nil
-                if let instruction = self.activeStep?.spokenInstruction(at: 0) {
-                    self.instructionLabel?.text = instruction
-                }
+                self.vibrateDevice()
+                let instruction = Localization.localizedString("HEARTRATE_CAPTURE_ERROR_TEXT")
+                self.speakInstruction(instruction, at: 10, completion: nil)
             }
         }
+    }
+    
+    private var _currentLabel: String?
+    override public func speakInstruction(_ instruction: String, at timeInterval: TimeInterval, completion: RSDVoiceBoxCompletionHandler?) {
+        guard _currentLabel != instruction else { return }
+        _currentLabel = instruction
+        super.speakInstruction(instruction, at: timeInterval, completion: completion)
     }
     
     private func _updateBPMLabelOnMainQueue(_ bpm: Int) {
@@ -242,15 +264,19 @@ public class CRFHeartRateStepViewController: RSDActiveStepViewController, CRFHea
     
     private func _updateBPMLabel(_ bpm: Int) {
         if self.collectionResult?.inputResults.count ?? 0 == 0 {
-            // Add the starting heart rate as a result for display to the user
+            // Add the starting heart rate
             var bpmResult = RSDAnswerResultObject(identifier: "\(self.step.identifier)_start", answerType: RSDAnswerResultType(baseType: .decimal))
             bpmResult.value = bpmRecorder?.bpm
             addResult(bpmResult)
-        } else if !_encouragementGiven, let markTime = _markTime, (ProcessInfo.processInfo.systemUptime - markTime) > 40,
-            let continueText = self.uiStep?.detail {
-            _encouragementGiven = true
-            self.speakInstruction(continueText, at: 40, completion: nil)
         }
-        self.progressLabel?.text = numberFormatter.string(from: NSNumber(value: bpm))
+        // TODO: syoung 09/28/2018 Save for now in case UX changes again to include spoken "encouragement" text.
+        //    else if !_encouragementGiven, let markTime = _markTime, (ProcessInfo.processInfo.systemUptime - markTime) > 40,
+        //        let continueText = self.uiStep?.detail {
+        //        _encouragementGiven = true
+        //        self.speakInstruction(continueText, at: 40, completion: nil)
+        //    }
+        if let bpmString = numberFormatter.string(from: NSNumber(value: bpm)) {
+            self.progressLabel?.text = Localization.localizedStringWithFormatKey("HEARTRATE_CAPTURE_%@_BPM", bpmString)
+        }
     }
 }
