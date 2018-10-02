@@ -30,6 +30,58 @@
 		F8F3678C21597DF100A49F89 /* HeartRate_Measurement.json in Resources */ = {isa = PBXBuildFile; fileRef = F8F3678B21597DF100A49F89 /* HeartRate_Measurement.json */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		F8864ABD2162F26A00DF57CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8DA5E26215EE86500F7FF20 /* BridgeApp.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F83B44A52032467D002825AE;
+			remoteInfo = "BridgeApp (iOS)";
+		};
+		F8864ABF2162F26A00DF57CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8DA5E26215EE86500F7FF20 /* BridgeApp.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F83B44AE2032467D002825AE;
+			remoteInfo = BridgeAppTests;
+		};
+		F8864AC12162F26A00DF57CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8DA5E26215EE86500F7FF20 /* BridgeApp.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F83B450220324A33002825AE;
+			remoteInfo = BridgeAppExample;
+		};
+		F8E97F382162DDAD00F859FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8061349215ED330001B1574 /* CardiorespiratoryFitness.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F88725D92051C0F800A4B82F;
+			remoteInfo = CardiorespiratoryFitness;
+		};
+		F8E97F3A2162DDAD00F859FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8061349215ED330001B1574 /* CardiorespiratoryFitness.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F88725E22051C0F900A4B82F;
+			remoteInfo = CardiorespiratoryFitnessTests;
+		};
+		F8E97F3C2162DDAD00F859FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8061349215ED330001B1574 /* CardiorespiratoryFitness.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8BA7FE02051DC2D00A5B83A;
+			remoteInfo = CRFTestApp;
+		};
+		F8E97F3E2162DDAD00F859FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8061349215ED330001B1574 /* CardiorespiratoryFitness.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8BA7FF32051DC2E00A5B83A;
+			remoteInfo = CRFTestAppUITests;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		F8F366ED2155D69400A49F89 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -97,6 +149,16 @@
 			name = "Heart Rate";
 			sourceTree = "<group>";
 		};
+		F8864AB82162F26A00DF57CF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F8864ABE2162F26A00DF57CF /* BridgeApp.framework */,
+				F8864AC02162F26A00DF57CF /* BridgeAppTests.xctest */,
+				F8864AC22162F26A00DF57CF /* BridgeAppExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		F8DA5E19215EE83C00F7FF20 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +172,17 @@
 			);
 			name = Frameworks;
 			sourceTree = SOURCE_ROOT;
+		};
+		F8E97F322162DDAD00F859FE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F8E97F392162DDAD00F859FE /* CardiorespiratoryFitness.framework */,
+				F8E97F3B2162DDAD00F859FE /* CardiorespiratoryFitnessTests.xctest */,
+				F8E97F3D2162DDAD00F859FE /* CRFTestApp.app */,
+				F8E97F3F2162DDAD00F859FE /* CRFTestAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
 		};
 		F8F366A72155D5DE00A49F89 = {
 			isa = PBXGroup;
@@ -224,12 +297,74 @@
 			mainGroup = F8F366A72155D5DE00A49F89;
 			productRefGroup = F8F366B12155D5DE00A49F89 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = F8864AB82162F26A00DF57CF /* Products */;
+					ProjectRef = F8DA5E26215EE86500F7FF20 /* BridgeApp.xcodeproj */;
+				},
+				{
+					ProductGroup = F8E97F322162DDAD00F859FE /* Products */;
+					ProjectRef = F8061349215ED330001B1574 /* CardiorespiratoryFitness.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				F8F366AF2155D5DE00A49F89 /* CRFHeartRate */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		F8864ABE2162F26A00DF57CF /* BridgeApp.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = BridgeApp.framework;
+			remoteRef = F8864ABD2162F26A00DF57CF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F8864AC02162F26A00DF57CF /* BridgeAppTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = BridgeAppTests.xctest;
+			remoteRef = F8864ABF2162F26A00DF57CF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F8864AC22162F26A00DF57CF /* BridgeAppExample.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = BridgeAppExample.app;
+			remoteRef = F8864AC12162F26A00DF57CF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F8E97F392162DDAD00F859FE /* CardiorespiratoryFitness.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CardiorespiratoryFitness.framework;
+			remoteRef = F8E97F382162DDAD00F859FE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F8E97F3B2162DDAD00F859FE /* CardiorespiratoryFitnessTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CardiorespiratoryFitnessTests.xctest;
+			remoteRef = F8E97F3A2162DDAD00F859FE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F8E97F3D2162DDAD00F859FE /* CRFTestApp.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = CRFTestApp.app;
+			remoteRef = F8E97F3C2162DDAD00F859FE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F8E97F3F2162DDAD00F859FE /* CRFTestAppUITests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CRFTestAppUITests.xctest;
+			remoteRef = F8E97F3E2162DDAD00F859FE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		F8F366AE2155D5DE00A49F89 /* Resources */ = {

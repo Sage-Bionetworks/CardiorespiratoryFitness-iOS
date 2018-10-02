@@ -14,21 +14,31 @@
                                                        "keyboardType" : "numberPad"
                                                    }
                                                 }],
-                           "colorTheme"             : { "usesLightStyle" : true }
+                           "colorTheme"             : { "usesLightStyle" : true },
+                           "actions"        : { "goForward": { "type":"default", "buttonTitle": "Submit" }}
                            },
                            {
                            "identifier"         : "heartRate",
                            "type"               : "heartRateSection",
-                           "asyncActions"       : [
-                                                   {
+                           "steps"              : [{
+                               "identifier"   : "feedback",
+                               "actions":{
+                                   "goForward": { "type":"default", "buttonTitle": "Submit" },
+                                   "skip":{
+                                       "type": "navigation",
+                                       "skipToIdentifier": "instruction",
+                                       "buttonTitle": "Redo"
+                                   }
+                               }
+                           }],
+                           "asyncActions"       : [{
                                                        "identifier"              : "motion",
                                                        "type"                    : "motion",
                                                        "startStepIdentifier"     : "heartRate",
                                                        "StopStepIdentifier"      : "heartRate",
                                                        "requiresBackgroundAudio" : true,
                                                        "recorderTypes"           : ["accelerometer", "gyro"]
-                                                   }
-                                               ]
+                                                   }]
                            }
                            ]
 }
