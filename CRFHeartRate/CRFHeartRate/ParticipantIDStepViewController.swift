@@ -43,6 +43,19 @@ class ParticipantIDStepViewController: RSDTableStepViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Use a delay to let the page view controller finish its animation.
+        let delay = DispatchTime.now() + .milliseconds(100)
+        DispatchQueue.main.asyncAfter(deadline: delay) { [weak self] in
+            let indexPath = IndexPath(item: 0, section: 0)
+            if let cell = self?.tableView.cellForRow(at: indexPath) as? RSDStepTextFieldCell {
+                cell.textField.becomeFirstResponder()
+            }
+        }
+    }
+    
     override func goForward() {
         guard validateAndSave() else { return }
         guard let collectionResult = self.stepViewModel.findStepResult() as? RSDCollectionResult,
