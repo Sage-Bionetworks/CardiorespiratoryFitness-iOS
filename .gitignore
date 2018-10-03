@@ -75,3 +75,4 @@ vendor/
 travis*.log
 
 IDEWorkspaceChecks.plist
+/CRFHeartRate/CRFHeartRate.xcodeproj/project.xcworkspace
