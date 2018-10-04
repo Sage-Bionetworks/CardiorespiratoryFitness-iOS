@@ -21,7 +21,8 @@ platform :ios do
     ENV["MATCH_KEYCHAIN_NAME"] = "ios-build.keychain"
     ENV["TEAM_SAGEBIO"] = "4B822CZK9N"
     ENV["TEAM_SAGEBIO_NOT_FOR_PROFIT"] = "KA9Z8R6M6K"
-    ENV["APP_ID"] = "org.sagebase.CRFTestApp"
+    ENV["APP_ID_TEST"] = "org.sagebase.CRFTestApp"
+    ENV["APP_ID_HEARTRATE"] = "org.sagebase.CRFTestApp"
   end
 
   desc "Create keychains to store certificates"
@@ -42,7 +43,7 @@ platform :ios do
     match(
       git_branch: ENV["TEAM_SAGEBIO_NOT_FOR_PROFIT"],
       type: "development",
-      app_identifier: ENV["APP_ID"],
+      app_identifier: ENV["APP_ID_TEST"],
       team_id: ENV["TEAM_SAGEBIO_NOT_FOR_PROFIT"],
       keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
       keychain_password: ENV["MATCH_PASSWORD"],
@@ -51,7 +52,25 @@ platform :ios do
     match(
       git_branch: ENV["TEAM_SAGEBIO_NOT_FOR_PROFIT"],
       type: "appstore",
-      app_identifier: ENV["APP_ID"],
+      app_identifier: ENV["APP_ID_TEST"],
+      team_id: ENV["TEAM_SAGEBIO_NOT_FOR_PROFIT"],
+      keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
+      keychain_password: ENV["MATCH_PASSWORD"],
+      readonly: true
+    )
+    match(
+      git_branch: ENV["TEAM_SAGEBIO_NOT_FOR_PROFIT"],
+      type: "development",
+      app_identifier: ENV["APP_ID_HEARTRATE"],
+      team_id: ENV["TEAM_SAGEBIO_NOT_FOR_PROFIT"],
+      keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
+      keychain_password: ENV["MATCH_PASSWORD"],
+      readonly: true
+    )
+    match(
+      git_branch: ENV["TEAM_SAGEBIO_NOT_FOR_PROFIT"],
+      type: "appstore",
+      app_identifier: ENV["APP_ID_HEARTRATE"],
       team_id: ENV["TEAM_SAGEBIO_NOT_FOR_PROFIT"],
       keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
       keychain_password: ENV["MATCH_PASSWORD"],

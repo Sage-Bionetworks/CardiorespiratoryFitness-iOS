@@ -5,7 +5,8 @@ type "appstore" # The default type, can be: appstore, adhoc, enterprise or devel
 
 # The bundle identifier of your app
 app_identifier [
-  "org.sagebase.CRFTestApp"]
+  "org.sagebase.CRFTestApp",
+  "org.sagebase.CRFHeartRate"]
 
 username "apple.developer@sagebase.org" # Your Apple Developer Portal username
 
