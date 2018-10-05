@@ -22,7 +22,7 @@ platform :ios do
     ENV["TEAM_SAGEBIO"] = "4B822CZK9N"
     ENV["TEAM_SAGEBIO_NOT_FOR_PROFIT"] = "KA9Z8R6M6K"
     ENV["APP_ID_TEST"] = "org.sagebase.CRFTestApp"
-    ENV["APP_ID_HEARTRATE"] = "org.sagebase.CRFTestApp"
+    ENV["APP_ID_HEARTRATE"] = "org.sagebase.CRFHeartRate"
   end
 
   desc "Create keychains to store certificates"
