@@ -111,8 +111,6 @@ platform :ios do
     project = options[:project]
     scheme = options[:scheme]
     export_method = options[:export_method]
-    keychains
-    certificates
     archive(project: "#{project}",scheme: "#{scheme}",export_method: "#{export_method}")
   end
 
@@ -122,8 +120,6 @@ platform :ios do
     scheme = options[:scheme]
     export_method = options[:export_method]
     ensure_git_status_clean
-    keychains
-    certificates
     version_number = get_version_number(xcodeproj: "#{project}", target: "#{scheme}")
     next_build_number = increment_build_number(xcodeproj: "#{project}")
     archive(project: "#{project}", scheme: "#{scheme}", export_method: "#{export_method}")
