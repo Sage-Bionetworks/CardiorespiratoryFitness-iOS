@@ -1,44 +1,58 @@
 {
-    "identifier"        : "HeartRate Measurement",
-    "shouldHideActions" : ["goBackward", "skip", "cancel"],
-    "progressMarkers"   : [],
-    "steps"             : [
-                           {
-                           "identifier"             : "participantID",
-                           "type"                   : "form",
-                           "text"                   : "Enter Participant ID",
-                           "inputFields"    : [{
-                                                   "type": "string",
-                                                   "uiHint": "textfield",
-                                                   "textFieldOptions" : {
-                                                       "keyboardType" : "numberPad"
-                                                   }
-                                                }],
-                           "colorTheme"             : { "usesLightStyle" : true },
-                           "actions"        : { "goForward": { "type":"default", "buttonTitle": "Submit" }}
-                           },
-                           {
-                           "identifier"         : "heartRate",
-                           "type"               : "heartRateSection",
-                           "steps"              : [{
-                               "identifier"   : "feedback",
-                               "actions":{
-                                   "goForward": { "type":"default", "buttonTitle": "Submit" },
-                                   "skip":{
-                                       "type": "navigation",
-                                       "skipToIdentifier": "instruction",
-                                       "buttonTitle": "Redo"
-                                   }
-                               }
-                           }],
-                           "asyncActions"       : [{
-                                                       "identifier"              : "motion",
-                                                       "type"                    : "motion",
-                                                       "startStepIdentifier"     : "heartRate",
-                                                       "StopStepIdentifier"      : "heartRate",
-                                                       "requiresBackgroundAudio" : true,
-                                                       "recorderTypes"           : ["accelerometer", "gyro"]
-                                                   }]
-                           }
-                           ]
+    "identifier": "HeartRate Measurement",
+    "shouldHideActions": ["goBackward", "skip", "cancel"],
+    "progressMarkers": [],
+    "steps": [{
+        "identifier": "participantID",
+        "type": "form",
+        "text": "Enter Participant ID",
+        "inputFields": [{
+            "type": "string",
+            "uiHint": "textfield",
+            "textFieldOptions": {
+                "keyboardType": "numberPad"
+            }
+        }],
+        "colorTheme": {
+            "usesLightStyle": true
+        },
+        "actions": {
+            "goForward": {
+                "type": "default",
+                "buttonTitle": "Submit"
+            }
+        }
+    },
+    {
+        "identifier": "cameraHeartRate",
+        "type": "heartRateSection",
+        "asyncActions": [{
+            "identifier": "motion",
+            "type": "motion",
+            "startStepIdentifier": "heartRate",
+            "StopStepIdentifier": "heartRate",
+            "requiresBackgroundAudio": true,
+            "recorderTypes": ["accelerometer", "gyro"]
+        }]
+    },
+    {
+        "identifier": "completion",
+        "type": "instruction",
+        "title": "Please hand the phone to the researcher.",
+        "actions": {
+            "goForward": {
+                "type": "default",
+                "buttonTitle": "Submit"
+            },
+            "learnMore": {
+                "type": "navigation",
+                "skipToIdentifier": "cameraHeartRate",
+                "buttonTitle": "Redo Measurement"
+            }
+        },
+        "colorTheme": {
+            "usesLightStyle": true
+        }
+    }
+    ]
 }
