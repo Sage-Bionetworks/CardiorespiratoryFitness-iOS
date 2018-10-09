@@ -47,7 +47,7 @@ class ParticipantIDStepViewController: RSDTableStepViewController {
         super.viewDidAppear(animated)
         
         // Use a delay to let the page view controller finish its animation.
-        let delay = DispatchTime.now() + .milliseconds(100)
+        let delay = DispatchTime.now() + .milliseconds(300)
         DispatchQueue.main.asyncAfter(deadline: delay) { [weak self] in
             let indexPath = IndexPath(item: 0, section: 0)
             if let cell = self?.tableView.cellForRow(at: indexPath) as? RSDStepTextFieldCell {
