@@ -119,7 +119,7 @@ platform :ios do
     project = options[:project]
     scheme = options[:scheme]
     export_method = options[:export_method]
-    ensure_git_status_clean
+    ensure_git_status_clean(show_uncommitted_changes: true)
     version_number = get_version_number(xcodeproj: "#{project}", target: "#{scheme}")
     next_build_number = increment_build_number(xcodeproj: "#{project}")
     archive(project: "#{project}", scheme: "#{scheme}", export_method: "#{export_method}")
@@ -133,7 +133,7 @@ platform :ios do
     project = options[:project]
     scheme = options[:scheme]
     export_method = options[:export_method]
-    ensure_git_status_clean
+    ensure_git_status_clean(show_uncommitted_changes: true)
     version_number = get_version_number(xcodeproj: "#{project}", target: "#{scheme}")
     next_build_number = increment_build_number(xcodeproj: "#{project}")
     archive(project: "#{project}", scheme: "#{scheme}", export_method: "#{export_method}")
