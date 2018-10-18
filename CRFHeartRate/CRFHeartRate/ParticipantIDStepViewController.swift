@@ -64,7 +64,7 @@ class ParticipantIDStepViewController: RSDTableStepViewController {
             else {
                 fatalError("Attempting to go forward without an answer result.")
         }
-        guard !UserDefaults.standard.bool(forKey: participantID)
+        guard participantID == "00" || !UserDefaults.standard.bool(forKey: participantID)
             else {
                 handlePreviouslyUsed(participantID)
                 return
