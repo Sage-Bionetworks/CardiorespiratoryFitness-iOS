@@ -1,4 +1,4 @@
-app_identifier "org.sagebase.CRFTestApp" # The bundle identifier of your app
+app_identifier "org.sagebase.CRFHeartRate" # The bundle identifier of your app
 apple_id "apple.developer@sagebase.org" # Your Apple email address
 
 team_id "KA9Z8R6M6K"  # Developer Portal Team ID
