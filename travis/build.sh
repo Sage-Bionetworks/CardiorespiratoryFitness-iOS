@@ -17,7 +17,7 @@ elif [[ -z "$TRAVIS_TAG" && "$TRAVIS_BRANCH" =~ ^stable-.* ]]; then # non-tag co
     FASTLANE_EXPLICIT_OPEN_SIMULATOR=2 bundle exec fastlane test project:"CardiorespiratoryFitness/CardiorespiratoryFitness.xcodeproj"  scheme:"CRFTestApp"
     bundle exec fastlane keychains
     bundle exec fastlane certificates
-    bundle exec fastlane beta scheme:"CRFTestApp" export_method:"app-store" project:"CardiorespiratoryFitness/CardiorespiratoryFitness.xcodeproj"
+    bundle exec fastlane bump_build scheme:"CRFTestApp" export_method:"app-store" project:"CardiorespiratoryFitness/CardiorespiratoryFitness.xcodeproj"
     bundle exec fastlane beta scheme:"CRFHeartRate" export_method:"app-store" project:"CRFHeartRate/CRFHeartRate.xcodeproj"
 fi
 exit $?
