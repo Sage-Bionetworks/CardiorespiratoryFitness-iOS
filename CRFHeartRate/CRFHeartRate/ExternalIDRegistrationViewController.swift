@@ -39,7 +39,6 @@ import BridgeApp
 
 class ExternalIDRegistrationStep : RSDUIStepObject, RSDFormUIStep, RSDStepViewControllerVendor {
     
-    /// Override to return a medication tracking review step view controller.
     open func instantiateViewController(with parent: RSDPathComponent?) -> (UIViewController & RSDStepController)? {
         return ExternalIDRegistrationViewController(step: self, parent: parent)
     }
@@ -83,27 +82,10 @@ class ExternalIDRegistrationViewController: RSDTableStepViewController {
             else {
                 return
         }
-        
-        let signUp: SBBSignUp = SBBSignUp()
-        signUp.checkForConsent = true
-        signUp.externalId = externalId
-        signUp.password = externalId
-        signUp.sharingScope = "all_qualified_researchers"
-        
-        if externalId.hasPrefix("TEST") {
-            signUp.dataGroups = ["test_user"]
-        }
-        
-        BridgeSDK.authManager.signUpStudyParticipant(signUp, completion: { (task, result, error) in
-            guard error == nil else {
-                completion(task, result, error)
-                return
-            }
             
-            // we're signed up so sign in
-            BridgeSDK.authManager.signIn(withExternalId: signUp.externalId!, password: signUp.password!, completion: { (task, result, error) in
-                completion(task, result, error)
-            })
+        // Sign in using legacy style so the Android code doesn't have to change. syoung 11/02/2018
+        BridgeSDK.authManager.signIn(withExternalId: externalId, password: externalId, completion: { (task, result, error) in
+            completion(task, result, error)
         })
     }
     
@@ -113,16 +95,18 @@ class ExternalIDRegistrationViewController: RSDTableStepViewController {
                 return
         }
         
+        self.nextButton?.isEnabled = false
         self.signUpAndSignIn { (task, result, error) in
-            if error == nil || (error! as NSError).code == SBBErrorCode.serverPreconditionNotMet.rawValue {
-                DispatchQueue.main.async {
-                    super.goForward()
+            DispatchQueue.main.async {
+                if error == nil || (error! as NSError).code == SBBErrorCode.serverPreconditionNotMet.rawValue {
+                   super.goForward()
+                } else {
+                    self.nextButton?.isEnabled = true
+                    self.presentAlertWithOk(title: "Error attempting sign in", message: error!.localizedDescription, actionHandler: nil)
+                    // TODO: emm 2018-04-25 handle error from Bridge
+                    // 400 is the response for an invalid external ID
+                    debugPrint("Error attempting to sign up and sign in:\n\(String(describing: error))\n\nResult:\n\(String(describing: result))")
                 }
-            } else {
-                self.presentAlertWithOk(title: "Error attempting sign in", message: error!.localizedDescription, actionHandler: nil)
-                // TODO: emm 2018-04-25 handle error from Bridge
-                // 400 is the response for an invalid external ID
-                debugPrint("Error attempting to sign up and sign in:\n\(String(describing: error))\n\nResult:\n\(String(describing: result))")
             }
         }
     }

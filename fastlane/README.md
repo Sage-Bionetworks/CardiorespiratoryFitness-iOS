@@ -51,6 +51,11 @@ Bump the build without pushing to TestFlight
 fastlane ios beta
 ```
 Submit a new Build to appstore
+### ios refresh_dsyms
+```
+fastlane ios refresh_dsyms
+```
+
 
 ----
 
