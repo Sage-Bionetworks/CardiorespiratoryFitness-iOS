@@ -64,6 +64,10 @@ class ParticipantIDStepViewController: RSDTableStepViewController {
             else {
                 fatalError("Attempting to go forward without an answer result.")
         }
+        guard participantID != "9999" else {
+            showDemo()
+            return
+        }
         guard participantID == "00" || !UserDefaults.standard.bool(forKey: participantID)
             else {
                 handlePreviouslyUsed(participantID)
@@ -88,6 +92,14 @@ class ParticipantIDStepViewController: RSDTableStepViewController {
         }
         catch let err {
             debugPrint("Failed to save null answer: \(err)")
+        }
+    }
+    
+    func showDemo() {
+        let storyboard = UIStoryboard(name: "Demo", bundle: nil)
+        let vc = storyboard.instantiateInitialViewController()!
+        self.present(vc, animated: true) {
+            self.clearAnswers()
         }
     }
 }
