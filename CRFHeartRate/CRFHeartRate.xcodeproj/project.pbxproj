@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		F8258597215DADA7007E7965 /* ParticipantIDStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8258596215DADA7007E7965 /* ParticipantIDStepViewController.swift */; };
+		F8AEA48A21C84B500024092A /* TaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AEA48921C84B500024092A /* TaskTableViewController.swift */; };
+		F8AEA48D21C84B870024092A /* ResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AEA48C21C84B870024092A /* ResultTableViewController.swift */; };
+		F8AEA49021C84BA30024092A /* CRFArchiveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AEA48E21C84BA30024092A /* CRFArchiveManager.swift */; };
+		F8AEA49121C84BA30024092A /* FileResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AEA48F21C84BA30024092A /* FileResultViewController.swift */; };
+		F8AEA4A721C84C6E0024092A /* Demo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8AEA49E21C84C6E0024092A /* Demo.storyboard */; };
 		F8DCA3922162B6910063AE95 /* CardiorespiratoryFitness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8DCA3912162B6720063AE95 /* CardiorespiratoryFitness.framework */; };
 		F8DCA3932162B6910063AE95 /* CardiorespiratoryFitness.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8DCA3912162B6720063AE95 /* CardiorespiratoryFitness.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F8DCA3942162B6910063AE95 /* BridgeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8DCA38B2162B64C0063AE95 /* BridgeApp.framework */; };
@@ -103,6 +108,11 @@
 /* Begin PBXFileReference section */
 		F8061349215ED330001B1574 /* CardiorespiratoryFitness.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CardiorespiratoryFitness.xcodeproj; path = ../CardiorespiratoryFitness/CardiorespiratoryFitness.xcodeproj; sourceTree = SOURCE_ROOT; };
 		F8258596215DADA7007E7965 /* ParticipantIDStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantIDStepViewController.swift; sourceTree = "<group>"; };
+		F8AEA48921C84B500024092A /* TaskTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TaskTableViewController.swift; path = ../../CardiorespiratoryFitness/CRFTestApp/TaskTableViewController.swift; sourceTree = "<group>"; };
+		F8AEA48C21C84B870024092A /* ResultTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResultTableViewController.swift; path = ../../CardiorespiratoryFitness/CRFTestApp/ResultTableViewController.swift; sourceTree = "<group>"; };
+		F8AEA48E21C84BA30024092A /* CRFArchiveManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CRFArchiveManager.swift; path = ../../CardiorespiratoryFitness/CRFTestApp/CRFArchiveManager.swift; sourceTree = "<group>"; };
+		F8AEA48F21C84BA30024092A /* FileResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileResultViewController.swift; path = ../../CardiorespiratoryFitness/CRFTestApp/FileResultViewController.swift; sourceTree = "<group>"; };
+		F8AEA49F21C84C6E0024092A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Demo.storyboard; sourceTree = "<group>"; };
 		F8DA5E26215EE86500F7FF20 /* BridgeApp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BridgeApp.xcodeproj; path = ../BridgeApp/BridgeApp/BridgeApp.xcodeproj; sourceTree = SOURCE_ROOT; };
 		F8DCA37F2162B5C60063AE95 /* BridgeSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BridgeSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8DCA3802162B5C60063AE95 /* ResearchUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ResearchUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,6 +169,18 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		F8AEA48B21C84B580024092A /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				F8AEA49E21C84C6E0024092A /* Demo.storyboard */,
+				F8AEA48E21C84BA30024092A /* CRFArchiveManager.swift */,
+				F8AEA48F21C84BA30024092A /* FileResultViewController.swift */,
+				F8AEA48C21C84B870024092A /* ResultTableViewController.swift */,
+				F8AEA48921C84B500024092A /* TaskTableViewController.swift */,
+			);
+			name = Demo;
+			sourceTree = "<group>";
+		};
 		F8DA5E19215EE83C00F7FF20 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +231,7 @@
 				F8F366B72155D5DE00A49F89 /* Main.storyboard */,
 				F8F366E82155D65400A49F89 /* Assets.xcassets */,
 				F8F366BC2155D5DF00A49F89 /* LaunchScreen.storyboard */,
+				F8AEA48B21C84B580024092A /* Demo */,
 				F8258590215DACAB007E7965 /* Heart Rate */,
 				F8F367162155DD1200A49F89 /* Sign in */,
 				F8F367052155D9B800A49F89 /* Support Files */,
@@ -374,6 +397,7 @@
 				F8F366BE2155D5DF00A49F89 /* LaunchScreen.storyboard in Resources */,
 				F8F366E92155D65400A49F89 /* Assets.xcassets in Resources */,
 				F8F366B92155D5DE00A49F89 /* Main.storyboard in Resources */,
+				F8AEA4A721C84C6E0024092A /* Demo.storyboard in Resources */,
 				F8F367092155DA8C00A49F89 /* crf-module.pem in Resources */,
 				F8F367072155DA4000A49F89 /* BridgeInfo.plist in Resources */,
 				F8F3670B2155DA9C00A49F89 /* BridgeInfo-private.plist in Resources */,
@@ -388,16 +412,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8AEA49021C84BA30024092A /* CRFArchiveManager.swift in Sources */,
+				F8AEA48A21C84B500024092A /* TaskTableViewController.swift in Sources */,
 				F8F366B62155D5DE00A49F89 /* MainViewController.swift in Sources */,
+				F8AEA48D21C84B870024092A /* ResultTableViewController.swift in Sources */,
 				F8F366B42155D5DE00A49F89 /* AppDelegate.swift in Sources */,
 				F8F367242155DE8D00A49F89 /* ExternalIDRegistrationViewController.swift in Sources */,
 				F8258597215DADA7007E7965 /* ParticipantIDStepViewController.swift in Sources */,
+				F8AEA49121C84BA30024092A /* FileResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		F8AEA49E21C84C6E0024092A /* Demo.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F8AEA49F21C84C6E0024092A /* Base */,
+			);
+			name = Demo.storyboard;
+			sourceTree = "<group>";
+		};
 		F8F366B72155D5DE00A49F89 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
