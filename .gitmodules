@@ -1,3 +1,6 @@
 [submodule "BridgeApp"]
 	path = BridgeApp
 	url = https://github.com/Sage-Bionetworks/BridgeApp-Apple-SDK.git
+[submodule "SageResearch"]
+	path = SageResearch
+	url = https://github.com/Sage-Bionetworks/SageResearch.git
