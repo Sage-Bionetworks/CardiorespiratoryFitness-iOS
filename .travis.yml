@@ -4,7 +4,7 @@ notifications:
 language: objective-c
 osx_image: xcode10
 xcode_project: CardiorespiratoryFitness/CardiorespiratoryFitness.xcodeproj 
-xcode_scheme: CRFTestApp
+xcode_scheme: CRFSampleApp
 cache:
 - bundler
 before_install:
