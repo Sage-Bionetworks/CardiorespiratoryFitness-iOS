@@ -23,6 +23,7 @@ platform :ios do
     ENV["TEAM_SAGEBIO_NOT_FOR_PROFIT"] = "KA9Z8R6M6K"
     ENV["APP_ID_TEST"] = "org.sagebase.CRFTestApp"
     ENV["APP_ID_HEARTRATE"] = "org.sagebase.CRFHeartRate"
+    ENV["WORKSPACE"] = "./CardiorespiratoryFitness.xcworkspace"
   end
 
   desc "Create keychains to store certificates"
@@ -80,10 +81,8 @@ platform :ios do
 
   desc "Execute tests"
   lane :test do |options|
-    project = options[:project]
     scheme = options[:scheme]
     scan(
-      project: "#{project}",
       scheme: "#{scheme}",
       clean: true
     )
@@ -91,11 +90,9 @@ platform :ios do
 
   desc "Archive and export app"
   lane :archive do |options|
-    project = options[:project]
     scheme = options[:scheme]
     export_method = options[:export_method]
     gym(
-      project: "#{project}",
       scheme: "#{scheme}",
       clean: true,
       include_bitcode: true,
