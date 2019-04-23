@@ -2,12 +2,15 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:BridgeApp/BridgeApp/BridgeApp.xcodeproj">
+      location = "group:CRFSampleApp/CRFSampleApp.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:CardiorespiratoryFitness/CardiorespiratoryFitness.xcodeproj">
+      location = "group:SageResearch/CardiorespiratoryFitness/CardiorespiratoryFitness.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:CardiorespiratoryFitness/../CRFHeartRate/CRFHeartRate.xcodeproj">
+      location = "group:SageResearch/ResearchUI/ResearchUI.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:SageResearch/Research/Research.xcodeproj">
    </FileRef>
 </Workspace>

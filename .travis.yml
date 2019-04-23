@@ -2,9 +2,9 @@ notifications:
   email:
   - apple.builds@sagebase.org
 language: objective-c
-osx_image: xcode10
-xcode_project: CardiorespiratoryFitness/CardiorespiratoryFitness.xcodeproj 
-xcode_scheme: CRFTestApp
+osx_image: xcode10.2
+xcode_workspace: CardiorespiratoryFitness.xcworkspace
+xcode_scheme: CRFSampleApp
 cache:
 - bundler
 before_install:
