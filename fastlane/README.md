@@ -41,6 +41,16 @@ Archive and export app
 fastlane ios ci_archive
 ```
 This lane is for CI bots to archive and export
+### ios bump_all
+```
+fastlane ios bump_all
+```
+Bump all the framework projects
+### ios doc_framework
+```
+fastlane ios doc_framework
+```
+Document Framework Version
 ### ios bump_build
 ```
 fastlane ios bump_build
