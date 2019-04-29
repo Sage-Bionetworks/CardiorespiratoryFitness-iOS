@@ -90,6 +90,10 @@
         "title": "Measure twice",
         "text": "Many things can influence your measurement. To improve the accuracy, let's meaure it one more time.",
         "actions": {
+            "goForward": {
+                "type": "default",
+                "buttonTitle": "Next HR Measure"
+            },
             "learnMore": {
                 "type": "webView",
                 "title": "What is a ‘normal’ resting heart rate?",

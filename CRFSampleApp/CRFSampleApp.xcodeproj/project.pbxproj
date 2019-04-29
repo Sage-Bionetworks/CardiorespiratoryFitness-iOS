@@ -12,16 +12,18 @@
 		F850B55A226E59110046C905 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F850B559226E59110046C905 /* Assets.xcassets */; };
 		F850B55D226E59110046C905 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F850B55B226E59110046C905 /* LaunchScreen.storyboard */; };
 		F850B568226E59110046C905 /* CRFSampleAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F850B567226E59110046C905 /* CRFSampleAppTests.swift */; };
-		F850B573226E5A080046C905 /* CardiorespiratoryFitness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F850B572226E5A080046C905 /* CardiorespiratoryFitness.framework */; };
-		F850B574226E5A080046C905 /* CardiorespiratoryFitness.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F850B572226E5A080046C905 /* CardiorespiratoryFitness.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F850B577226E5A0F0046C905 /* ResearchUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F850B576226E5A0F0046C905 /* ResearchUI.framework */; };
-		F850B578226E5A0F0046C905 /* ResearchUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F850B576226E5A0F0046C905 /* ResearchUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F850B57A226E5A2E0046C905 /* Research.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F850B579226E5A2E0046C905 /* Research.framework */; };
-		F850B57B226E5A2E0046C905 /* Research.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F850B579226E5A2E0046C905 /* Research.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F850B57D226E5CAB0046C905 /* FileResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F850B57C226E5CAB0046C905 /* FileResultViewController.swift */; };
 		F850B581226E5CBD0046C905 /* ResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F850B580226E5CBD0046C905 /* ResultTableViewController.swift */; };
 		F850B585226E5CD80046C905 /* TaskPresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F850B584226E5CD80046C905 /* TaskPresentationViewController.swift */; };
 		F850B587226E5CE20046C905 /* TaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F850B586226E5CE20046C905 /* TaskTableViewController.swift */; };
+		F8C058232277922000FA59E6 /* CardiorespiratoryFitness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C058222277922000FA59E6 /* CardiorespiratoryFitness.framework */; };
+		F8C058242277922000FA59E6 /* CardiorespiratoryFitness.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8C058222277922000FA59E6 /* CardiorespiratoryFitness.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F8C058262277922700FA59E6 /* Research.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C058252277922700FA59E6 /* Research.framework */; };
+		F8C058272277922700FA59E6 /* Research.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8C058252277922700FA59E6 /* Research.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F8C058292277923300FA59E6 /* ResearchUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C058282277923300FA59E6 /* ResearchUI.framework */; };
+		F8C0582A2277923300FA59E6 /* ResearchUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8C058282277923300FA59E6 /* ResearchUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F8C0582C2277923900FA59E6 /* ResearchRecorders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C0582B2277923900FA59E6 /* ResearchRecorders.framework */; };
+		F8C0582D2277923900FA59E6 /* ResearchRecorders.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8C0582B2277923900FA59E6 /* ResearchRecorders.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,9 +43,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F850B574226E5A080046C905 /* CardiorespiratoryFitness.framework in Embed Frameworks */,
-				F850B57B226E5A2E0046C905 /* Research.framework in Embed Frameworks */,
-				F850B578226E5A0F0046C905 /* ResearchUI.framework in Embed Frameworks */,
+				F8C058242277922000FA59E6 /* CardiorespiratoryFitness.framework in Embed Frameworks */,
+				F8C0582D2277923900FA59E6 /* ResearchRecorders.framework in Embed Frameworks */,
+				F8C058272277922700FA59E6 /* Research.framework in Embed Frameworks */,
+				F8C0582A2277923300FA59E6 /* ResearchUI.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,13 +63,14 @@
 		F850B563226E59110046C905 /* CRFSampleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CRFSampleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F850B567226E59110046C905 /* CRFSampleAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRFSampleAppTests.swift; sourceTree = "<group>"; };
 		F850B569226E59110046C905 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F850B572226E5A080046C905 /* CardiorespiratoryFitness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CardiorespiratoryFitness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F850B576226E5A0F0046C905 /* ResearchUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ResearchUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F850B579226E5A2E0046C905 /* Research.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Research.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F850B57C226E5CAB0046C905 /* FileResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileResultViewController.swift; sourceTree = "<group>"; };
 		F850B580226E5CBD0046C905 /* ResultTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTableViewController.swift; sourceTree = "<group>"; };
 		F850B584226E5CD80046C905 /* TaskPresentationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskPresentationViewController.swift; sourceTree = "<group>"; };
 		F850B586226E5CE20046C905 /* TaskTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTableViewController.swift; sourceTree = "<group>"; };
+		F8C058222277922000FA59E6 /* CardiorespiratoryFitness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CardiorespiratoryFitness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8C058252277922700FA59E6 /* Research.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Research.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8C058282277923300FA59E6 /* ResearchUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ResearchUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8C0582B2277923900FA59E6 /* ResearchRecorders.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ResearchRecorders.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,9 +78,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F850B573226E5A080046C905 /* CardiorespiratoryFitness.framework in Frameworks */,
-				F850B57A226E5A2E0046C905 /* Research.framework in Frameworks */,
-				F850B577226E5A0F0046C905 /* ResearchUI.framework in Frameworks */,
+				F8C058232277922000FA59E6 /* CardiorespiratoryFitness.framework in Frameworks */,
+				F8C0582C2277923900FA59E6 /* ResearchRecorders.framework in Frameworks */,
+				F8C058262277922700FA59E6 /* Research.framework in Frameworks */,
+				F8C058292277923300FA59E6 /* ResearchUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,11 +98,13 @@
 		F850B546226E590F0046C905 = {
 			isa = PBXGroup;
 			children = (
-				F850B579226E5A2E0046C905 /* Research.framework */,
-				F850B576226E5A0F0046C905 /* ResearchUI.framework */,
-				F850B572226E5A080046C905 /* CardiorespiratoryFitness.framework */,
+				F8C0582B2277923900FA59E6 /* ResearchRecorders.framework */,
+				F8C058282277923300FA59E6 /* ResearchUI.framework */,
+				F8C058252277922700FA59E6 /* Research.framework */,
+				F8C058222277922000FA59E6 /* CardiorespiratoryFitness.framework */,
 				F850B551226E590F0046C905 /* CRFSampleApp */,
 				F850B566226E59110046C905 /* CRFSampleAppTests */,
+				F8C0582F2277926E00FA59E6 /* Frameworks */,
 				F850B550226E590F0046C905 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -134,6 +141,13 @@
 				F850B569226E59110046C905 /* Info.plist */,
 			);
 			path = CRFSampleAppTests;
+			sourceTree = "<group>";
+		};
+		F8C0582F2277926E00FA59E6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

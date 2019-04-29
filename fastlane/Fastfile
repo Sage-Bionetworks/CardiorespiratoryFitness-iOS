@@ -24,6 +24,9 @@ platform :ios do
     ENV["APP_ID_TEST"] = "org.sagebase.CRFTestApp"
     ENV["APP_ID_HEARTRATE"] = "org.sagebase.CRFHeartRate"
     ENV["WORKSPACE"] = "./CardiorespiratoryFitness.xcworkspace"
+    ENV["FRAMEWORK_PROJECT"] = "CardiorespiratoryFitness/CardiorespiratoryFitness.xcodeproj"
+    ENV["FRAMEWORK_VERSION_TARGET"] = "CardiorespiratoryFitness"
+    ENV["FRAMEWORK_PATH"] = "CardiorespiratoryFitness"
   end
 
   desc "Create keychains to store certificates"
@@ -109,6 +112,32 @@ platform :ios do
     scheme = options[:scheme]
     export_method = options[:export_method]
     archive(project: "#{project}",scheme: "#{scheme}",export_method: "#{export_method}")
+  end
+
+  desc "Bump all the framework projects"
+  lane :bump_all do
+
+    # bump the build
+    project = ENV["FRAMEWORK_PROJECT"]
+    version_number = get_version_number(xcodeproj: "#{project}", target: ENV["FRAMEWORK_VERSION_TARGET"])
+    next_build_number = increment_build_number(xcodeproj: "#{project}")
+    commit_version_bump(xcodeproj: "#{project}", message: "[skip ci] Bump build for #{project} #{version_number} (#{next_build_number})")
+    add_git_tag(tag: "v#{version_number}.#{next_build_number}")
+    push_to_git_remote(remote_branch: ENV["TRAVIS_BRANCH"])
+  end
+
+  desc "Document Framework Version"
+  lane :doc_framework do |options|
+    framework = options[:framework]
+    project = ENV["FRAMEWORK_PROJECT"]
+    path = ENV["FRAMEWORK_PATH"]
+
+    ensure_git_status_clean
+
+    # Update the documentation
+    jazzy(config: "#{path}/#{framework}/jazzy_config.yml")
+    git_add
+    git_commit(path: "Documentation/*", message: "[skip ci] Update #{framework}.framework documentation")
   end
 
   desc "Bump the build without pushing to TestFlight"
