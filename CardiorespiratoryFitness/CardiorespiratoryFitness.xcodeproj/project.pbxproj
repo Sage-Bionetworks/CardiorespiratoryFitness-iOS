@@ -43,15 +43,16 @@
 		F897CF97225561680088DFAE /* CSVDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F897CF96225561680088DFAE /* CSVDecoderTests.swift */; };
 		F89FFDD920588B5C0089D8A7 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89FFDD820588B5C0089D8A7 /* ModelTests.swift */; };
 		F89FFDDB205890F80089D8A7 /* CRFTaskInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89FFDDA205890F80089D8A7 /* CRFTaskInfo.swift */; };
-		F8A5036D2225E2CD005F1C0C /* Research.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8A5036C2225E2CD005F1C0C /* Research.framework */; };
-		F8A5036F2225E2D8005F1C0C /* ResearchUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8A5036E2225E2D8005F1C0C /* ResearchUI.framework */; };
+		F8C0581B22778E2700FA59E6 /* Research.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C0581A22778E2700FA59E6 /* Research.framework */; };
+		F8C0581D22778E2D00FA59E6 /* ResearchRecorders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C0581C22778E2D00FA59E6 /* ResearchRecorders.framework */; };
+		F8C0581F22778E3200FA59E6 /* ResearchUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C0581E22778E3200FA59E6 /* ResearchUI.framework */; };
+		F8C0582122778E4C00FA59E6 /* Research_UnitTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C0582022778E4C00FA59E6 /* Research_UnitTest.framework */; };
 		F8D71AF5224D462F00DA49BC /* CRFHRRecoveryStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D71AF4224D462F00DA49BC /* CRFHRRecoveryStepViewController.swift */; };
 		F8D71AFC224D4A0600DA49BC /* When_to_measure.html in Resources */ = {isa = PBXBuildFile; fileRef = F8D71AF7224D4A0500DA49BC /* When_to_measure.html */; };
 		F8D71B03224D4FA100DA49BC /* HR_Recovery_Score.html in Resources */ = {isa = PBXBuildFile; fileRef = F8D71B02224D4FA100DA49BC /* HR_Recovery_Score.html */; };
 		F8D71B05224D51B400DA49BC /* Normal_HR.html in Resources */ = {isa = PBXBuildFile; fileRef = F8D71B04224D51B400DA49BC /* Normal_HR.html */; };
 		F8DA5E0A215EDC0A00F7FF20 /* CardiorespiratoryFitness.strings in Resources */ = {isa = PBXBuildFile; fileRef = F8DA5E09215EDC0A00F7FF20 /* CardiorespiratoryFitness.strings */; };
 		F8E68EE32252A30900CF0811 /* CRFTaskObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E68EE22252A30900CF0811 /* CRFTaskObject.swift */; };
-		F8E68EEF22531E2B00CF0811 /* Research_UnitTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8E68EEE22531E2B00CF0811 /* Research_UnitTest.framework */; };
 		F8E68EF122531E5400CF0811 /* TaskObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E68EF022531E5400CF0811 /* TaskObjectTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +112,10 @@
 		F89FFDDD2059CF2B0089D8A7 /* CardiorespiratoryFitnessTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CardiorespiratoryFitnessTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		F8A5036C2225E2CD005F1C0C /* Research.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Research.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8A5036E2225E2D8005F1C0C /* ResearchUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ResearchUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8C0581A22778E2700FA59E6 /* Research.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Research.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8C0581C22778E2D00FA59E6 /* ResearchRecorders.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ResearchRecorders.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8C0581E22778E3200FA59E6 /* ResearchUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ResearchUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8C0582022778E4C00FA59E6 /* Research_UnitTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Research_UnitTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8D71AF4224D462F00DA49BC /* CRFHRRecoveryStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRFHRRecoveryStepViewController.swift; sourceTree = "<group>"; };
 		F8D71AF7224D4A0500DA49BC /* When_to_measure.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = When_to_measure.html; sourceTree = "<group>"; };
 		F8D71B02224D4FA100DA49BC /* HR_Recovery_Score.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = HR_Recovery_Score.html; sourceTree = "<group>"; };
@@ -126,8 +131,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8A5036F2225E2D8005F1C0C /* ResearchUI.framework in Frameworks */,
-				F8A5036D2225E2CD005F1C0C /* Research.framework in Frameworks */,
+				F8C0581F22778E3200FA59E6 /* ResearchUI.framework in Frameworks */,
+				F8C0581D22778E2D00FA59E6 /* ResearchRecorders.framework in Frameworks */,
+				F8C0581B22778E2700FA59E6 /* Research.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,7 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8E68EEF22531E2B00CF0811 /* Research_UnitTest.framework in Frameworks */,
+				F8C0582122778E4C00FA59E6 /* Research_UnitTest.framework in Frameworks */,
 				F88725E32051C0F900A4B82F /* CardiorespiratoryFitness.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,6 +295,10 @@
 		F8BA7FA42051D9CC00A5B83A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F8C0582022778E4C00FA59E6 /* Research_UnitTest.framework */,
+				F8C0581E22778E3200FA59E6 /* ResearchUI.framework */,
+				F8C0581C22778E2D00FA59E6 /* ResearchRecorders.framework */,
+				F8C0581A22778E2700FA59E6 /* Research.framework */,
 				F8E68EEE22531E2B00CF0811 /* Research_UnitTest.framework */,
 				F8A5036E2225E2D8005F1C0C /* ResearchUI.framework */,
 				F8A5036C2225E2CD005F1C0C /* Research.framework */,

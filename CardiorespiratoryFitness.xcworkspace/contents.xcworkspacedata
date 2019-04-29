@@ -5,12 +5,9 @@
       location = "group:CRFSampleApp/CRFSampleApp.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:SageResearch/CardiorespiratoryFitness/CardiorespiratoryFitness.xcodeproj">
+      location = "group:CardiorespiratoryFitness/CardiorespiratoryFitness.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:SageResearch/ResearchUI/ResearchUI.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:SageResearch/Research/Research.xcodeproj">
+      location = "group:Carthage/Checkouts/SageResearch/Research/Research.xcodeproj">
    </FileRef>
 </Workspace>
