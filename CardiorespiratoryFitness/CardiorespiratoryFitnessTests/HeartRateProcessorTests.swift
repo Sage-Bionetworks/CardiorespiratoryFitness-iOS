@@ -135,29 +135,6 @@ class HeartRateProcessorTests: XCTestCase {
         let samplingRate = processor.calculateSamplingRate(from: testHRData12hz.hr_data)
         XCTAssertEqual(samplingRate, 12.7279, accuracy: 0.0001)
     }
-
-    func testGetFilteredSignal() {
-        let processor = CRFHeartRateSampleProcessor()
-        ChannelKeys.allCases.forEach { (key) in
-            let input: [Double] = testHRData.hr_data.map {
-                switch key {
-                case .red:
-                    return $0.red
-                case .green:
-                    return $0.green
-                case .blue:
-                    return $0.blue
-                }
-            }
-            let expectedOutput: [Double] = testHRData.hr_data_filtered.map { $0[key.stringValue] ?? 0 }
-            guard let output = processor.getFilteredSignal(input, samplingRate: testData.roundedSamplingRate, dropSeconds: 3)
-                else {
-                    XCTFail("Failed to get filtered signal for \(key)")
-                    return
-            }
-            XCTAssertTrue(compare(output, expectedOutput, accuracy: 0.0001), "\(key)")
-        }
-    }
     
     func testCalculatedLag() {
         let processor = CRFHeartRateSampleProcessor()
@@ -167,206 +144,81 @@ class HeartRateProcessorTests: XCTestCase {
         XCTAssertEqual(maxLag, testData.maxLag)
     }
 
-    func testChunkedSamples() {
-        let processor = CRFHeartRateSampleProcessor()
-        let samplingRate = processor.calculateSamplingRate(from: testHRData.hr_data)
-
-        ChannelKeys.allCases.forEach { (key) in
-            let input: [Double] = testHRData.hr_data_filtered.map { $0[key.stringValue] ?? 0 }
-            let expectedOutput: [[Double]] = testHRData.hrInputChunk(for: key)
-            let output = processor.chunkSamples(input, samplingRate: samplingRate)
-            XCTAssertEqual(output.count, expectedOutput.count)
-            guard output.count == expectedOutput.count else { return }
-            for ii in 0..<output.count {
-                XCTAssertTrue(compare(output[ii], expectedOutput[ii], accuracy: 0.00000001), "\(key): \(ii)")
-            }
-        }
-    }
-
-    func testEstimatedHR_ACF() {
-        let processor = CRFHeartRateSampleProcessor()
-        let samplingRate = processor.calculateSamplingRate(from: testHRData.hr_data)
-
-        let key: ChannelKeys = .red
-        let inputChunks: [[Double]] = testHRData.hrInputChunk(for: key)
-        let expectedOutputs: [[Double]] = testHRData.hrChunkACF(for: key)
-        XCTAssertEqual(inputChunks.count, expectedOutputs.count)
-        guard inputChunks.count == expectedOutputs.count
-            else {
-                XCTFail("The test data is invalid")
-                return
-        }
-        for ii in 0..<min(10, expectedOutputs.count) {
-            guard let output = processor.preprocessSamples(inputChunks[ii], samplingRate: samplingRate)
-                else {
-                    XCTFail("Failed to preprocess the sample chunks. \(key): \(ii)")
-                    return
-            }
-            XCTAssertTrue(compare(Array(output.x.dropFirst()), expectedOutputs[ii], accuracy: 0.00000001), "\(key): \(ii)")
-            XCTAssertEqual(output.minLag, testData.minLag, "\(key): \(ii)")
-            XCTAssertEqual(output.maxLag, testData.maxLag, "\(key): \(ii)")
-
-            // Do not run remaining tests on the data that can't calculate heart rate
-            guard ii > 1 else { return }
-
-            let bounds = processor.getBounds(y: output.y, samplingRate: samplingRate)
-
-            XCTAssertLessThan(bounds.y_max_pos, output.maxLag, "\(key): \(ii)")
-            XCTAssertGreaterThan(bounds.y_max_pos, output.minLag, "\(key): \(ii)")
-
-            guard let peaks = processor.getAliasingPeakLocation(hr: bounds.hr_initial_guess,
-                                                          actualLag: bounds.y_max_pos,
-                                                          samplingRate: samplingRate,
-                                                          minLag: output.minLag,
-                                                          maxLag: output.maxLag)
-                else {
-                    XCTFail("Failed to get peaks. \(key): \(ii)")
-                    return
-            }
-
-            XCTAssertEqual(peaks.nPeaks, 1, "\(key): \(ii)")
-
-        }
-    }
-
-    func testEstimatedHR_ACF_12hz() {
-        let processor = CRFHeartRateSampleProcessor()
-        let samplingRate = processor.calculateSamplingRate(from: testHRData12hz.hr_data)
-
-        let key: ChannelKeys = .red
-        let inputChunks: [[Double]] = testHRData12hz.hrInputChunk(for: key)
-        let expectedOutputs: [[Double]] = testHRData12hz.hrChunkACF(for: key)
-        XCTAssertEqual(inputChunks.count, expectedOutputs.count)
-        guard inputChunks.count == expectedOutputs.count
-            else {
-                XCTFail("The test data is invalid")
-                return
-        }
-        for ii in 0..<min(10, expectedOutputs.count) {
-            guard let output = processor.preprocessSamples(inputChunks[ii], samplingRate: samplingRate)
-                else {
-                    XCTFail("Failed to preprocess the sample chunks. \(key): \(ii)")
-                    return
-            }
-            XCTAssertTrue(compare(Array(output.x.dropFirst()), expectedOutputs[ii], accuracy: 0.00000001), "\(key): \(ii)")
-        }
-    }
-
     func testEstimatedHR() {
         let processor = CRFHeartRateSampleProcessor()
-        let samplingRate = processor.calculateSamplingRate(from: testHRData.hr_data)
+        let testData = testHRData
+        let samplingRate = processor.calculateSamplingRate(from: testData.hr_data)
+        let roundedSamplingRate = Int(round(samplingRate))
 
-        let key: ChannelKeys = .red
-        let inputChunks: [[Double]] = testHRData.hrInputChunk(for: key)
-        let expectedOutputs: [HRTuple] = testHRData.hr_estimates[key.stringValue]!
+        let key: ChannelKeys = .green
+        let inputChunks: [[Double]] = testData.hrInputChunk(for: key)
+        let expectedOutputs: [HRTuple] = testData.hr_estimates[key.stringValue]!
         XCTAssertEqual(inputChunks.count, expectedOutputs.count)
         guard inputChunks.count == expectedOutputs.count
             else {
                 XCTFail("The test data is invalid")
                 return
         }
+        
         // Only check some of the results b/c the calculations are for a resting heart rate and all use
         // initial estimate or else they are invalid (Initial windows).
         for ii in 0..<min(10, expectedOutputs.count) {
 
-            let (hr, confidence) = processor.getHR(from: inputChunks[ii], samplingRate: samplingRate)
-            if let expectedHR = expectedOutputs[ii].hr,
-                let expectedConfidence = expectedOutputs[ii].confidence {
-                XCTAssertEqual(hr, expectedHR, accuracy: 0.000001, "\(key) \(ii)")
-                XCTAssertEqual(confidence, expectedConfidence, accuracy: 0.000001, "\(key) \(ii)")
-            }
-            else {
-                XCTAssertEqual(hr, 0, "\(key) \(ii)")
-                XCTAssertEqual(confidence, 0, "\(key) \(ii)")
+            let filteredData = processor.getFilteredSignal(inputChunks[ii], samplingRate: roundedSamplingRate)
+            XCTAssertNotNil(filteredData)
+            if let input = filteredData {
+                let (hr, confidence) = processor.getHR(from: input, samplingRate: samplingRate)
+                if let expectedHR = expectedOutputs[ii].hr,
+                    let expectedConfidence = expectedOutputs[ii].confidence {
+                    XCTAssertEqual(hr, expectedHR, accuracy: 0.000001, "\(key) \(ii)")
+                    XCTAssertEqual(confidence, expectedConfidence, accuracy: 0.0001, "\(key) \(ii)")
+                }
+                else {
+                    XCTAssertEqual(hr, 0, "\(key) \(ii)")
+                    XCTAssertEqual(confidence, 0, "\(key) \(ii)")
+                }
             }
         }
     }
     
     func testEstimatedHR_12hz() {
         let processor = CRFHeartRateSampleProcessor()
-        let samplingRate = processor.calculateSamplingRate(from: testHRData12hz.hr_data)
+        let testData = testHRData12hz
+
+        let samplingRate = processor.calculateSamplingRate(from: testData.hr_data)
+        let roundedSamplingRate = Int(round(samplingRate))
         
-        let key: ChannelKeys = .red
-        let inputChunks: [[Double]] = testHRData12hz.hrInputChunk(for: key)
-        let expectedOutputs: [HRTuple] = testHRData12hz .hr_estimates[key.stringValue]!
+        let key: ChannelKeys = .green
+        let inputChunks: [[Double]] = testData.hrInputChunk(for: key)
+        let expectedOutputs: [HRTuple] = testData.hr_estimates[key.stringValue]!
         XCTAssertEqual(inputChunks.count, expectedOutputs.count)
         guard inputChunks.count == expectedOutputs.count
             else {
                 XCTFail("The test data is invalid")
                 return
         }
+        
         // Only check some of the results b/c the calculations are for a resting heart rate and all use
         // initial estimate or else they are invalid (Initial windows).
         for ii in 0..<min(10, expectedOutputs.count) {
             
-            let (hr, confidence) = processor.getHR(from: inputChunks[ii], samplingRate: samplingRate)
-            if let expectedHR = expectedOutputs[ii].hr,
-                let expectedConfidence = expectedOutputs[ii].confidence {
-                XCTAssertEqual(hr, expectedHR, accuracy: 0.000001, "\(key) \(ii)")
-                XCTAssertEqual(confidence, expectedConfidence, accuracy: 0.000001, "\(key) \(ii)")
-            }
-            else {
-                XCTAssertEqual(hr, 0, "\(key) \(ii)")
-                XCTAssertEqual(confidence, 0, "\(key) \(ii)")
+            let filteredData = processor.getFilteredSignal(inputChunks[ii], samplingRate: roundedSamplingRate)
+            XCTAssertNotNil(filteredData)
+            if let input = filteredData {
+                let (hr, confidence) = processor.getHR(from: input, samplingRate: samplingRate)
+                if let expectedHR = expectedOutputs[ii].hr,
+                    let expectedConfidence = expectedOutputs[ii].confidence {
+                    XCTAssertEqual(hr, expectedHR, accuracy: 0.000001, "\(key) \(ii)")
+                    XCTAssertEqual(confidence, expectedConfidence, accuracy: 0.0001, "\(key) \(ii)")
+                }
+                else {
+                    XCTAssertEqual(hr, 0, "\(key) \(ii)")
+                    XCTAssertEqual(confidence, 0, "\(key) \(ii)")
+                }
             }
         }
     }
-    
-    func testMovingWindow() {
-        let processor = CRFHeartRateSampleProcessor()
-        let filteredData: [Double] = testHRData.hr_data_filtered.map { $0["red"] ?? 0 }
-        let key: ChannelKeys = .red
-        let expectedChunks: [[Double]] = testHRData.hrInputChunk(for: key)
-        let expectedHRValues: [HRTuple] = testHRData.hr_estimates[key.stringValue]!
-        
-        for ii in 15..<20 {
-            let lastSample = ii * 60
-            let samples = Array(testHRData.hr_data[..<lastSample])
-            let input = samples.map { $0.red }
-            let samplingRate = processor.calculateSamplingRate(from: samples)
-            let roundedSamplingRate = Int(round(samplingRate))
-            let drop = 3
-            guard let filteredOutput = processor.getFilteredSignal(input, samplingRate: roundedSamplingRate, dropSeconds: drop)
-                else {
-                    XCTFail("Failed to filter the signal")
-                    return
-            }
-            
-            let expectedFiltered = Array(filteredData[..<filteredOutput.count])
-            
-            // Check assumptions
-            XCTAssertTrue(compare(filteredOutput, expectedFiltered, accuracy: 0.0001), "\(ii)")
-            let meanOrder = processor.meanFilterOrder(for: roundedSamplingRate)
-            let count = input.count - (3 * roundedSamplingRate - 1) - 2*roundedSamplingRate - (meanOrder - 1)
-            XCTAssertEqual(filteredOutput.count, count)
-            XCTAssertEqual(roundedSamplingRate, 60)
-            
-            let chunks = processor.chunkSamples(filteredData, samplingRate: samplingRate)
-            let idx = chunks.count - 1
-            guard let lastChunk = chunks.last, idx < expectedChunks.count
-                else {
-                    XCTFail("Failed to chunk the signal")
-                    return
-            }
-            let expectedChunk = expectedChunks[idx]
-            XCTAssertTrue(compare(lastChunk, expectedChunk, accuracy: 0.0001), "\(ii)")
-            
-            let expectedValue = expectedHRValues[idx]
-            let (hr, confidence) = processor.getHR(from: lastChunk, samplingRate: samplingRate)
-            if let expectedHR = expectedValue.hr,
-                let expectedConfidence = expectedValue.confidence {
-                // Note: there's a fair amount of error introduced due to the sampling rate for a moving
-                // window verses the values calculated during the development of the algorithm.
-                XCTAssertEqual(hr, expectedHR, accuracy: 0.1, "\(key) \(ii)")
-                XCTAssertEqual(confidence, expectedConfidence, accuracy: 0.000001, "\(key) \(ii)")
-            }
-            else {
-                XCTAssertEqual(hr, 0, "\(key) \(ii)")
-                XCTAssertEqual(confidence, 0, "\(key) \(ii)")
-            }
-        }
-    }
-    
+
     func testEarlierPeaks() {
         let processor = CRFHeartRateSampleProcessor()
         let data = testEarlierPeaksExample
@@ -450,24 +302,37 @@ class HeartRateProcessorTests: XCTestCase {
     }
     
     func testSampleProcessing() {
+        
+        // TODO: syoung 04/30/2019 Reconcile the R-implementation with the mobile devices implementation
+        // Because of some noise in the windowing that is used in *test* code for the R-implementation, the
+        // data from those tests includes noise from the mean order filtering. That noise is dropped in the
+        // mobile device implementation by filtering over a large sample and keeping only the 10 second window
+        // after the noise introduced during filtering. Because I did not want to introduce that noise into
+        // this version of the algorithm, I am instead using this "test" to write out the sample data that is
+        // used in checking that the Android and iOS implementations match.
 
         // Because this test takes a while to run, and it's using data from a resting heart rate,
         // only process a subset of the data. syoung 04/16/2019
         let start = 30
-        let end = testHRData.hr_estimates["red"]!.count
         
-        let range = Array(start..<end)
-        let expectedHRValues: [HRTuple] = range.map { (idx) -> HRTuple in
-            let red = testHRData.hr_estimates["red"]![idx]
-            let green = testHRData.hr_estimates["green"]![idx]
-            if let redC = red.confidence, let greenC = green.confidence, redC > greenC {
-                return red
-            }
-            else {
-                return green
-            }
-        }
-
+        let expectedHRValues = [
+            CRFHeartRateBPMSample(timestamp: 46.3200712493, bpm: 69.26537857647685, confidence: 0.8665728400250351, channel: .green),
+            CRFHeartRateBPMSample(timestamp: 47.3206772493, bpm: 69.26537781379395, confidence: 0.864004456488016, channel: .green),
+            CRFHeartRateBPMSample(timestamp: 48.3212832913, bpm: 67.9584831399785, confidence: 0.8768333193716425, channel: .green),
+            CRFHeartRateBPMSample(timestamp: 49.3218892083, bpm: 69.26537780919945, confidence: 0.8797011803396284, channel: .red),
+            CRFHeartRateBPMSample(timestamp: 50.3224952083, bpm: 67.95848369894412, confidence: 0.8994492066282034, channel: .green),
+            CRFHeartRateBPMSample(timestamp: 51.3231009993, bpm: 67.9584846410716, confidence: 0.9115548708180149, channel: .green),
+            CRFHeartRateBPMSample(timestamp: 52.3237071663, bpm: 67.95848426692528, confidence: 0.9090951134939645, channel: .green),
+            CRFHeartRateBPMSample(timestamp: 53.3243131243, bpm: 67.95848426692528, confidence: 0.9016664647138142, channel: .green),
+            CRFHeartRateBPMSample(timestamp: 54.3249191243, bpm: 67.95848426692525, confidence: 0.8985739988740599, channel: .red),
+            CRFHeartRateBPMSample(timestamp: 55.3255251663, bpm: 67.95848370345189, confidence: 0.9095022749620564, channel: .green),
+            CRFHeartRateBPMSample(timestamp: 56.3261310413, bpm: 67.95848483039869, confidence: 0.8958170645972368, channel: .green),
+            CRFHeartRateBPMSample(timestamp: 57.3267370413, bpm: 67.95848445174457, confidence: 0.8956174838084865, channel: .green),
+            CRFHeartRateBPMSample(timestamp: 58.3273430413, bpm: 67.95848464107164, confidence: 0.8986418987043391, channel: .green),
+            CRFHeartRateBPMSample(timestamp: 59.3279491243, bpm: 67.95848407759824, confidence: 0.8896016693876465, channel: .green),
+            CRFHeartRateBPMSample(timestamp: 60.3285551243, bpm: 67.9584840775982, confidence: 0.8895332581586164, channel: .green),
+            CRFHeartRateBPMSample(timestamp: 61.3291610833, bpm: 67.9584836989441, confidence: 0.8901171128383659, channel: .red)]
+        
         let expect = expectation(description: "Calculate non-zero heart rate.")
         var bpm: [Double] = []
         var confidence: [Double] = []
@@ -481,7 +346,7 @@ class HeartRateProcessorTests: XCTestCase {
         }
 
         let estimatedSamplingRate = 60
-        let drop = 3 * 60 - 1 + start * estimatedSamplingRate
+        let drop = start * estimatedSamplingRate
         let samples = testHRData.hr_data.dropFirst(drop)
         samples.forEach {
             processor.processSample($0)
@@ -495,15 +360,20 @@ class HeartRateProcessorTests: XCTestCase {
 
         XCTAssertEqual(bpm.count, expectedHRValues.count)
         for ii in 0..<min(bpm.count, expectedHRValues.count) {
-            let expectedBPM = expectedHRValues[ii].hr ?? 0
+            let expectedBPM = expectedHRValues[ii].bpm
             XCTAssertEqual(bpm[ii], expectedBPM, accuracy: 0.1, "\(ii)")
-            let expectedConfidence = expectedHRValues[ii].confidence ?? 0
+            let expectedConfidence = expectedHRValues[ii].confidence
             XCTAssertEqual(confidence[ii], expectedConfidence, accuracy: 0.1, "\(ii)")
         }
         
-// Uncomment to update the values used for testing Android
+         // Uncomment to update the values used for testing Android
 //        processor.bpmSamples.forEach {
 //            print("HeartRateBPM(\($0.timestamp!),\($0.bpm),\($0.confidence),\"\($0.channel!.rawValue)\"),")
+//        }
+        
+        // Uncomment to update the values used for testing iOS
+//        processor.bpmSamples.forEach {
+//            print("CRFHeartRateBPMSample(timestamp: \($0.timestamp!), bpm: \($0.bpm), confidence: \($0.confidence), channel: .\($0.channel!.rawValue)),")
 //        }
     }
     
@@ -630,20 +500,12 @@ struct ProcessorTestData : Codable {
 struct HRProcessorTestData : Decodable {
     
     let hr_data : [TestPixelSample]
-    let hr_data_filtered : [[String : Double]]
-    let hr_data_filtered_chunked : [String : [[Double]]]
-    let hr_data_filtered_chunked_acf : [String : [[Double]]]
+    let hr_data_chunks : [String : [[Double]]]
     let hr_estimates : [String : [HRTuple]]
     
     // The matrix for this is defined very oddly. It's actually a mapping of the index of each element.
     func hrInputChunk(for key: ChannelKeys) -> [[Double]] {
-        let vector = hr_data_filtered_chunked[key.stringValue]!
-        return flip(vector)
-    }
-    
-    // The matrix for this is defined very oddly. It's actually a mapping of the index of each element.
-    func hrChunkACF(for key: ChannelKeys) -> [[Double]] {
-        let vector = hr_data_filtered_chunked_acf[key.stringValue]!
+        let vector = hr_data_chunks[key.stringValue]!
         return flip(vector)
     }
     
