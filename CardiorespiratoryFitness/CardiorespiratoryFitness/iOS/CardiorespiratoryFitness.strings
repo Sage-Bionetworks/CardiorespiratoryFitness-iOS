@@ -49,3 +49,4 @@
 "HEARTRATE_LEARN_TIPS_BUTTON"     = "Tips for measuring";
 "HEARTRATE_LEARN_TIPS_TITLE"      = "Tips for measuring";
 "HEARTRATE_MORNING_TITLE"         = "Morning resting heart rate";
+"HEARTRATE_RECOVERY_RANGE"        = "The score above estimates a vital sign called VO2 max that is normally measured in a lab or clinic. If you took that lab-based test, it may be between: %1$@ - %2$@";

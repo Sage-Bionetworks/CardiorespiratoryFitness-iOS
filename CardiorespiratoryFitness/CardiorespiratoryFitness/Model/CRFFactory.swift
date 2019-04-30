@@ -37,6 +37,7 @@ extension RSDStepType {
     
     static let heartRate: RSDStepType = "heartRate"
     static let torchInstruction: RSDStepType = "torchInstruction"
+    static let hrRecoveryResult: RSDStepType = "hrRecoveryResult"
 }
 
 fileprivate var _didAddLocalizationBundle: Bool = false
@@ -62,6 +63,8 @@ open class CRFFactory: RSDFactory {
             return try CRFHeartRateStep(from: decoder)
         case .torchInstruction:
             return try CRFTorchInstructionStep(from: decoder)
+        case .hrRecoveryResult:
+            return try CRFHRRecoveryStep(from: decoder)
         default:
             return try super.decodeStep(from: decoder, with: type)
         }

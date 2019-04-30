@@ -1,5 +1,5 @@
 //
-//  CRFHRRecoveryStepViewController.swift
+//  CRFHRRecoveryStep.swift
 //  CardiorespiratoryFitness
 //
 //  Copyright © 2019 Sage Bionetworks. All rights reserved.
@@ -31,36 +31,7 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
+import Foundation
 
-import UIKit
-
-extension CRFHRRecoveryStep : RSDStepViewControllerVendor {
-    
-    func instantiateViewController(with parent: RSDPathComponent?) -> (UIViewController & RSDStepController)? {
-        let vc = CRFHRRecoveryStepViewController(step: self, parent: parent)
-        return vc
-    }
-    
-    func resultRange(from taskResult: RSDTaskResult) -> (min: Double, max: Double)? {
-        guard let answerResult = self.answerResult(from: taskResult),
-            let answer = (answerResult.value as? RSDJSONNumber)?.jsonNumber()?.doubleValue
-            else {
-                return nil
-        }
-        return (answer - 3, answer + 3)
-    }
-}
-
-class CRFHRRecoveryStepViewController: RSDResultSummaryStepViewController {
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if let resultData = self.resultData,
-            let range = (self.step as? CRFHRRecoveryStep)?.resultRange(from: self.stepViewModel.taskResult),
-            let min = resultData.numberFormatter.string(from: NSNumber(value: range.min)),
-            let max = resultData.numberFormatter.string(from: NSNumber(value: range.max)) {
-            self.stepTextLabel?.text = Localization.localizedStringWithFormatKey("HEARTRATE_RECOVERY_RANGE", min, max)
-        }
-    }
+class CRFHRRecoveryStep : RSDResultSummaryStepObject {
 }
