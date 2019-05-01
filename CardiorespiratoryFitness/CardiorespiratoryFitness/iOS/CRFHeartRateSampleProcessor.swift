@@ -174,7 +174,7 @@ internal class CRFHeartRateSampleProcessor {
             // Need to keep 2 extra seconds due to filtering lopping off the first 2 seconds of data.
             let meanOrder = self.meanFilterOrder(for: roundedRate)
             
-            //set window before drop to 15 seconds
+            // set window before drop to 15 seconds
             let windowLength = (Int(CRFHeartRateWindowSeconds) + 2*CRFHeartRateFilterDropSeconds) * roundedRate + meanOrder
             if self.pixelSamples.count >= windowLength, self.isValidSamplingRate(roundedRate) {
                 
