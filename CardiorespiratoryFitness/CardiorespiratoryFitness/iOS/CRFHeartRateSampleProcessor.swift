@@ -463,7 +463,7 @@ internal class CRFHeartRateSampleProcessor {
         // it is reproduced here for testing purposes.
         let drop = dropSeconds > 0 ? dropSeconds * samplingRate - 1 : 0
         let x = input.dropFirst(drop).map({ $0.isFinite ? $0 : 0 })
-        // get minimum value in the input window and offset each signale frame by the minimum value observed in the window
+        // get minimum value in the input window and offset each signal frame by the minimum value observed in the window
         let minValue = x.min() ?? 0
         let minnedOutX = x.map {$0 - minValue}
         //    x <- signal::filter(bf_low, x) # lowpass
