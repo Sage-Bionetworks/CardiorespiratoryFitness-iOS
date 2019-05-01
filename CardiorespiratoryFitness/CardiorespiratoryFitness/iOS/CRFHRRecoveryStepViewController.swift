@@ -47,7 +47,7 @@ extension CRFHRRecoveryStep : RSDStepViewControllerVendor {
             else {
                 return nil
         }
-        return (answer - 3, answer + 3)
+        return (answer * 0.95, answer * 1.05)
     }
 }
 
