@@ -208,7 +208,7 @@
     },
     {
         "identifier": "feedback",
-        "type": "completion",
+        "type": "hrRecoveryResult",
         "resultTitle": "Your estimated Recovery HR score is",
         "stepResultIdentifier": "hr",
         "resultIdentifier": "vo2_max",

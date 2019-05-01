@@ -41,6 +41,7 @@
 		F897CF912255233D0088DFAE /* lowpass_filter_params.csv in Resources */ = {isa = PBXBuildFile; fileRef = F897CF902255233D0088DFAE /* lowpass_filter_params.csv */; };
 		F897CF95225525040088DFAE /* CSVDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F897CF94225525040088DFAE /* CSVDecoder.swift */; };
 		F897CF97225561680088DFAE /* CSVDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F897CF96225561680088DFAE /* CSVDecoderTests.swift */; };
+		F8981A4922790F87008DD5D0 /* CRFHRRecoveryStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8981A4822790F87008DD5D0 /* CRFHRRecoveryStep.swift */; };
 		F89FFDD920588B5C0089D8A7 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89FFDD820588B5C0089D8A7 /* ModelTests.swift */; };
 		F89FFDDB205890F80089D8A7 /* CRFTaskInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89FFDDA205890F80089D8A7 /* CRFTaskInfo.swift */; };
 		F8C0581B22778E2700FA59E6 /* Research.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C0581A22778E2700FA59E6 /* Research.framework */; };
@@ -107,6 +108,7 @@
 		F897CF902255233D0088DFAE /* lowpass_filter_params.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lowpass_filter_params.csv; sourceTree = "<group>"; };
 		F897CF94225525040088DFAE /* CSVDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVDecoder.swift; sourceTree = "<group>"; };
 		F897CF96225561680088DFAE /* CSVDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVDecoderTests.swift; sourceTree = "<group>"; };
+		F8981A4822790F87008DD5D0 /* CRFHRRecoveryStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRFHRRecoveryStep.swift; sourceTree = "<group>"; };
 		F89FFDD820588B5C0089D8A7 /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
 		F89FFDDA205890F80089D8A7 /* CRFTaskInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRFTaskInfo.swift; sourceTree = "<group>"; };
 		F89FFDDD2059CF2B0089D8A7 /* CardiorespiratoryFitnessTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CardiorespiratoryFitnessTests-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				F89FFDDA205890F80089D8A7 /* CRFTaskInfo.swift */,
 				F8E68EE22252A30900CF0811 /* CRFTaskObject.swift */,
 				F80479E12257E52200E569AC /* CRFTorchInstructionStep.swift */,
+				F8981A4822790F87008DD5D0 /* CRFHRRecoveryStep.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 				F880C15B2051FA5F00ACB4D4 /* CRFHeartRateRecorder.swift in Sources */,
 				F880C1202051F1E200ACB4D4 /* CRFFactory.swift in Sources */,
 				F880C18320520FBC00ACB4D4 /* CRFHeartRateSampleProcessor.swift in Sources */,
+				F8981A4922790F87008DD5D0 /* CRFHRRecoveryStep.swift in Sources */,
 				F8E68EE32252A30900CF0811 /* CRFTaskObject.swift in Sources */,
 				F880C1532051F9FD00ACB4D4 /* CRFHeartRateStepViewController.swift in Sources */,
 				F880C18120520CF500ACB4D4 /* CRFCameraSettings.swift in Sources */,
