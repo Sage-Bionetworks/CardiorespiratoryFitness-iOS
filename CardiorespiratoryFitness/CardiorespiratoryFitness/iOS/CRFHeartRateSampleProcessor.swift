@@ -47,6 +47,9 @@ public let CRFHeartRateWindowOverlapSeconds = TimeInterval(1)
 /// The number of seconds to let the sampler settle before looking at the heart rate.
 public let CRFHeartRateSettleSeconds = TimeInterval(3)
 
+/// The number of seconds to drop after each stage of filtering.
+public let CRFHeartRateFilterDropSeconds = Int(2)
+
 /// The minimum heart rate calculated with this app.
 public let CRFMinHeartRate = Double(45)
 
@@ -170,7 +173,9 @@ internal class CRFHeartRateSampleProcessor {
             
             // Need to keep 2 extra seconds due to filtering lopping off the first 2 seconds of data.
             let meanOrder = self.meanFilterOrder(for: roundedRate)
-            let windowLength = Int(CRFHeartRateWindowSeconds + 2) * roundedRate + meanOrder
+            
+            // set window before drop to 15 seconds
+            let windowLength = (Int(CRFHeartRateWindowSeconds) + 2 * CRFHeartRateFilterDropSeconds) * roundedRate + meanOrder
             if self.pixelSamples.count >= windowLength, self.isValidSamplingRate(roundedRate) {
                 
                 // set flag that the samples are being processed
@@ -458,12 +463,17 @@ internal class CRFHeartRateSampleProcessor {
         // it is reproduced here for testing purposes.
         let drop = dropSeconds > 0 ? dropSeconds * samplingRate - 1 : 0
         let x = input.dropFirst(drop).map({ $0.isFinite ? $0 : 0 })
+        // get minimum value in the input window and offset each signal frame by the minimum value observed in the window
+        let minValue = x.min() ?? 0
+        let minnedOutX = x.map {$0 - minValue}
         //    x <- signal::filter(bf_low, x) # lowpass
         //    x <- x[round(sampling_rate):length(x)] # 1s
-        let lowpass = Array(passFilter(x, samplingRate: samplingRate, type: .low).dropFirst(samplingRate))
+        
+        // drop off the values
+        let lowpass = Array(passFilter(minnedOutX, samplingRate: samplingRate, type: .low).dropFirst(CRFHeartRateFilterDropSeconds * samplingRate))
         //    x <- signal::filter(bf_high, x) # highpass
         //    x <- x[round(sampling_rate):length(x)] # 1s @ 60Hz
-        let highpass = Array(passFilter(lowpass, samplingRate: samplingRate, type: .high).dropFirst(samplingRate))
+        let highpass = Array(passFilter(lowpass, samplingRate: samplingRate, type: .high).dropFirst(CRFHeartRateFilterDropSeconds * samplingRate))
         // filter usinng mean centering
         let filtered = meanCenteringFilter(highpass, samplingRate: samplingRate)
         return filtered
