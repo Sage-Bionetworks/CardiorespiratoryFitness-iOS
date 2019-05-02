@@ -1,0 +1,138 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/syoung2/Documents/AppleCode/CardiorespiratoryFitness-iOS/CardiorespiratoryFitness/CardiorespiratoryFitness/Model/CRFFactory.swift",
+      "line": 45,
+      "symbol": "CRFFactory",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/syoung2/Documents/AppleCode/CardiorespiratoryFitness-iOS/CardiorespiratoryFitness/CardiorespiratoryFitness/Model/CRFTaskInfo.swift",
+      "line": 170,
+      "symbol": "CRFTaskTransformer.init(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/syoung2/Documents/AppleCode/CardiorespiratoryFitness-iOS/CardiorespiratoryFitness/CardiorespiratoryFitness/Model/CRFTaskInfo.swift",
+      "line": 226,
+      "symbol": "CRFTask",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/syoung2/Documents/AppleCode/CardiorespiratoryFitness-iOS/CardiorespiratoryFitness/CardiorespiratoryFitness/Model/CRFTaskObject.swift",
+      "line": 42,
+      "symbol": "CRFSex.female",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/syoung2/Documents/AppleCode/CardiorespiratoryFitness-iOS/CardiorespiratoryFitness/CardiorespiratoryFitness/Model/CRFTaskObject.swift",
+      "line": 42,
+      "symbol": "CRFSex.male",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/syoung2/Documents/AppleCode/CardiorespiratoryFitness-iOS/CardiorespiratoryFitness/CardiorespiratoryFitness/Model/CRFTaskObject.swift",
+      "line": 42,
+      "symbol": "CRFSex.other",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/syoung2/Documents/AppleCode/CardiorespiratoryFitness-iOS/CardiorespiratoryFitness/CardiorespiratoryFitness/Model/CRFTaskObject.swift",
+      "line": 45,
+      "symbol": "CRFDemographicsKeys",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/syoung2/Documents/AppleCode/CardiorespiratoryFitness-iOS/CardiorespiratoryFitness/CardiorespiratoryFitness/Model/CRFTaskObject.swift",
+      "line": 49,
+      "symbol": "CRFTaskObject",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/syoung2/Documents/AppleCode/CardiorespiratoryFitness-iOS/CardiorespiratoryFitness/CardiorespiratoryFitness/iOS/CRFHeartRateRecorder.swift",
+      "line": 43,
+      "symbol": "CRFHeartRateRecorderDelegate",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/syoung2/Documents/AppleCode/CardiorespiratoryFitness-iOS/CardiorespiratoryFitness/CardiorespiratoryFitness/iOS/CRFHeartRateRecorder.swift",
+      "line": 52,
+      "symbol": "CRFHeartRateRecorder",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/syoung2/Documents/AppleCode/CardiorespiratoryFitness-iOS/CardiorespiratoryFitness/CardiorespiratoryFitness/iOS/CRFHeartRateRecorder.swift",
+      "line": 461,
+      "symbol": "CRFHeartRateSamplesResult",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/syoung2/Documents/AppleCode/CardiorespiratoryFitness-iOS/CardiorespiratoryFitness/CardiorespiratoryFitness/iOS/CRFHeartRateRecorder.swift",
+      "line": 491,
+      "symbol": "CRFPixelChannel",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/syoung2/Documents/AppleCode/CardiorespiratoryFitness-iOS/CardiorespiratoryFitness/CardiorespiratoryFitness/iOS/CRFHeartRateRecorder.swift",
+      "line": 495,
+      "symbol": "CRFHeartRateBPMSample",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/syoung2/Documents/AppleCode/CardiorespiratoryFitness-iOS/CardiorespiratoryFitness/CardiorespiratoryFitness/iOS/CRFHeartRateStepViewController.swift",
+      "line": 106,
+      "symbol": "CRFHeartRateStepViewController.viewDidLayoutSubviews()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/syoung2/Documents/AppleCode/CardiorespiratoryFitness-iOS/CardiorespiratoryFitness/CardiorespiratoryFitness/iOS/CRFHeartRateStepViewController.swift",
+      "line": 409,
+      "symbol": "CRFHeartRateStepViewController.reset()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/syoung2/Documents/AppleCode/CardiorespiratoryFitness-iOS/CardiorespiratoryFitness/CardiorespiratoryFitness/iOS/CRFHeartRateVideoProcessor.h",
+      "line": null,
+      "symbol": "CRFPixelSample",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/syoung2/Documents/AppleCode/CardiorespiratoryFitness-iOS/CardiorespiratoryFitness/CardiorespiratoryFitness/iOS/CRFStairStepViewController.swift",
+      "line": 36,
+      "symbol": "CRFStairStepViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/syoung2/Documents/AppleCode/CardiorespiratoryFitness-iOS/CardiorespiratoryFitness/CardiorespiratoryFitness/iOS/CSVDecoder.swift",
+      "line": null,
+      "symbol": "_CSVStringDecoder",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/syoung2/Documents/AppleCode/CardiorespiratoryFitness-iOS/CardiorespiratoryFitness/CardiorespiratoryFitness/iOS/CSVDecoder.swift",
+      "line": 40,
+      "symbol": "CSVDecoder.userInfo",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/syoung2/Documents/AppleCode/CardiorespiratoryFitness-iOS"
+}
