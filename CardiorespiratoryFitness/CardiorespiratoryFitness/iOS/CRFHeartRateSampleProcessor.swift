@@ -198,7 +198,6 @@ internal class CRFHeartRateSampleProcessor {
                     let bpmSample = CRFHeartRateBPMSample(timestamp: timestamp, bpm: bpm, confidence: confidence, channel: pixelChannel)
                     self.bpmSamples.append(bpmSample)
                     self.isProcessing = false
-                    print("\(pixelChannel) bpm=\(bpm), confidence=\(confidence)")
                     
                     DispatchQueue.main.async {
                         self.callback?(bpm, confidence)

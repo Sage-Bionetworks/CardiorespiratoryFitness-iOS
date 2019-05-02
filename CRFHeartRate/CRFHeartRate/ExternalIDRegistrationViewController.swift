@@ -64,13 +64,6 @@ class ExternalIDRegistrationStep : RSDUIStepObject, RSDFormUIStep, RSDStepViewCo
         if self.text == nil && self.title == nil {
             self.text = NSLocalizedString("Enter your external ID to get started.", comment: "Default text for an external ID registration step.")
         }
-        if self.colorTheme == nil {
-            var colorTheme = RSDColorThemeElementObject(usesLightStyle: true, backgroundColorName: nil, bundleIdentifier: nil)
-            colorTheme.setColorStyle(.darkBackground, for: .header)
-            colorTheme.setColorStyle(.lightBackground, for: .body)
-            colorTheme.setColorStyle(.lightBackground, for: .footer)
-            self.colorTheme = colorTheme
-        }
     }
 }
 
