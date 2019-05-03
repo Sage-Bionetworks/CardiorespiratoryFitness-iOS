@@ -1,6 +1,6 @@
 #  CRFHeartRate
 
-The CRFHeartRate application is designed to be able to send data for heart rate tasks to Sage Bionetworks bridge server as a part of validation studies.
+The CRFHeartRate application is designed to be able to send data for heart rate tasks to Sage Bionetworks Bridge server as a part of validation studies.
 
 ## License
 
