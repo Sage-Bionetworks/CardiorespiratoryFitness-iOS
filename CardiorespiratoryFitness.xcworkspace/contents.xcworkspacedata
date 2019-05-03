@@ -5,9 +5,18 @@
       location = "group:CRFSampleApp/CRFSampleApp.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:CRFHeartRate/CRFHeartRate.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:CardiorespiratoryFitness/CardiorespiratoryFitness.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Carthage/Checkouts/SageResearch/Research/Research.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Carthage/Checkouts/BridgeApp-Apple-SDK/BridgeApp/BridgeApp.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Carthage/Checkouts/Bridge-iOS-SDK/BridgeSDK.xcodeproj">
    </FileRef>
 </Workspace>

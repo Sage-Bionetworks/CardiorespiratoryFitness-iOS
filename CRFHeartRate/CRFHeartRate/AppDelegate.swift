@@ -34,9 +34,14 @@
 import UIKit
 import BridgeApp
 import BridgeSDK
+import CardiorespiratoryFitness
 
 @UIApplicationMain
 class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
+    
+    override func instantiateColorPalette() -> RSDColorPalette? {
+        return CRFFactory.designSystem.colorRules.palette
+    }
     
     func showAppropriateViewController(animated: Bool) {
         if BridgeSDK.authManager.isAuthenticated() {

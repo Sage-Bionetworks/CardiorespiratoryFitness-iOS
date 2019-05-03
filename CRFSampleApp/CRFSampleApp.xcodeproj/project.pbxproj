@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F844E462227AADAF00DC82B5 /* CRFSampleAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F844E461227AADAF00DC82B5 /* CRFSampleAppTests.swift */; };
 		F850B553226E590F0046C905 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F850B552226E590F0046C905 /* AppDelegate.swift */; };
 		F850B558226E590F0046C905 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F850B556226E590F0046C905 /* Main.storyboard */; };
 		F850B55A226E59110046C905 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F850B559226E59110046C905 /* Assets.xcassets */; };
 		F850B55D226E59110046C905 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F850B55B226E59110046C905 /* LaunchScreen.storyboard */; };
-		F850B568226E59110046C905 /* CRFSampleAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F850B567226E59110046C905 /* CRFSampleAppTests.swift */; };
 		F850B57D226E5CAB0046C905 /* FileResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F850B57C226E5CAB0046C905 /* FileResultViewController.swift */; };
 		F850B581226E5CBD0046C905 /* ResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F850B580226E5CBD0046C905 /* ResultTableViewController.swift */; };
 		F850B585226E5CD80046C905 /* TaskPresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F850B584226E5CD80046C905 /* TaskPresentationViewController.swift */; };
@@ -54,6 +54,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F844E460227AADAE00DC82B5 /* CRFSampleAppTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CRFSampleAppTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		F844E461227AADAF00DC82B5 /* CRFSampleAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRFSampleAppTests.swift; sourceTree = "<group>"; };
 		F850B54F226E590F0046C905 /* CRFSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CRFSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F850B552226E590F0046C905 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F850B557226E590F0046C905 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -61,7 +63,6 @@
 		F850B55C226E59110046C905 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F850B55E226E59110046C905 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F850B563226E59110046C905 /* CRFSampleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CRFSampleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F850B567226E59110046C905 /* CRFSampleAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRFSampleAppTests.swift; sourceTree = "<group>"; };
 		F850B569226E59110046C905 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F850B57C226E5CAB0046C905 /* FileResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileResultViewController.swift; sourceTree = "<group>"; };
 		F850B580226E5CBD0046C905 /* ResultTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTableViewController.swift; sourceTree = "<group>"; };
@@ -98,10 +99,6 @@
 		F850B546226E590F0046C905 = {
 			isa = PBXGroup;
 			children = (
-				F8C0582B2277923900FA59E6 /* ResearchRecorders.framework */,
-				F8C058282277923300FA59E6 /* ResearchUI.framework */,
-				F8C058252277922700FA59E6 /* Research.framework */,
-				F8C058222277922000FA59E6 /* CardiorespiratoryFitness.framework */,
 				F850B551226E590F0046C905 /* CRFSampleApp */,
 				F850B566226E59110046C905 /* CRFSampleAppTests */,
 				F8C0582F2277926E00FA59E6 /* Frameworks */,
@@ -137,8 +134,9 @@
 		F850B566226E59110046C905 /* CRFSampleAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				F850B567226E59110046C905 /* CRFSampleAppTests.swift */,
 				F850B569226E59110046C905 /* Info.plist */,
+				F844E461227AADAF00DC82B5 /* CRFSampleAppTests.swift */,
+				F844E460227AADAE00DC82B5 /* CRFSampleAppTests-Bridging-Header.h */,
 			);
 			path = CRFSampleAppTests;
 			sourceTree = "<group>";
@@ -146,6 +144,10 @@
 		F8C0582F2277926E00FA59E6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F8C0582B2277923900FA59E6 /* ResearchRecorders.framework */,
+				F8C058282277923300FA59E6 /* ResearchUI.framework */,
+				F8C058252277922700FA59E6 /* Research.framework */,
+				F8C058222277922000FA59E6 /* CardiorespiratoryFitness.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -204,6 +206,7 @@
 					};
 					F850B562226E59110046C905 = {
 						CreatedOnToolsVersion = 10.2;
+						LastSwiftMigration = 1020;
 						TestTargetID = F850B54E226E590F0046C905;
 					};
 				};
@@ -264,7 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F850B568226E59110046C905 /* CRFSampleAppTests.swift in Sources */,
+				F844E462227AADAF00DC82B5 /* CRFSampleAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +460,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KA9Z8R6M6K;
 				INFOPLIST_FILE = CRFSampleAppTests/Info.plist;
@@ -467,6 +471,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.sagebionetworks.CRFSampleAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CRFSampleAppTests/CRFSampleAppTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CRFSampleApp.app/CRFSampleApp";
@@ -478,6 +484,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KA9Z8R6M6K;
 				INFOPLIST_FILE = CRFSampleAppTests/Info.plist;
@@ -488,6 +495,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.sagebionetworks.CRFSampleAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CRFSampleAppTests/CRFSampleAppTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CRFSampleApp.app/CRFSampleApp";
