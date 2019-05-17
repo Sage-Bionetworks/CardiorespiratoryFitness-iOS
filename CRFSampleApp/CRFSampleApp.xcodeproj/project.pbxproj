@@ -71,7 +71,6 @@
 		F8C058222277922000FA59E6 /* CardiorespiratoryFitness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CardiorespiratoryFitness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8C058252277922700FA59E6 /* Research.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Research.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8C058282277923300FA59E6 /* ResearchUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ResearchUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F8C0582B2277923900FA59E6 /* ResearchRecorders.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ResearchRecorders.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E672A0228E2E11001AD63F /* ResearchMotion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ResearchMotion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -100,7 +99,6 @@
 		F850B546226E590F0046C905 = {
 			isa = PBXGroup;
 			children = (
-				F8E672A0228E2E11001AD63F /* ResearchMotion.framework */,
 				F850B551226E590F0046C905 /* CRFSampleApp */,
 				F850B566226E59110046C905 /* CRFSampleAppTests */,
 				F8C0582F2277926E00FA59E6 /* Frameworks */,
@@ -146,7 +144,7 @@
 		F8C0582F2277926E00FA59E6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F8C0582B2277923900FA59E6 /* ResearchRecorders.framework */,
+				F8E672A0228E2E11001AD63F /* ResearchMotion.framework */,
 				F8C058282277923300FA59E6 /* ResearchUI.framework */,
 				F8C058252277922700FA59E6 /* Research.framework */,
 				F8C058222277922000FA59E6 /* CardiorespiratoryFitness.framework */,
