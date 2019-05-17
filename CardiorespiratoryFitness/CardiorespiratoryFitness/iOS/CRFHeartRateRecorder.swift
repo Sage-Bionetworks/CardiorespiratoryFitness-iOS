@@ -108,9 +108,10 @@ public class CRFHeartRateRecorder : RSDSampleRecorder, CRFHeartRateVideoProcesso
     
     public override func requestPermissions(on viewController: UIViewController, _ completion: @escaping RSDAsyncActionCompletionHandler) {
         
-        let status = RSDAudioVisualAuthorization.authorizationStatus(for: .camera)
+        let status = AVCaptureDevice.authorizationStatus(for: .video)
         if status == .denied || status == .restricted {
-            let error = RSDPermissionError.notAuthorized(.camera, status)
+            let authStatus: RSDAuthorizationStatus = (status == .denied) ? .denied : .restricted
+            let error = RSDPermissionError.notAuthorized(RSDStandardPermission.camera, authStatus)
             self.updateStatus(to: .failed, error: error)
             completion(self, nil, error)
             return
@@ -127,7 +128,7 @@ public class CRFHeartRateRecorder : RSDSampleRecorder, CRFHeartRateVideoProcesso
                 self.updateStatus(to: .permissionGranted, error: nil)
                 completion(self, nil, nil)
             } else {
-                let error = RSDPermissionError.notAuthorized(.camera, .denied)
+                let error = RSDPermissionError.notAuthorized(RSDStandardPermission.camera, .denied)
                 self.updateStatus(to: .failed, error: error)
                 completion(self, nil, error)
             }

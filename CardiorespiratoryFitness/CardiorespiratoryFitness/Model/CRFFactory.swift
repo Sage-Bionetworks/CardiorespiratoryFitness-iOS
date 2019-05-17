@@ -41,6 +41,7 @@ extension RSDStepType {
 }
 
 fileprivate var _didAddLocalizationBundle: Bool = false
+fileprivate var _didRegisterPermissions: Bool = false
 
 open class CRFFactory: RSDFactory {
     
@@ -53,6 +54,11 @@ open class CRFFactory: RSDFactory {
             _didAddLocalizationBundle = true
             let localizationBundle = LocalizationBundle(Bundle(for: CRFFactory.self))
             Localization.insert(bundle: localizationBundle, at: 1)
+        }
+        
+        if !_didRegisterPermissions {
+            RSDAuthorizationHandler.registerAdaptorIfNeeded(RSDMotionAuthorization.shared)
+            RSDAuthorizationHandler.registerAdaptorIfNeeded(CRFAVAuthorization.shared)
         }
     }
 
