@@ -22,8 +22,8 @@
 		F8C058272277922700FA59E6 /* Research.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8C058252277922700FA59E6 /* Research.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F8C058292277923300FA59E6 /* ResearchUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C058282277923300FA59E6 /* ResearchUI.framework */; };
 		F8C0582A2277923300FA59E6 /* ResearchUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8C058282277923300FA59E6 /* ResearchUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F8C0582C2277923900FA59E6 /* ResearchRecorders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C0582B2277923900FA59E6 /* ResearchRecorders.framework */; };
-		F8C0582D2277923900FA59E6 /* ResearchRecorders.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8C0582B2277923900FA59E6 /* ResearchRecorders.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F8E672A1228E2E11001AD63F /* ResearchMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8E672A0228E2E11001AD63F /* ResearchMotion.framework */; };
+		F8E672A2228E2E11001AD63F /* ResearchMotion.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8E672A0228E2E11001AD63F /* ResearchMotion.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,9 +44,9 @@
 			dstSubfolderSpec = 10;
 			files = (
 				F8C058242277922000FA59E6 /* CardiorespiratoryFitness.framework in Embed Frameworks */,
-				F8C0582D2277923900FA59E6 /* ResearchRecorders.framework in Embed Frameworks */,
 				F8C058272277922700FA59E6 /* Research.framework in Embed Frameworks */,
 				F8C0582A2277923300FA59E6 /* ResearchUI.framework in Embed Frameworks */,
+				F8E672A2228E2E11001AD63F /* ResearchMotion.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,7 +71,7 @@
 		F8C058222277922000FA59E6 /* CardiorespiratoryFitness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CardiorespiratoryFitness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8C058252277922700FA59E6 /* Research.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Research.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8C058282277923300FA59E6 /* ResearchUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ResearchUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F8C0582B2277923900FA59E6 /* ResearchRecorders.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ResearchRecorders.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8E672A0228E2E11001AD63F /* ResearchMotion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ResearchMotion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,9 +80,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8C058232277922000FA59E6 /* CardiorespiratoryFitness.framework in Frameworks */,
-				F8C0582C2277923900FA59E6 /* ResearchRecorders.framework in Frameworks */,
 				F8C058262277922700FA59E6 /* Research.framework in Frameworks */,
 				F8C058292277923300FA59E6 /* ResearchUI.framework in Frameworks */,
+				F8E672A1228E2E11001AD63F /* ResearchMotion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,7 +144,7 @@
 		F8C0582F2277926E00FA59E6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F8C0582B2277923900FA59E6 /* ResearchRecorders.framework */,
+				F8E672A0228E2E11001AD63F /* ResearchMotion.framework */,
 				F8C058282277923300FA59E6 /* ResearchUI.framework */,
 				F8C058252277922700FA59E6 /* Research.framework */,
 				F8C058222277922000FA59E6 /* CardiorespiratoryFitness.framework */,
