@@ -73,6 +73,12 @@ public class CRFStairStepViewController: RSDActiveStepViewController {
         }
     }
     
+    public override func setupViews() {
+        super.setupViews()
+        
+        self.countdownLabel?.font = self.designSystem.fontRules.font(for: .smallNumber, compatibleWith: traitCollection)
+    }
+    
     private func _finishStart() {
         guard self.isVisible else { return }
         audioPlayer.play()
