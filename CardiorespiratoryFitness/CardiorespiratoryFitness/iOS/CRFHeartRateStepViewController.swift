@@ -73,6 +73,9 @@ public final class CRFHeartRateStepViewController: RSDActiveStepViewController, 
     /// A label with a title for the instruction.
     @IBOutlet var instructionTitleLabel: UILabel!
     
+    /// A label for showing the progress of the heart rate measurement.
+    @IBOutlet var progressLabel: UILabel!
+    
     /// A button for handling what to do once heart rate is captured.
     var continueButton: UIButton! {
         return self.nextButton
@@ -114,10 +117,18 @@ public final class CRFHeartRateStepViewController: RSDActiveStepViewController, 
         super.setColorStyle(for: placement, background: background)
         
         if placement == .body {
-            self.instructionTitleLabel?.textColor = self.designSystem.colorRules.textColor(on: background, for: .heading4)
-            self.instructionLabel?.textColor = self.designSystem.colorRules.textColor(on: background, for: .heading4)
-            self.progressLabel?.textColor = self.designSystem.colorRules.textColor(on: background, for: .heading2)
+            self.instructionTitleLabel?.textColor = self.designSystem.colorRules.textColor(on: background, for: .xLargeHeader)
+            self.progressLabel?.textColor = self.designSystem.colorRules.textColor(on: background, for: .smallNumber)
         }
+    }
+    
+    public override func setupViews() {
+        super.setupViews()
+        
+        self.hrResultLabel.font = self.designSystem.fontRules.font(for: .largeNumber, compatibleWith: traitCollection)
+        self.bpmLabel.font = self.designSystem.fontRules.baseFont(for: .largeHeader)  // NOT DYNAMIC
+        self.progressLabel.font = self.designSystem.fontRules.font(for: .smallNumber, compatibleWith: traitCollection)
+        self.instructionTitleLabel.font = self.designSystem.fontRules.font(for: .xLargeHeader, compatibleWith: traitCollection)
     }
     
     private var _firstAppearance: Bool = true

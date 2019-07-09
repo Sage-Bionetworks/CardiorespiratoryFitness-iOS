@@ -1,2 +1,2 @@
-github "Sage-Bionetworks/BridgeApp-Apple-SDK" ~> 1.0
+github "Sage-Bionetworks/BridgeApp-Apple-SDK" >= 1.0
 
