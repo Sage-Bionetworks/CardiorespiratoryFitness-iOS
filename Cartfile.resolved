@@ -1,3 +1,3 @@
-github "Sage-Bionetworks/Bridge-iOS-SDK" "50c21279506924aebb6674de25ebaebcd49e4d2d"
-github "Sage-Bionetworks/BridgeApp-Apple-SDK" "v1.1.15"
-github "Sage-Bionetworks/SageResearch" "v2.2.53"
+github "Sage-Bionetworks/Bridge-iOS-SDK" "2f51d4f112e307e8c4d7d30fcc86b5843af29230"
+github "Sage-Bionetworks/BridgeApp-Apple-SDK" "v2.0.21"
+github "Sage-Bionetworks/SageResearch" "v2.4.62"
