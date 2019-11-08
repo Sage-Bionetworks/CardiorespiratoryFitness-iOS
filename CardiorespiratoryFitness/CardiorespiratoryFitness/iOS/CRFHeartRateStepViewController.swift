@@ -452,7 +452,8 @@ public final class CRFHeartRateStepViewController: RSDActiveStepViewController, 
                 alertUserLowConfidence()
                 return
         }
-        self.progressLabel?.text = Localization.localizedStringWithFormatKey("HEARTRATE_CAPTURE_%@_BPM", bpmString)
+        self.progressLabel?.text = String.localizedStringWithFormat(
+            Localization.localizedString("HEARTRATE_CAPTURE_%@_BPM"), bpmString)
     }
     
     private func alertUserLowConfidence() {
