@@ -60,7 +60,8 @@ class CRFHRRecoveryStepViewController: RSDResultSummaryStepViewController {
             let range = (self.step as? CRFHRRecoveryStep)?.resultRange(from: self.stepViewModel.taskResult),
             let min = resultData.numberFormatter.string(from: NSNumber(value: range.min)),
             let max = resultData.numberFormatter.string(from: NSNumber(value: range.max)) {
-            self.stepTextLabel?.text = Localization.localizedStringWithFormatKey("HEARTRATE_RECOVERY_RANGE", min, max)
+            self.stepTextLabel?.text = String.localizedStringWithFormat(
+                Localization.localizedString("HEARTRATE_RECOVERY_RANGE"), min, max)
         }
     }
 }
