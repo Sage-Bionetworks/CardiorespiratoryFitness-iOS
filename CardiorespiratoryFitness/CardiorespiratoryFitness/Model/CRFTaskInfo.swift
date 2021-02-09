@@ -32,6 +32,7 @@
 //
 
 import Foundation
+import JsonModel
 
 /// A list of all the tasks included in this module.
 public enum CRFTaskIdentifier : String, Codable, CaseIterable {
@@ -75,7 +76,7 @@ public enum CRFTaskIdentifier : String, Codable, CaseIterable {
 }
 
 /// A task info object for the tasks included in this submodule.
-public struct CRFTaskInfo : RSDTaskInfo, RSDEmbeddedIconVendor {
+public struct CRFTaskInfo : RSDTaskInfo, RSDEmbeddedIconData {
 
     /// The task identifier for this task.
     public let taskIdentifier: CRFTaskIdentifier
@@ -97,7 +98,7 @@ public struct CRFTaskInfo : RSDTaskInfo, RSDEmbeddedIconVendor {
         self.task = taskIdentifier.task(with: factory) as! CRFTaskObject
         if let step = (task.stepNavigator as? RSDConditionalStepNavigator)?.steps.first as? RSDUIStep {
             self.title = step.title
-            self.subtitle = step.text
+            self.subtitle = step.subtitle
             self.detail = step.detail
         }
         self.schemaInfo = self.task.schemaInfo
@@ -105,9 +106,9 @@ public struct CRFTaskInfo : RSDTaskInfo, RSDEmbeddedIconVendor {
         // Set the default image icon.
         switch taskIdentifier {
         case .training, .resting:
-            self.icon = try! RSDImageWrapper(imageName: "heartRateIcon", bundle: Bundle(for: CRFFactory.self))
+            self.icon = try! RSDResourceImageDataObject(imageName: "heartRateIcon", bundle: Bundle(for: CRFFactory.self))
         case .stairStep:
-            self.icon = try! RSDImageWrapper(imageName: "stairStepIcon", bundle: Bundle(for: CRFFactory.self))
+            self.icon = try! RSDResourceImageDataObject(imageName: "stairStepIcon", bundle: Bundle(for: CRFFactory.self))
         }
     }
     
@@ -126,7 +127,7 @@ public struct CRFTaskInfo : RSDTaskInfo, RSDEmbeddedIconVendor {
     public var detail: String?
     
     /// The image icon for the task.
-    public var icon: RSDImageWrapper?
+    public var icon: RSDResourceImageDataObject?
     
     /// Estimated minutes to perform the task.
     public var estimatedMinutes: Int {
@@ -187,7 +188,7 @@ public struct CRFTaskTransformer : RSDResourceTransformer, Decodable {
     }
     
     /// The factory bundle points to this framework. (nil-resettable)
-    public var factoryBundle: Bundle? {
+    public var factoryBundle: ResourceBundle? {
         get { return _bundle ?? Bundle(for: CRFFactory.self)}
         set { _bundle = newValue  }
     }
@@ -201,7 +202,7 @@ public struct CRFTaskTransformer : RSDResourceTransformer, Decodable {
 }
 
 /// `RSDTaskGroupObject` is a concrete implementation of the `RSDTaskGroup` protocol.
-public struct CRFTaskGroup : RSDTaskGroup, RSDEmbeddedIconVendor, Decodable {
+public struct CRFTaskGroup : RSDTaskGroup, RSDEmbeddedIconData, Decodable {
     
     private enum CodingKeys: String, CodingKey, CaseIterable {
         case identifier, title, detail, icon
@@ -216,8 +217,8 @@ public struct CRFTaskGroup : RSDTaskGroup, RSDEmbeddedIconVendor, Decodable {
     /// Additional detail text to display for the task group in a localized string.
     public let detail: String?
     
-    /// The optional `RSDImageWrapper` with the pointer to the image.
-    public let icon: RSDImageWrapper?
+    /// The optional `RSDResourceImageDataObject` with the pointer to the image.
+    public let icon: RSDResourceImageDataObject?
     
     /// The task group object is
     public let tasks: [RSDTaskInfo] = CRFTaskIdentifier.allCases.map { CRFTaskInfo($0) }

@@ -106,7 +106,7 @@ public class CRFHeartRateRecorder : RSDSampleRecorder, CRFHeartRateVideoProcesso
         return sampleProcessor.vo2Max(sex: sex, age: age, startTime: startTime)
     }
     
-    public override func requestPermissions(on viewController: UIViewController, _ completion: @escaping RSDAsyncActionCompletionHandler) {
+    public override func requestPermissions(on viewController: Any, _ completion: @escaping RSDAsyncActionCompletionHandler) {
         
         let status = AVCaptureDevice.authorizationStatus(for: .video)
         if status == .denied || status == .restricted {

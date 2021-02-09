@@ -32,9 +32,11 @@
 //
 
 import UIKit
+import JsonModel
 
 extension RSDStepType {
     
+    static let demographics: RSDStepType = "demographics"
     static let heartRate: RSDStepType = "heartRate"
     static let torchInstruction: RSDStepType = "torchInstruction"
     static let hrRecoveryResult: RSDStepType = "hrRecoveryResult"
@@ -46,7 +48,7 @@ fileprivate var _didRegisterPermissions: Bool = false
 open class CRFFactory: RSDFactory {
     
     /// Override initialization to add the strings file to the localization bundles.
-    public override init() {
+    public required init() {
         super.init()
         
         // Add the localization bundle if this is a first init()
@@ -65,6 +67,8 @@ open class CRFFactory: RSDFactory {
     /// Override the base factory to vend the heart rate step.
     override open func decodeStep(from decoder: Decoder, with type: RSDStepType) throws -> RSDStep? {
         switch type {
+        case .demographics:
+            return try RSDFormUIStepObject(from: decoder)
         case .heartRate:
             return try CRFHeartRateStep(from: decoder)
         case .torchInstruction:
@@ -77,7 +81,7 @@ open class CRFFactory: RSDFactory {
     }
     
     /// Override the task decoder to vend a `CRFTaskObject`.
-    override open func decodeTask(with data: Data, from decoder: RSDFactoryDecoder) throws -> RSDTask {
+    override open func decodeTask(with data: Data, from decoder: FactoryDecoder) throws -> RSDTask {
         let task = try decoder.decode(CRFTaskObject.self, from: data)
         try task.validate()
         return task

@@ -33,6 +33,7 @@
 
 
 import UIKit
+import JsonModel
 
 extension CRFHRRecoveryStep : RSDStepViewControllerVendor {
     
@@ -43,7 +44,7 @@ extension CRFHRRecoveryStep : RSDStepViewControllerVendor {
     
     func resultRange(from taskResult: RSDTaskResult) -> (min: Double, max: Double)? {
         guard let answerResult = self.answerResult(from: taskResult),
-            let answer = (answerResult.value as? RSDJSONNumber)?.jsonNumber()?.doubleValue
+            let answer = (answerResult.value as? JsonNumber)?.jsonNumber()?.doubleValue
             else {
                 return nil
         }

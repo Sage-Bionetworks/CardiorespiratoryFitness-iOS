@@ -40,6 +40,10 @@ open class CRFHeartRateStep : RSDActiveUIStepObject, RSDRestartableRecorderConfi
         case cameraSettings, isResting, isTraining, shouldDeletePrevious
     }
     
+    open override class func defaultType() -> RSDStepType {
+        .heartRate
+    }
+    
     /// The camera settings.
     public var cameraSettings : CRFCameraSettings = CRFCameraSettings()
     

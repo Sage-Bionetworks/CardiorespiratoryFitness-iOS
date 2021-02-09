@@ -32,6 +32,7 @@
 //
 
 import Foundation
+import JsonModel
 
 extension RSDIdentifier {
     static let demographics: RSDIdentifier = "demographics"
@@ -72,11 +73,11 @@ public final class CRFTaskObject: RSDTaskObject, RSDTaskDesign {
         }
     }
     
-    private var previousRunData: [String : RSDJSONSerializable] = [:]
+    private var previousRunData: [String : JsonSerializable] = [:]
 
     /// Override task setup to get the demographics data from a previous run.
     public override func setupTask(with data: RSDTaskData?, for path: RSDTaskPathComponent) {
-        if let json = data?.json as? [String : RSDJSONSerializable] {
+        if let json = data?.json as? [String : JsonSerializable] {
             previousRunData[CRFDemographicsKeys.sex.stringValue] = json[CRFDemographicsKeys.sex.stringValue]
             previousRunData[CRFDemographicsKeys.birthYear.stringValue] = json[CRFDemographicsKeys.birthYear.stringValue]
         }

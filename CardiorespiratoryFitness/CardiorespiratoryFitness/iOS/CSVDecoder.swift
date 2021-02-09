@@ -32,6 +32,7 @@
 //
 
 import Foundation
+import JsonModel
 
 /// This csv decoder is narrowly designed to support decoding comma-delimited files where the format of the
 /// string values are wrapped with "" marks and the file includes a single line table header of key names.

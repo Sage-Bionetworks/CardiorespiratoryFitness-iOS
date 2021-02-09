@@ -56,7 +56,7 @@ class TaskObjectTests: XCTestCase {
         
         let dataStore = TestDataStoreManager()
         let previousRunTimestamp = Date(timeIntervalSinceNow: -1 * 60 * 60)
-        let json: [String : RSDJSONSerializable] = ["birthYear" : 1956,
+        let json: [String : JsonSerializable] = ["birthYear" : 1956,
                                          "sex" : "female",
                                          "hr_resting" : 62]
         dataStore.previous[RSDIdentifier(rawValue: task.identifier)] =
@@ -88,7 +88,7 @@ class TaskObjectTests: XCTestCase {
         XCTAssertNotNil(taskData.timestampDate)
         XCTAssertEqual(taskData.identifier, task.identifier)
         
-        guard let answers = taskData.json as? [String : RSDJSONSerializable] else {
+        guard let answers = taskData.json as? [String : JsonSerializable] else {
             XCTFail("\(taskData.json) not a dictionary")
             return
         }
