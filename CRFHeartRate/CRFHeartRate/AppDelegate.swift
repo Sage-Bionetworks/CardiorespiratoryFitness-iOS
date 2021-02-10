@@ -33,6 +33,7 @@
 
 import UIKit
 import BridgeApp
+import BridgeAppUI
 import BridgeSDK
 import CardiorespiratoryFitness
 

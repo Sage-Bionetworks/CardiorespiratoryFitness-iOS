@@ -30,6 +30,8 @@
 		F8F3670B2155DA9C00A49F89 /* BridgeInfo-private.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8F3670A2155DA9C00A49F89 /* BridgeInfo-private.plist */; };
 		F8F367242155DE8D00A49F89 /* ExternalIDRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F367232155DE8D00A49F89 /* ExternalIDRegistrationViewController.swift */; };
 		F8F3678C21597DF100A49F89 /* HeartRate_Measurement.json in Resources */ = {isa = PBXBuildFile; fileRef = F8F3678B21597DF100A49F89 /* HeartRate_Measurement.json */; };
+		FFDBA5F325D35E9B00FD00DA /* BridgeAppUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFDBA5F225D35E9B00FD00DA /* BridgeAppUI.framework */; };
+		FFDBA5F425D35E9B00FD00DA /* BridgeAppUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FFDBA5F225D35E9B00FD00DA /* BridgeAppUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,6 +46,7 @@
 				F83DE8E4227AA89B00603D7A /* BridgeSDK.framework in Embed Frameworks */,
 				F8E672A5228E2E34001AD63F /* ResearchMotion.framework in Embed Frameworks */,
 				F83DE8D8227AA89B00603D7A /* Research.framework in Embed Frameworks */,
+				FFDBA5F425D35E9B00FD00DA /* BridgeAppUI.framework in Embed Frameworks */,
 				F83DE8DB227AA89B00603D7A /* ResearchUI.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -73,6 +76,7 @@
 		F8F3670A2155DA9C00A49F89 /* BridgeInfo-private.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "BridgeInfo-private.plist"; path = "../../../iOSPrivateProjectInfo/CRFModuleValidation/BridgeInfo-private.plist"; sourceTree = "<group>"; };
 		F8F367232155DE8D00A49F89 /* ExternalIDRegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExternalIDRegistrationViewController.swift; sourceTree = "<group>"; };
 		F8F3678B21597DF100A49F89 /* HeartRate_Measurement.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HeartRate_Measurement.json; sourceTree = "<group>"; };
+		FFDBA5F225D35E9B00FD00DA /* BridgeAppUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BridgeAppUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,7 @@
 				F83DE8E3227AA89B00603D7A /* BridgeSDK.framework in Frameworks */,
 				F8E672A4228E2E34001AD63F /* ResearchMotion.framework in Frameworks */,
 				F83DE8D7227AA89B00603D7A /* Research.framework in Frameworks */,
+				FFDBA5F325D35E9B00FD00DA /* BridgeAppUI.framework in Frameworks */,
 				F83DE8DA227AA89B00603D7A /* ResearchUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,6 +109,7 @@
 		F844E45C227AAC2600DC82B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FFDBA5F225D35E9B00FD00DA /* BridgeAppUI.framework */,
 				F8E672A3228E2E34001AD63F /* ResearchMotion.framework */,
 				F83DE8DF227AA89B00603D7A /* BridgeApp.framework */,
 				F83DE8D3227AA89B00603D7A /* CardiorespiratoryFitness.framework */,
@@ -345,6 +351,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -400,6 +407,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -420,7 +428,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.sagebase.CRFHeartRate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development org.sagebase.CRFHeartRate";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -442,7 +450,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.sagebase.CRFHeartRate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match Distribution org.sagebase.CRFHeartRate";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
