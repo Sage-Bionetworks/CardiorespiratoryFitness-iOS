@@ -495,9 +495,10 @@ internal class CRFHeartRateSampleProcessor {
             let x_left = Array(x[1...(xl-i)])
             let x_right = Array(x[(i+1)...xl])
             let indexes = Array(0..<x_left.count)
-            let sum = indexes.reduce(Double(0), { (input, idx) -> Double in
-                return input + (x_left[idx] - mx) * (x_right[idx] - mx)
-            })
+            func sum_corr(_ input: Double, _ idx: Int) -> Double {
+                input + (x_left[idx] - mx) * (x_right[idx] - mx)
+            }
+            let sum = indexes.reduce(Double(0), { sum_corr($0, $1) })
             return sum / varx
         }
         return Array(x_acf)
