@@ -1,5 +1,6 @@
 {
     "identifier": "Heart Rate Recovery",
+    "type": "crf",
     "usesTrackedData": true,
     "shouldHideActions": ["goBackward", "skip"],
     "progressMarkers": ["sex", "birthYear"],

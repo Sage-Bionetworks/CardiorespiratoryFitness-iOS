@@ -37,4 +37,7 @@ import Research
 /// The default implementation for this step does nothing special but it will implement vending a step
 /// controller that is a subclass of an instruction step.
 open class CRFTorchInstructionStep : RSDUIStepObject {
+    open override class func defaultType() -> RSDStepType {
+        .torchInstruction
+    }
 }

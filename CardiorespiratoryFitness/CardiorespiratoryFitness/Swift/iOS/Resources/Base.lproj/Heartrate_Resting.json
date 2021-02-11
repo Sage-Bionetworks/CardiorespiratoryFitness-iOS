@@ -1,5 +1,6 @@
 {
     "identifier": "Resting Heart Rate",
+    "type": "crf",
     "usesTrackedData": true,
     "shouldHideActions": ["goBackward", "skip"],
     "progressMarkers": [],

@@ -49,7 +49,36 @@ public enum CRFDemographicsKeys : String, CodingKey, Codable {
     case birthYear, sex
 }
 
-public final class CRFTaskObject: RSDTaskObject, RSDTaskDesign {
+extension RSDTaskType {
+    static let crf: RSDTaskType = "crf"
+}
+
+public final class CRFTaskObject: AssessmentTaskObject, RSDTaskDesign {
+    public override class func defaultType() -> RSDTaskType {
+        .crf
+    }
+    
+    /// The camera settings to use for the heart rate steps (nil resettable).
+    public var cameraSettings : CRFCameraSettings? {
+        get { return heartRateSteps().first?.cameraSettings ?? nil }
+        set {
+            for step in heartRateSteps() {
+                step.cameraSettings = newValue ?? CRFCameraSettings()
+            }
+        }
+    }
+
+    private func heartRateSteps() -> [CRFHeartRateStep] {
+        guard let navigator = self.stepNavigator as? RSDConditionalStepNavigator else { return [] }
+        let steps = navigator.steps.compactMap { (step) -> CRFHeartRateStep? in
+            if let hrStep = step as? CRFHeartRateStep {
+                return hrStep
+            }
+            guard let sectionStep = step as? RSDSectionStep else { return nil }
+            return sectionStep.steps.first(where: { $0 is CRFHeartRateStep }) as? CRFHeartRateStep
+        }
+        return steps
+    }
 
     /// The birth year of the participant who is doing this task.
     public var birthYear: Int? {

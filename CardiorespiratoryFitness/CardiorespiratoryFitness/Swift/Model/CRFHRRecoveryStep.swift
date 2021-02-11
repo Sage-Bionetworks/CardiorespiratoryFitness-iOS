@@ -35,4 +35,7 @@ import Foundation
 import Research
 
 class CRFHRRecoveryStep : RSDResultSummaryStepObject {
+    override class func defaultType() -> RSDStepType {
+        .hrRecoveryResult
+    }
 }

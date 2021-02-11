@@ -1,5 +1,6 @@
 {
     "identifier": "Heart Rate Training",
+    "type": "crf",
     "shouldHideActions": ["goBackward", "skip"],
     "progressMarkers": [],
     "steps": [{

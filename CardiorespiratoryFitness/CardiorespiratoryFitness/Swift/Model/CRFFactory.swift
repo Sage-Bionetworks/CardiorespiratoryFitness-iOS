@@ -64,27 +64,14 @@ open class CRFFactory: RSDFactory {
             RSDAuthorizationHandler.registerAdaptorIfNeeded(RSDMotionAuthorization.shared)
             RSDAuthorizationHandler.registerAdaptorIfNeeded(CRFAVAuthorization.shared)
         }
-    }
+        
+        // Register custom  step types
+        self.stepSerializer.add(CRFHeartRateStep(identifier: "heartRate"))
+        self.stepSerializer.add(CRFTorchInstructionStep(identifier: "torch"))
+        self.stepSerializer.add(CRFHRRecoveryStep(identifier: "hrRecovery"))
 
-    /// Override the base factory to vend the heart rate step.
-    override open func decodeStep(from decoder: Decoder, with type: RSDStepType) throws -> RSDStep? {
-        switch type {
-        case .heartRate:
-            return try CRFHeartRateStep(from: decoder)
-        case .torchInstruction:
-            return try CRFTorchInstructionStep(from: decoder)
-        case .hrRecoveryResult:
-            return try CRFHRRecoveryStep(from: decoder)
-        default:
-            return try super.decodeStep(from: decoder, with: type)
-        }
-    }
-    
-    /// Override the task decoder to vend a `CRFTaskObject`.
-    override open func decodeTask(with data: Data, from decoder: FactoryDecoder) throws -> RSDTask {
-        let task = try decoder.decode(CRFTaskObject.self, from: data)
-        try task.validate()
-        return task
+        // And task types
+        self.taskSerializer.add(CRFTaskObject(identifier: "example", steps: []))
     }
     
     /// The default color palette for this module is version 0 with rose600, slate600, and apricot400.

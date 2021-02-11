@@ -51,11 +51,11 @@ public enum CRFTaskIdentifier : String, Codable, CaseIterable {
     /// Stair step VO2 max test.
     case stairStep = "Heart Rate Recovery"
     
-    func task(with factory: CRFFactory) -> RSDTaskObject {
+    func task(with factory: CRFFactory) -> CRFTaskObject {
         do {
             let transformer = CRFTaskTransformer(self)
             let mTask = try factory.decodeTask(with: transformer)
-            let task = mTask as! RSDTaskObject
+            let task = mTask as! CRFTaskObject
             
             // TODO: syoung 04/02/2019 Remove commented out code. Leaving for now in case researchers change their mind again.
             //            if self == .restingMorning, let intro = task.findStep(with: "introduction") as? RSDUIStepObject {
@@ -97,7 +97,7 @@ public struct CRFTaskInfo : RSDTaskInfo, RSDEmbeddedIconData {
         
         // Pull the title, subtitle, and detail from the first step in the task resource.
         let factory = (RSDFactory.shared as? CRFFactory) ?? CRFFactory()
-        self.task = taskIdentifier.task(with: factory) as! CRFTaskObject
+        self.task = taskIdentifier.task(with: factory)
         if let step = (task.stepNavigator as? RSDConditionalStepNavigator)?.steps.first as? RSDUIStep {
             self.title = step.title
             self.subtitle = step.subtitle
@@ -227,37 +227,6 @@ public struct CRFTaskGroup : RSDTaskGroup, RSDEmbeddedIconData, Decodable {
     
     /// The task group object is
     public let tasks: [RSDTaskInfo] = CRFTaskIdentifier.allCases.map { CRFTaskInfo($0) }
-}
-
-public protocol CRFTask : RSDTask {
-    
-    /// The camera settings to use for the heart rate steps (nil resettable).
-    var cameraSettings : CRFCameraSettings? { get set }
-}
-
-extension RSDTaskObject : CRFTask {
-    
-    /// The camera settings to use for the heart rate steps (nil resettable).
-    public var cameraSettings : CRFCameraSettings? {
-        get { return heartRateSteps().first?.cameraSettings ?? nil }
-        set {
-            for step in heartRateSteps() {
-                step.cameraSettings = newValue ?? CRFCameraSettings()
-            }
-        }
-    }
-
-    private func heartRateSteps() -> [CRFHeartRateStep] {
-        guard let navigator = self.stepNavigator as? RSDConditionalStepNavigator else { return [] }
-        let steps = navigator.steps.compactMap { (step) -> CRFHeartRateStep? in
-            if let hrStep = step as? CRFHeartRateStep {
-                return hrStep
-            }
-            guard let sectionStep = step as? RSDSectionStep else { return nil }
-            return sectionStep.steps.first(where: { $0 is CRFHeartRateStep }) as? CRFHeartRateStep
-        }
-        return steps
-    }
 }
 
 extension RSDTask {
