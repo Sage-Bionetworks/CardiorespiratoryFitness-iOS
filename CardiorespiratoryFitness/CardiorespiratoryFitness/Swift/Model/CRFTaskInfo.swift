@@ -33,6 +33,8 @@
 
 import Foundation
 import JsonModel
+import ResearchUI
+import Research
 
 /// A list of all the tasks included in this module.
 public enum CRFTaskIdentifier : String, Codable, CaseIterable {

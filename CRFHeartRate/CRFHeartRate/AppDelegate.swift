@@ -36,6 +36,8 @@ import BridgeApp
 import BridgeAppUI
 import BridgeSDK
 import CardiorespiratoryFitness
+import ResearchUI
+import Research
 
 @UIApplicationMain
 class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {

@@ -33,6 +33,8 @@
 
 import Foundation
 import JsonModel
+import ResearchUI
+import Research
 
 extension RSDIdentifier {
     static let demographics: RSDIdentifier = "demographics"

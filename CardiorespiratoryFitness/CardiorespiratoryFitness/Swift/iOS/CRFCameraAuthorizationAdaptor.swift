@@ -35,6 +35,7 @@
 
 import Foundation
 import AVFoundation
+import Research
 
 /// `CRFCameraAuthorizationAdaptor` is a wrapper for the AVFoundation library that allows a general-purpose
 /// step or task to query this library for authorization if and only if that library is required by the

@@ -31,14 +31,11 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
-@import UIKit;
-@import ResearchUI;
-@import Research;
-@import ResearchMotion;
-
-//! Project version number for CardiorespiratoryFitness.
-FOUNDATION_EXPORT double CardiorespiratoryFitnessVersionNumber;
-
-//! Project version string for CardiorespiratoryFitness.
-FOUNDATION_EXPORT const unsigned char CardiorespiratoryFitnessVersionString[];
+//@import UIKit;
+//
+////! Project version number for CardiorespiratoryFitness.
+//FOUNDATION_EXPORT double CardiorespiratoryFitnessVersionNumber;
+//
+////! Project version string for CardiorespiratoryFitness.
+//FOUNDATION_EXPORT const unsigned char CardiorespiratoryFitnessVersionString[];
 

@@ -32,6 +32,7 @@
 //
 
 import UIKit
+import Research
 
 /// Custom subclass of the active step that can decode configuration details specific to the heart rate
 /// recorder used by this step view controller.

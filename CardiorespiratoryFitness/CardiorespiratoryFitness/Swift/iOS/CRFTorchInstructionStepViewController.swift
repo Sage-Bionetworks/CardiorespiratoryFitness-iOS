@@ -33,6 +33,8 @@
 
 import UIKit
 import AVFoundation
+import ResearchUI
+import Research
 
 extension CRFTorchInstructionStep : RSDStepViewControllerVendor {
     public func instantiateViewController(with parent: RSDPathComponent?) -> (UIViewController & RSDStepController)? {

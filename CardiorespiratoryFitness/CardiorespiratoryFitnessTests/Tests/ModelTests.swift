@@ -35,6 +35,7 @@ import XCTest
 @testable import CardiorespiratoryFitness
 @testable import Research_UnitTest
 import NSLocaleSwizzle
+import Research
 
 class ModelTests: XCTestCase {
     

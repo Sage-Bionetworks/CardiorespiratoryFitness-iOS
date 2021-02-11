@@ -33,6 +33,7 @@
 
 import UIKit
 import AVFoundation
+import ResearchUI
 
 public class CRFStairStepViewController: RSDActiveStepViewController {
     

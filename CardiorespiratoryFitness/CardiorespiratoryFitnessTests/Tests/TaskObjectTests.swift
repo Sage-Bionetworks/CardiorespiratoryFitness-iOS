@@ -34,7 +34,7 @@
 import XCTest
 @testable import CardiorespiratoryFitness
 @testable import Research_UnitTest
-
+import Research
 import JsonModel
 
 class TaskObjectTests: XCTestCase {

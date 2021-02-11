@@ -34,6 +34,8 @@
 
 import UIKit
 import JsonModel
+import ResearchUI
+import Research
 
 extension CRFHRRecoveryStep : RSDStepViewControllerVendor {
     

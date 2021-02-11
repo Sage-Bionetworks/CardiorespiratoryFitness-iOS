@@ -32,7 +32,8 @@ let package = Package(
     targets: [
         .target(
             name: "CardiorespiratoryFitness",
-            dependencies: ["JsonModel",
+            dependencies: ["CardiorespiratoryFitnessObjC",
+                           "JsonModel",
                            .product(name: "Research", package: "SageResearch"),
                            .product(name: "ResearchUI", package: "SageResearch"),
                            .product(name: "ResearchMotion", package: "SageResearch"),
@@ -42,6 +43,10 @@ let package = Package(
                 .process("Resources"),
                 .process("iOS/Resources"),
             ]),
+        .target(name: "CardiorespiratoryFitnessObjC",
+                dependencies: [],
+                path: "CardiorespiratoryFitness/CardiorespiratoryFitness/ObjC",
+                exclude: ["Info.plist"]),
 
         .testTarget(
             name: "CardiorespiratoryFitnessTests",

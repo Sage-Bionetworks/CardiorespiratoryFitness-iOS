@@ -33,6 +33,9 @@
 
 import UIKit
 import JsonModel
+import ResearchMotion
+import ResearchUI
+import Research
 
 extension RSDStepType {
     
