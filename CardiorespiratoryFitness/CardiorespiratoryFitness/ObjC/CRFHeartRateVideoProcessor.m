@@ -31,7 +31,7 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
-#import "CRFHeartRateVideoProcessor.h"
+#import "include/CRFHeartRateVideoProcessor.h"
 
 typedef NS_ENUM(NSInteger, MovieRecorderStatus) {
     MovieRecorderStatusIdle = 0,

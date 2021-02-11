@@ -1,8 +1,8 @@
 //
-//  CardiorespiratoryFitness.h
-//  CardiorespiratoryFitness
+//  CardiorespiratoryFitnessObjC.h
 //
-//  Copyright © 2018 Sage Bionetworks. All rights reserved.
+//  Copyright © 2021 Sage Bionetworks. All rights reserved.
+//
 //
 // Redistribution and use in source and binary forms, with or without modification,
 // are permitted provided that the following conditions are met:
@@ -31,14 +31,4 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
-@import UIKit;
-@import ResearchUI;
-@import Research;
-@import ResearchMotion;
-
-//! Project version number for CardiorespiratoryFitness.
-FOUNDATION_EXPORT double CardiorespiratoryFitnessVersionNumber;
-
-//! Project version string for CardiorespiratoryFitness.
-FOUNDATION_EXPORT const unsigned char CardiorespiratoryFitnessVersionString[];
-
+#import "CRFHeartRateVideoProcessor.h"

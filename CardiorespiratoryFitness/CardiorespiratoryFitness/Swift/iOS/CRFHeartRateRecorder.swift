@@ -33,6 +33,7 @@
 
 import Foundation
 import AVFoundation
+import CardiorespiratoryFitnessObjC
 
 /// A hardcoded value used as the min confidence to include a recording.
 public let CRFMinConfidence = 0.5
