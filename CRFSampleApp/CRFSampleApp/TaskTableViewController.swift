@@ -37,13 +37,17 @@ import CardiorespiratoryFitness
 
 class TaskTableViewController: UITableViewController {
     
-    public let taskList: [CRFTaskInfo] = CRFTaskIdentifier.allCases.map { CRFTaskInfo($0) }
+    public var taskList: [CRFTaskInfo]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        taskList = CRFTaskIdentifier.allCases.map { CRFTaskInfo($0) }
 
         // Use automatic hieght dimension
         tableView.rowHeight = UITableView.automaticDimension
+        
+        tableView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -78,7 +82,7 @@ class TaskTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return taskList.count
+        return taskList?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

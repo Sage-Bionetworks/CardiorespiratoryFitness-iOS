@@ -48,7 +48,7 @@ public class CRFStairStepViewController: RSDActiveStepViewController {
         super.viewDidLoad()
         
         do {
-            let bundle = Bundle(for: CRFStairStepViewController.self)
+            let bundle = Bundle.module
             let url = bundle.url(forResource: "stairStepAudio", withExtension: "m4a")!
             self.audioPlayer = try AVAudioPlayer(contentsOf: url)
         } catch let error {

@@ -1,8 +1,8 @@
 //
-//  CRFHRRecoveryStepViewController.swift
-//  CardiorespiratoryFitness
+//  Bundle+module.swift
+//  Research
 //
-//  Copyright © 2019 Sage Bionetworks. All rights reserved.
+//  Copyright © 2020 Sage Bionetworks. All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without modification,
 // are permitted provided that the following conditions are met:
@@ -31,38 +31,16 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
+import Foundation
 
-import UIKit
-import JsonModel
+// Swift Packages have an internal static property defined on the Bundle to access
+// bundle resources. This code file is *not* included in the swift packages and can
+// allow building both a dynamic framework *or* a Swift Package using the same code
+// files. syoung 11/05/2020
 
-extension CRFHRRecoveryStep : RSDStepViewControllerVendor {
-    
-    func instantiateViewController(with parent: RSDPathComponent?) -> (UIViewController & RSDStepController)? {
-        let vc = CRFHRRecoveryStepViewController(step: self, parent: parent)
-        return vc
-    }
-    
-    func resultRange(from taskResult: RSDTaskResult) -> (min: Double, max: Double)? {
-        guard let answerResult = self.answerValueAndType(from: taskResult),
-            let answer = (answerResult.value as? JsonNumber)?.jsonNumber()?.doubleValue
-            else {
-                return nil
-        }
-        return (answer * 0.95, answer * 1.05)
-    }
+class BundleResource {
 }
 
-class CRFHRRecoveryStepViewController: RSDResultSummaryStepViewController {
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if let resultData = self.resultData,
-            let range = (self.step as? CRFHRRecoveryStep)?.resultRange(from: self.stepViewModel.taskResult),
-            let min = resultData.numberFormatter.string(from: NSNumber(value: range.min)),
-            let max = resultData.numberFormatter.string(from: NSNumber(value: range.max)) {
-            self.stepTextLabel?.text = String.localizedStringWithFormat(
-                Localization.localizedString("HEARTRATE_RECOVERY_RANGE"), min, max)
-        }
-    }
+extension Bundle {
+    static let module = Bundle(for: BundleResource.self)
 }

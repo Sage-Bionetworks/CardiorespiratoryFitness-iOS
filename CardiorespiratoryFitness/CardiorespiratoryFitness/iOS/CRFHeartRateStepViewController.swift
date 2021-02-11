@@ -37,7 +37,7 @@ extension CRFHeartRateStep : RSDStepViewControllerVendor {
     
     /// By default, return the task view controller from the storyboard.
     public func instantiateViewController(with parent: RSDPathComponent?) -> (UIViewController & RSDStepController)? {
-        let bundle = Bundle(for: CRFHeartRateStepViewController.self)
+        let bundle = Bundle.module
         let storyboard = UIStoryboard(name: "ActiveTaskSteps", bundle: bundle)
         let vc = storyboard.instantiateViewController(withIdentifier: "HeartRate") as? CRFHeartRateStepViewController
         vc?.stepViewModel = vc?.instantiateStepViewModel(for: self, with: parent)
@@ -312,7 +312,7 @@ public final class CRFHeartRateStepViewController: RSDActiveStepViewController, 
             self.learnMoreButton?.isHidden = false
             self.imageView.isHidden = false
             self.imageView.image = UIImage(named: "AlertIcon",
-                                           in: Bundle(for: CRFHeartRateStepViewController.self),
+                                           in: Bundle.module,
                                            compatibleWith: self.traitCollection)
             self.progressLabel?.isHidden = true
             self.instructionTitleLabel?.isHidden = false
@@ -380,7 +380,7 @@ public final class CRFHeartRateStepViewController: RSDActiveStepViewController, 
         self.continueButton?.isHidden = true
         self.imageView?.isHidden = false
         self.imageView?.image = UIImage(named: "heartRateIconCapturing",
-                                        in: Bundle(for: CRFHeartRateStepViewController.self),
+                                        in: Bundle.module,
                                         compatibleWith: self.traitCollection)
         self.loadingIndicator.isHidden = false
         self.loadingIndicator.startAnimating()

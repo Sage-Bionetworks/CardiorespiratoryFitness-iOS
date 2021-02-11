@@ -392,7 +392,7 @@ class HeartRateProcessorTests: XCTestCase {
     
 let testData: ProcessorTestData = {
     do {
-        let bundle = Bundle(for: HeartRateProcessorTests.self)
+        let bundle = Bundle.module
         let url = bundle.url(forResource: "io_examples", withExtension: "json")!
         let data = try Data(contentsOf: url)
         let decoder = JSONDecoder()
@@ -406,7 +406,7 @@ let testData: ProcessorTestData = {
 
 let testHRData: HRProcessorTestData = {
     do {
-        let bundle = Bundle(for: HeartRateProcessorTests.self)
+        let bundle = Bundle.module
         let url = bundle.url(forResource: "io_examples_whole", withExtension: "json")!
         let data = try Data(contentsOf: url)
         let decoder = JSONDecoder()
@@ -420,7 +420,7 @@ let testHRData: HRProcessorTestData = {
 
 let testHRData12hz: HRProcessorTestData = {
     do {
-        let bundle = Bundle(for: HeartRateProcessorTests.self)
+        let bundle = Bundle.module
         let url = bundle.url(forResource: "io_examples_whole_12hz", withExtension: "json")!
         let data = try Data(contentsOf: url)
         let decoder = JSONDecoder()
@@ -434,7 +434,7 @@ let testHRData12hz: HRProcessorTestData = {
 
 let testEarlierPeaksExample: TestHRPeaks = {
     do {
-        let bundle = Bundle(for: HeartRateProcessorTests.self)
+        let bundle = Bundle.module
         let url = bundle.url(forResource: "io_example_earlier_peak", withExtension: "json")!
         let data = try Data(contentsOf: url)
         let decoder = JSONDecoder()
@@ -448,7 +448,7 @@ let testEarlierPeaksExample: TestHRPeaks = {
 
 let testLaterPeaksExample: TestHRPeaks = {
     do {
-        let bundle = Bundle(for: HeartRateProcessorTests.self)
+        let bundle = Bundle.module
         let url = bundle.url(forResource: "io_example_later_peak", withExtension: "json")!
         let data = try Data(contentsOf: url)
         let decoder = JSONDecoder()

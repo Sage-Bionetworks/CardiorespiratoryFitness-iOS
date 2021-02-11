@@ -106,9 +106,9 @@ public struct CRFTaskInfo : RSDTaskInfo, RSDEmbeddedIconData {
         // Set the default image icon.
         switch taskIdentifier {
         case .training, .resting:
-            self.icon = try! RSDResourceImageDataObject(imageName: "heartRateIcon", bundle: Bundle(for: CRFFactory.self))
+            self.icon = try! RSDResourceImageDataObject(imageName: "heartRateIcon", bundle: Bundle.module)
         case .stairStep:
-            self.icon = try! RSDResourceImageDataObject(imageName: "stairStepIcon", bundle: Bundle(for: CRFFactory.self))
+            self.icon = try! RSDResourceImageDataObject(imageName: "stairStepIcon", bundle: Bundle.module)
         }
     }
     
@@ -165,7 +165,7 @@ public struct CRFTaskInfo : RSDTaskInfo, RSDEmbeddedIconData {
 public struct CRFTaskTransformer : RSDResourceTransformer, Decodable {
 
     private enum CodingKeys : String, CodingKey {
-        case resourceName
+        case resourceName, packageName
     }
     
     public init(_ taskIdentifier: CRFTaskIdentifier) {
@@ -182,6 +182,9 @@ public struct CRFTaskTransformer : RSDResourceTransformer, Decodable {
     /// Name of the resource for this transformer.
     public let resourceName: String
     
+    /// Name of the Android package.
+    public var packageName: String?
+    
     /// Get the task resource from this bundle.
     public var bundleIdentifier: String? {
         return factoryBundle?.bundleIdentifier
@@ -189,10 +192,10 @@ public struct CRFTaskTransformer : RSDResourceTransformer, Decodable {
     
     /// The factory bundle points to this framework. (nil-resettable)
     public var factoryBundle: ResourceBundle? {
-        get { return _bundle ?? Bundle(for: CRFFactory.self)}
+        get { return _bundle ?? Bundle.module}
         set { _bundle = newValue  }
     }
-    private var _bundle: Bundle? = nil
+    private var _bundle: ResourceBundle? = nil
     
     // MARK: Not used.
     

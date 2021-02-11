@@ -54,7 +54,7 @@ open class CRFFactory: RSDFactory {
         // Add the localization bundle if this is a first init()
         if !_didAddLocalizationBundle {
             _didAddLocalizationBundle = true
-            let localizationBundle = LocalizationBundle(Bundle(for: CRFFactory.self))
+            let localizationBundle = LocalizationBundle(Bundle.module)
             Localization.insert(bundle: localizationBundle, at: 1)
         }
         

@@ -604,7 +604,7 @@ let highPassParameters : [FilterParameters] = {
 }()
 
 func getParams<T : Decodable>(_ type: T.Type, from filename: String) throws -> [T] {
-    let bundle = Bundle(for: CRFFactory.self)
+    let bundle = Bundle.module
     guard let url = bundle.url(forResource: filename, withExtension: "csv") else {
         throw DecodingError.dataCorrupted(DecodingError.Context(codingPath: [], debugDescription: "\(filename) not found"))
     }

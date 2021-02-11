@@ -56,6 +56,9 @@
 		F8E6729F228E2DF6001AD63F /* ResearchMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8E6729E228E2DF6001AD63F /* ResearchMotion.framework */; };
 		F8E68EE32252A30900CF0811 /* CRFTaskObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E68EE22252A30900CF0811 /* CRFTaskObject.swift */; };
 		F8E68EF122531E5400CF0811 /* TaskObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E68EF022531E5400CF0811 /* TaskObjectTests.swift */; };
+		FFCC05E825D5AD6E00185C5B /* Bundle+module.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC05E725D5AD6E00185C5B /* Bundle+module.swift */; };
+		FFCC05EB25D5AE3F00185C5B /* Bundle+module.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC05E725D5AD6E00185C5B /* Bundle+module.swift */; };
+		FFCC05F125D5AFBC00185C5B /* NSLocaleSwizzle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFCC05F025D5AFBC00185C5B /* NSLocaleSwizzle.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +132,8 @@
 		F8E68EE22252A30900CF0811 /* CRFTaskObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRFTaskObject.swift; sourceTree = "<group>"; };
 		F8E68EEE22531E2B00CF0811 /* Research_UnitTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Research_UnitTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E68EF022531E5400CF0811 /* TaskObjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskObjectTests.swift; sourceTree = "<group>"; };
+		FFCC05E725D5AD6E00185C5B /* Bundle+module.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+module.swift"; sourceTree = SOURCE_ROOT; };
+		FFCC05F025D5AFBC00185C5B /* NSLocaleSwizzle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NSLocaleSwizzle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8C0582122778E4C00FA59E6 /* Research_UnitTest.framework in Frameworks */,
+				FFCC05F125D5AFBC00185C5B /* NSLocaleSwizzle.framework in Frameworks */,
 				F88725E32051C0F900A4B82F /* CardiorespiratoryFitness.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,6 +266,7 @@
 			children = (
 				F88725DC2051C0F800A4B82F /* CardiorespiratoryFitness.h */,
 				F88725DD2051C0F800A4B82F /* Info.plist */,
+				FFCC05E725D5AD6E00185C5B /* Bundle+module.swift */,
 				F880C12D2051F25400ACB4D4 /* Shared Resources */,
 				F880C10F2051F13800ACB4D4 /* Model */,
 				F880C1182051F14C00ACB4D4 /* iOS */,
@@ -302,6 +309,7 @@
 		F8BA7FA42051D9CC00A5B83A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FFCC05F025D5AFBC00185C5B /* NSLocaleSwizzle.framework */,
 				F8E6729E228E2DF6001AD63F /* ResearchMotion.framework */,
 				F8C0582022778E4C00FA59E6 /* Research_UnitTest.framework */,
 				F8C0581E22778E3200FA59E6 /* ResearchUI.framework */,
@@ -486,6 +494,7 @@
 				F8E68EE32252A30900CF0811 /* CRFTaskObject.swift in Sources */,
 				F880C1532051F9FD00ACB4D4 /* CRFHeartRateStepViewController.swift in Sources */,
 				F880C18120520CF500ACB4D4 /* CRFCameraSettings.swift in Sources */,
+				FFCC05E825D5AD6E00185C5B /* Bundle+module.swift in Sources */,
 				F880C15D2051FA5F00ACB4D4 /* CRFHeartRateVideoProcessor.m in Sources */,
 				F8D71AF5224D462F00DA49BC /* CRFHRRecoveryStepViewController.swift in Sources */,
 				F80479E22257E52200E569AC /* CRFTorchInstructionStep.swift in Sources */,
@@ -499,6 +508,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8E68EF122531E5400CF0811 /* TaskObjectTests.swift in Sources */,
+				FFCC05EB25D5AE3F00185C5B /* Bundle+module.swift in Sources */,
 				F897CF97225561680088DFAE /* CSVDecoderTests.swift in Sources */,
 				F880C18520530D9500ACB4D4 /* HeartRateProcessorTests.swift in Sources */,
 				F86CB41F225BD61A005FBE7E /* ArrayExtensionTests.swift in Sources */,

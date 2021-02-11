@@ -420,7 +420,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = KA9Z8R6M6K;
 				INFOPLIST_FILE = CRFHeartRate/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -442,7 +442,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = KA9Z8R6M6K;
 				INFOPLIST_FILE = CRFHeartRate/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

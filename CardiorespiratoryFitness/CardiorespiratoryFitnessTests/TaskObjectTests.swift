@@ -35,7 +35,7 @@ import XCTest
 @testable import CardiorespiratoryFitness
 @testable import Research_UnitTest
 
-import XCTest
+import JsonModel
 
 class TaskObjectTests: XCTestCase {
 
@@ -48,8 +48,6 @@ class TaskObjectTests: XCTestCase {
     }
     
     func testTaskNavigation_PreviousDemographics() {
-        NSLocale.setCurrentTest(Locale(identifier: "en_US"))
-        
         let task = CRFTaskInfo(.stairStep).task
         let taskController = TestTaskController()
         taskController.task = task
@@ -98,8 +96,6 @@ class TaskObjectTests: XCTestCase {
     }
     
     func testTaskNavigation_SetDemographics() {
-        NSLocale.setCurrentTest(Locale(identifier: "en_US"))
-        
         let task = CRFTaskInfo(.stairStep).task
         task.birthYear = 1956
         task.sex = .female
@@ -109,8 +105,6 @@ class TaskObjectTests: XCTestCase {
     }
     
     func testTaskNavigation_NoDemographics() {
-        NSLocale.setCurrentTest(Locale(identifier: "en_US"))
-        
         let task = CRFTaskInfo(.stairStep).task
         let taskController = TestTaskController()
         taskController.task = task
@@ -131,9 +125,7 @@ class TaskObjectTests: XCTestCase {
         XCTAssertEqual(node.identifier, "demographics")
     }
     
-    func testTaskCameraSettings() {
-        NSLocale.setCurrentTest(Locale(identifier: "en_US"))
-        
+    func testTaskCameraSettings() {        
         let task = CRFTaskInfo(.resting).task
         guard let settings = task.cameraSettings else {
             XCTFail("Unexpected null camera settings.")
