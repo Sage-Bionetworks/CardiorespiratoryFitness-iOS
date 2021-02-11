@@ -3,7 +3,7 @@
 //  CRFSampleAppTests
 //
 //  Created by Shannon Young on 5/1/19.
-//  Copyright © 2019 Sage Bionetworks. All rights reserved.
+//  Copyright © 2019-2021 Sage Bionetworks. All rights reserved.
 //
 
 import XCTest

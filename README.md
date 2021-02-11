@@ -6,7 +6,7 @@
 
 Sage Research SDK is available under the BSD license:
 
-Copyright (c) 2017-2019, Sage Bionetworks
+Copyright (c) 2017-2021, Sage Bionetworks
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

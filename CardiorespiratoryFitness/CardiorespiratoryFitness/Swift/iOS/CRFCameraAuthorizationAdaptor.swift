@@ -3,7 +3,7 @@
 //  CardiorespiratoryFitness
 //
 //  Created by Shannon Young on 5/16/19.
-//  Copyright © 2019 Sage Bionetworks. All rights reserved.
+//  Copyright © 2019-2021 Sage Bionetworks. All rights reserved.
 //
 //
 // Redistribution and use in source and binary forms, with or without modification,
