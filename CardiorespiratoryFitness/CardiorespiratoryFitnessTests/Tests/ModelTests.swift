@@ -94,8 +94,8 @@ class ModelTests: XCTestCase {
         
         XCTAssertEqual(taskInfo.identifier, "Heart Rate Training")
         XCTAssertEqual(taskInfo.title, "Heart Rate Training")
-        XCTAssertEqual(taskInfo.subtitle, "Your phone's camera can measure your heartbeat.")
-        XCTAssertNil(taskInfo.detail)
+        XCTAssertEqual(taskInfo.detail, "Your phone's camera can measure your heartbeat.")
+        XCTAssertNil(taskInfo.subtitle)
         XCTAssertEqual(taskInfo.estimatedMinutes, 2)
         
         guard let feedback = taskInfo.task.findStep(with: "feedback") as? RSDResultSummaryStepObject else {
@@ -122,8 +122,8 @@ class ModelTests: XCTestCase {
         
         XCTAssertEqual(taskInfo.identifier, "Resting Heart Rate")
         XCTAssertEqual(taskInfo.title, "Resting Heart Rate")
-        XCTAssertEqual(taskInfo.subtitle, "Your heart rate while you are at rest is a marker of your health. The more relaxed you are, the better. Let's measure your resting heart rate.")
-        XCTAssertNil(taskInfo.detail)
+        XCTAssertEqual(taskInfo.detail, "Your heart rate while you are at rest is a marker of your health. The more relaxed you are, the better. Let's measure your resting heart rate.")
+        XCTAssertNil(taskInfo.subtitle)
         XCTAssertEqual(taskInfo.estimatedMinutes, 1)
         
         guard let navigator = taskInfo.task.stepNavigator as? RSDOrderedStepNavigator else {
@@ -170,8 +170,8 @@ class ModelTests: XCTestCase {
         
         XCTAssertEqual(taskInfo.identifier, "Heart Rate Recovery")
         XCTAssertEqual(taskInfo.title, "Heart Rate Recovery")
-        XCTAssertEqual(taskInfo.subtitle, "You will be stepping up and down a step for 3 minutes to raise your heart rate. Right after you finish stepping, measure your heart rate for 1 minute to see how your heart rate recovers.")
-        XCTAssertNil(taskInfo.detail)
+        XCTAssertEqual(taskInfo.detail, "You will be stepping up and down a step for 3 minutes to raise your heart rate. Right after you finish stepping, measure your heart rate for 1 minute to see how your heart rate recovers.")
+        XCTAssertNil(taskInfo.subtitle)
         XCTAssertEqual(taskInfo.estimatedMinutes, 5)
         
         XCTAssertTrue(checkFeedback(taskInfo.task, "feedback", RSDIdentifier.vo2MaxResultIdentifier.stringValue, "hr"))
@@ -199,8 +199,8 @@ class ModelTests: XCTestCase {
         
         XCTAssertEqual(copy.identifier, "Foo")
         XCTAssertEqual(copy.title, "Heart Rate Training")
-        XCTAssertEqual(copy.subtitle, "Your phone's camera can measure your heartbeat.")
-        XCTAssertNil(copy.detail)
+        XCTAssertEqual(copy.detail, "Your phone's camera can measure your heartbeat.")
+        XCTAssertNil(copy.subtitle)
         XCTAssertEqual(copy.estimatedMinutes, 2)
     }
     

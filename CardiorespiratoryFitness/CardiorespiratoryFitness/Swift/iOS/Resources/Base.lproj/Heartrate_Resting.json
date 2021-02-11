@@ -7,7 +7,7 @@
         "identifier": "introduction",
         "type": "overview",
         "title": "Resting Heart Rate",
-        "text": "Your heart rate while you are at rest is a marker of your health. The more relaxed you are, the better. Let's measure your resting heart rate.",
+        "detail": "Your heart rate while you are at rest is a marker of your health. The more relaxed you are, the better. Let's measure your resting heart rate.",
         "permissions": [{
             "permissionType": "camera",
             "reason": "We use the camera to see your finger as blood goes through it so we can measure your heart beats."
@@ -36,7 +36,7 @@
         "identifier": "sitDownInstruction",
         "type": "instruction",
         "title": "Sit down and relax",
-        "text": "If you don't feel relaxed, take a moment and breathe slowly before starting the measurement.",
+        "detail": "If you don't feel relaxed, take a moment and breathe slowly before starting the measurement.",
         "image": {
             "type": "fetchable",
             "imageName": "sittingDown",
@@ -60,7 +60,7 @@
         "identifier": "coverFlash",
         "type": "instruction",
         "title": "Cover the flash and camera",
-        "text": "Use your finger to cover the camera and flash on the back of your phone. Your finger nail should turn a little red once you cover the flash.",
+        "detail": "Use your finger to cover the camera and flash on the back of your phone. Your finger nail should turn a little red once you cover the flash.",
         "image": {
             "type": "animated",
             "imageNames": ["Cover_Flash_1", "Cover_Flash_2", "Cover_Flash_3"],
@@ -88,7 +88,7 @@
         "resultIdentifier": "resting",
         "unitText": "BPM",
         "title": "Measure twice",
-        "text": "Many things can influence your measurement. To improve the accuracy, let's meaure it one more time.",
+        "detail": "Many things can influence your measurement. To improve the accuracy, let's meaure it one more time.",
         "actions": {
             "goForward": {
                 "type": "default",
@@ -116,7 +116,7 @@
         "resultIdentifier": "resting",
         "unitText": "BPM",
         "title": "Resting HR Captured!",
-        "text": "Great job measuring your heart at rest. We've finished the first half of your heart snapshot, so let's continue on to the next step.",
+        "detail": "Great job measuring your heart at rest. We've finished the first half of your heart snapshot, so let's continue on to the next step.",
         "actions": {
             "goForward": {
                 "type": "default",
