@@ -39,7 +39,6 @@ import Research
 
 extension RSDStepType {
     
-    static let demographics: RSDStepType = "demographics"
     static let heartRate: RSDStepType = "heartRate"
     static let torchInstruction: RSDStepType = "torchInstruction"
     static let hrRecoveryResult: RSDStepType = "hrRecoveryResult"
@@ -70,8 +69,6 @@ open class CRFFactory: RSDFactory {
     /// Override the base factory to vend the heart rate step.
     override open func decodeStep(from decoder: Decoder, with type: RSDStepType) throws -> RSDStep? {
         switch type {
-        case .demographics:
-            return try RSDFormUIStepObject(from: decoder)
         case .heartRate:
             return try CRFHeartRateStep(from: decoder)
         case .torchInstruction:

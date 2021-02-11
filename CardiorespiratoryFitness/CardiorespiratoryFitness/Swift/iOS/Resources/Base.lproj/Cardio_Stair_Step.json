@@ -78,11 +78,12 @@
     },
     {
         "identifier": "sex",
-        "type": "demographics",
+        "type": "simpleQuestion",
         "title": "What is your sex?",
-        "inputFields": [{
+        "optional": false,
+        "inputItem": {
             "uiHint": "list",
-            "type": "singleChoice.string",
+            "type": "choicePicker",
             "choices": [{
                 "text": "Male",
                 "value": "male"
@@ -96,7 +97,7 @@
                 "value": "other"
             }
             ]
-        }],
+        },
         "actions": {
             "goForward": {
                 "type": "default",
@@ -117,15 +118,15 @@
     },
     {
         "identifier": "birthYear",
-        "type": "demographics",
+        "type": "simpleQuestion",
         "title": "What year were you born?",
-        "inputFields": [{
+        "inputItem": {
             "type": "year",
             "uiHint": "textfield",
-            "range": {
+            "formatOptions": {
                 "allowFuture": false
             }
-        }],
+        },
         "actions": {
             "goForward": {
                 "type": "default",

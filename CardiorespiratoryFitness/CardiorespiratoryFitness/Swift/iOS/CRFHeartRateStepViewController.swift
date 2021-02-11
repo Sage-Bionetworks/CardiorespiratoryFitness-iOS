@@ -87,7 +87,7 @@ public final class CRFHeartRateStepViewController: RSDActiveStepViewController, 
     public private(set) var bpmRecorder: CRFHeartRateRecorder?
     
     /// This step has multiple results so use a collection result to store them.
-    public private(set) var collectionResult: RSDCollectionResult?
+    public private(set) var collectionResult: CollectionResult?
     
     /// Add the result to the collection. This will fail to add the result if called before the step is
     /// added to the view controller.
@@ -228,7 +228,8 @@ public final class CRFHeartRateStepViewController: RSDActiveStepViewController, 
             else {
 
                 if let vo2 = recorder.vo2Max(), let bpm = recorder.endHeartRate()  {
-                    addResult(RSDAnswerResultObject(identifier: RSDIdentifier.vo2MaxResultIdentifier.stringValue, answerType: .integer, value: Int(round(vo2))))
+                    addResult(AnswerResultObject(identifier: RSDIdentifier.vo2MaxResultIdentifier.stringValue,
+                                                 value: .integer(Int(round(vo2)))))
                     addSample(bpm, RSDIdentifier.endHRResultIdentifier.stringValue)
                     resultSample = bpm
                 }
@@ -253,12 +254,10 @@ public final class CRFHeartRateStepViewController: RSDActiveStepViewController, 
     }
     
     private func addSample(_ value: Double, confidence: Double, _ identifier: String) {
-        var bpmResult = RSDAnswerResultObject(identifier: identifier, answerType: RSDAnswerResultType(baseType: .integer))
-        bpmResult.value = value
+        let bpmResult = AnswerResultObject(identifier: identifier, value: .integer(Int(value)))
         addResult(bpmResult)
         
-        var confidenceResult = RSDAnswerResultObject(identifier: "\(identifier)_confidence", answerType: RSDAnswerResultType(baseType: .decimal))
-        confidenceResult.value = confidence
+        let confidenceResult = AnswerResultObject(identifier: "\(identifier)_confidence", value: .number(confidence))
         addResult(confidenceResult)
     }
     

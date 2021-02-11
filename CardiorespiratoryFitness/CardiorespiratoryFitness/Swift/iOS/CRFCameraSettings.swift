@@ -107,11 +107,11 @@ public struct CRFCameraSettings : Codable, RSDResult, RSDArchivable, Equatable {
     }
     
     /// Initialize the struct using a step result that maps to a collection.
-    public init(stepResult: RSDCollectionResult) {
+    public init(stepResult: CollectionResult) {
         var wb = WhiteBalance()
         for result in stepResult.inputResults {
             let identifier = result.identifier.components(separatedBy: ".")
-            if let value = (result as? RSDAnswerResult)?.value as? NSNumber,
+            if let value = (result as? AnswerResult)?.value as? NSNumber,
                 let key = CodingKeys(rawValue: identifier.first!) {
                 switch key {
                 case .focusLensPosition:

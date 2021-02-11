@@ -93,18 +93,18 @@ public final class CRFTaskObject: RSDTaskObject, RSDTaskDesign {
     /// Override to check if this is one of the demographics questions.
     public override func shouldSkipStep(_ step: RSDStep) -> (shouldSkip: Bool, stepResult: RSDResult?) {
         guard hasDemographics(),
-            (step.stepType == .demographics || step.identifier == RSDIdentifier.demographics.stringValue)
+            (step.stepType == .simpleQuestion || step.identifier == RSDIdentifier.demographics.stringValue)
             else {
                 return (false, nil)
         }
-        if step.stepType == .demographics {
-            guard let formStep = step as? RSDFormUIStep,
-                let inputField = formStep.inputFields.first,
-                let value = previousRunData[step.identifier]
+        if step.stepType == .simpleQuestion {
+            guard let questionStep = step as? QuestionStep,
+                let value = previousRunData[step.identifier] as? JsonValue
             else {
                 return (false, nil)
             }
-            let answerResult = RSDAnswerResultObject(identifier: step.identifier, answerType: inputField.dataType.defaultAnswerResultType(), value: value)
+            let answerResult = questionStep.instantiateAnswerResult()
+            answerResult.jsonValue = JsonElement(value)
             return (true, answerResult)
         }
         else {
