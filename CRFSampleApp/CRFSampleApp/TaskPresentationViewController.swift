@@ -38,7 +38,7 @@ import CardiorespiratoryFitness
 
 /// The data storage in this case is an example only. As such, the data will not be
 /// shared to user defaults but only in local memory.
-var sex: CRFSex?
+var sex: CRFGender?
 var birthYear: Int?
 
 class TaskPresentationViewController: UITableViewController, RSDTaskViewControllerDelegate {
@@ -52,7 +52,7 @@ class TaskPresentationViewController: UITableViewController, RSDTaskViewControll
         
         if firstAppearance, (self.result == nil), let taskInfo = self.taskInfo {
             let task = taskInfo.task
-            task.sex = sex
+            task.gender = sex
             task.birthYear = birthYear
             let taskViewModel = RSDTaskViewModel(task: task)
             let taskViewController = RSDTaskViewController(taskViewModel: taskViewModel)
@@ -96,9 +96,9 @@ class TaskPresentationViewController: UITableViewController, RSDTaskViewControll
         print("\n\n=== Ready to Save: \(taskViewModel.description)")
         
         // Look to see if the sex/birthYear should be updated
-        if let answerResult = taskViewModel.taskResult.findAnswerResult(with: CRFDemographicsKeys.sex.stringValue),
+        if let answerResult = taskViewModel.taskResult.findAnswerResult(with: CRFDemographicsKeys.gender.stringValue),
             let value = answerResult.value as? String,
-            let result = CRFSex(rawValue: value) {
+            let result = CRFGender(rawValue: value) {
             sex = result
         }
         

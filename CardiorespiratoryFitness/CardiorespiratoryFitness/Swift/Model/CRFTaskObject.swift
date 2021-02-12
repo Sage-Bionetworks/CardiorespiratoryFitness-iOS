@@ -41,12 +41,12 @@ extension RSDIdentifier {
 }
 
 /// Options for the value of the demographics question about biological sex.
-public enum CRFSex : String, Codable {
+public enum CRFGender : String, Codable {
     case male, female, other
 }
 
 public enum CRFDemographicsKeys : String, CodingKey, Codable {
-    case birthYear, sex
+    case birthYear, gender
 }
 
 extension RSDTaskType {
@@ -91,16 +91,16 @@ public final class CRFTaskObject: AssessmentTaskObject, RSDTaskDesign {
     }
     
     /// The sex of the participant who doing this task.
-    public var sex: CRFSex? {
+    public var gender: CRFGender? {
         get {
-            guard let sex = previousRunData[CRFDemographicsKeys.sex.stringValue] as? String
+            guard let sex = previousRunData[CRFDemographicsKeys.gender.stringValue] as? String
                 else {
                     return nil
             }
-            return CRFSex(rawValue: sex)
+            return CRFGender(rawValue: sex)
         }
         set {
-            previousRunData[CRFDemographicsKeys.sex.stringValue] = newValue?.stringValue
+            previousRunData[CRFDemographicsKeys.gender.stringValue] = newValue?.stringValue
         }
     }
     
@@ -108,37 +108,30 @@ public final class CRFTaskObject: AssessmentTaskObject, RSDTaskDesign {
 
     /// Override task setup to get the demographics data from a previous run.
     public override func setupTask(with data: RSDTaskData?, for path: RSDTaskPathComponent) {
-        if let json = data?.json as? [String : JsonSerializable] {
-            previousRunData[CRFDemographicsKeys.sex.stringValue] = json[CRFDemographicsKeys.sex.stringValue]
-            previousRunData[CRFDemographicsKeys.birthYear.stringValue] = json[CRFDemographicsKeys.birthYear.stringValue]
-        }
+        previousRunData = (data?.json as? [String : JsonSerializable]) ?? [:]
         super.setupTask(with: data, for: path)
     }
     
     func hasDemographics() -> Bool {
-        return self.birthYear != nil && self.sex != nil
+        return self.birthYear != nil
     }
     
     /// Override to check if this is one of the demographics questions.
     public override func shouldSkipStep(_ step: RSDStep) -> (shouldSkip: Bool, stepResult: RSDResult?) {
-        guard hasDemographics(),
-            (step.stepType == .simpleQuestion || step.identifier == RSDIdentifier.demographics.stringValue)
-            else {
-                return (false, nil)
-        }
-        if step.stepType == .simpleQuestion {
-            guard let questionStep = step as? QuestionStep,
-                let value = previousRunData[step.identifier] as? JsonValue
-            else {
-                return (false, nil)
-            }
+        guard hasDemographics() else { return (false, nil) }
+        if let questionStep = step as? QuestionStep {
             let answerResult = questionStep.instantiateAnswerResult()
-            answerResult.jsonValue = JsonElement(value)
+            if let value = previousRunData[step.identifier] as? JsonValue {
+                answerResult.jsonValue = JsonElement(value)
+            }
             return (true, answerResult)
         }
-        else {
+        else if step.identifier == RSDIdentifier.demographics {
             let result = step.instantiateStepResult()
             return (true, result)
+        }
+        else {
+            return (false, nil)
         }
     }
     

@@ -78,27 +78,22 @@
         }
     },
     {
-        "identifier": "sex",
-        "type": "simpleQuestion",
-        "title": "What is your sex?",
-        "optional": false,
-        "inputItem": {
-            "uiHint": "list",
-            "type": "choicePicker",
-            "choices": [{
-                "text": "Male",
-                "value": "male"
-            },
-            {
-                "text": "Female",
-                "value": "female"
-            },
-            {
-                "text": "Other, or prefer not to answer",
-                "value": "other"
-            }
-            ]
-        },
+        "identifier": "gender",
+        "type": "choiceQuestion",
+        "title": "What is your gender?",
+        "uiHint": "list",
+        "choices": [{
+                        "text": "Male",
+                        "value": "male"
+                    },
+                    {
+                        "text": "Female",
+                        "value": "female"
+                    },
+                    {
+                        "text": "Does not apply or prefer not to answer",
+                        "value": "other"
+                    }],
         "actions": {
             "goForward": {
                 "type": "default",

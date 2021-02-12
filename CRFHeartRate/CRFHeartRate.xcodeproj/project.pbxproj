@@ -30,6 +30,10 @@
 		F8F3670B2155DA9C00A49F89 /* BridgeInfo-private.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8F3670A2155DA9C00A49F89 /* BridgeInfo-private.plist */; };
 		F8F367242155DE8D00A49F89 /* ExternalIDRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F367232155DE8D00A49F89 /* ExternalIDRegistrationViewController.swift */; };
 		F8F3678C21597DF100A49F89 /* HeartRate_Measurement.json in Resources */ = {isa = PBXBuildFile; fileRef = F8F3678B21597DF100A49F89 /* HeartRate_Measurement.json */; };
+		FF84A9A825D5F8DB00A33F45 /* ExceptionHandler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF84A9A625D5F8DB00A33F45 /* ExceptionHandler.framework */; };
+		FF84A9A925D5F8DB00A33F45 /* ExceptionHandler.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF84A9A625D5F8DB00A33F45 /* ExceptionHandler.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FF84A9AA25D5F8DB00A33F45 /* Formatters.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF84A9A725D5F8DB00A33F45 /* Formatters.framework */; };
+		FF84A9AB25D5F8DB00A33F45 /* Formatters.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF84A9A725D5F8DB00A33F45 /* Formatters.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FFCC067A25D5BF1000185C5B /* CardiorespiratoryFitnessObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFCC067925D5BF1000185C5B /* CardiorespiratoryFitnessObjC.framework */; };
 		FFCC067B25D5BF1000185C5B /* CardiorespiratoryFitnessObjC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FFCC067925D5BF1000185C5B /* CardiorespiratoryFitnessObjC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FFDBA5F325D35E9B00FD00DA /* BridgeAppUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFDBA5F225D35E9B00FD00DA /* BridgeAppUI.framework */; };
@@ -46,9 +50,11 @@
 				F83DE8E1227AA89B00603D7A /* BridgeApp.framework in Embed Frameworks */,
 				F83DE8D5227AA89B00603D7A /* CardiorespiratoryFitness.framework in Embed Frameworks */,
 				FFCC067B25D5BF1000185C5B /* CardiorespiratoryFitnessObjC.framework in Embed Frameworks */,
+				FF84A9A925D5F8DB00A33F45 /* ExceptionHandler.framework in Embed Frameworks */,
 				F83DE8E4227AA89B00603D7A /* BridgeSDK.framework in Embed Frameworks */,
 				F8E672A5228E2E34001AD63F /* ResearchMotion.framework in Embed Frameworks */,
 				F83DE8D8227AA89B00603D7A /* Research.framework in Embed Frameworks */,
+				FF84A9AB25D5F8DB00A33F45 /* Formatters.framework in Embed Frameworks */,
 				FFDBA5F425D35E9B00FD00DA /* BridgeAppUI.framework in Embed Frameworks */,
 				F83DE8DB227AA89B00603D7A /* ResearchUI.framework in Embed Frameworks */,
 			);
@@ -79,6 +85,8 @@
 		F8F3670A2155DA9C00A49F89 /* BridgeInfo-private.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "BridgeInfo-private.plist"; path = "../../../iOSPrivateProjectInfo/CRFModuleValidation/BridgeInfo-private.plist"; sourceTree = "<group>"; };
 		F8F367232155DE8D00A49F89 /* ExternalIDRegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExternalIDRegistrationViewController.swift; sourceTree = "<group>"; };
 		F8F3678B21597DF100A49F89 /* HeartRate_Measurement.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HeartRate_Measurement.json; sourceTree = "<group>"; };
+		FF84A9A625D5F8DB00A33F45 /* ExceptionHandler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ExceptionHandler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF84A9A725D5F8DB00A33F45 /* Formatters.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Formatters.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFCC067925D5BF1000185C5B /* CardiorespiratoryFitnessObjC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CardiorespiratoryFitnessObjC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFDBA5F225D35E9B00FD00DA /* BridgeAppUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BridgeAppUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -91,9 +99,11 @@
 				F83DE8E0227AA89B00603D7A /* BridgeApp.framework in Frameworks */,
 				F83DE8D4227AA89B00603D7A /* CardiorespiratoryFitness.framework in Frameworks */,
 				FFCC067A25D5BF1000185C5B /* CardiorespiratoryFitnessObjC.framework in Frameworks */,
+				FF84A9A825D5F8DB00A33F45 /* ExceptionHandler.framework in Frameworks */,
 				F83DE8E3227AA89B00603D7A /* BridgeSDK.framework in Frameworks */,
 				F8E672A4228E2E34001AD63F /* ResearchMotion.framework in Frameworks */,
 				F83DE8D7227AA89B00603D7A /* Research.framework in Frameworks */,
+				FF84A9AA25D5F8DB00A33F45 /* Formatters.framework in Frameworks */,
 				FFDBA5F325D35E9B00FD00DA /* BridgeAppUI.framework in Frameworks */,
 				F83DE8DA227AA89B00603D7A /* ResearchUI.framework in Frameworks */,
 			);
@@ -114,6 +124,8 @@
 		F844E45C227AAC2600DC82B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FF84A9A625D5F8DB00A33F45 /* ExceptionHandler.framework */,
+				FF84A9A725D5F8DB00A33F45 /* Formatters.framework */,
 				FFCC067925D5BF1000185C5B /* CardiorespiratoryFitnessObjC.framework */,
 				FFDBA5F225D35E9B00FD00DA /* BridgeAppUI.framework */,
 				F8E672A3228E2E34001AD63F /* ResearchMotion.framework */,

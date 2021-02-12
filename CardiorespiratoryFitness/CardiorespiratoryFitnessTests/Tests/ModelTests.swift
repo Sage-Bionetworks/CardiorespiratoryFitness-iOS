@@ -153,6 +153,23 @@ class ModelTests: XCTestCase {
         
         XCTAssertTrue(checkFeedback(taskInfo.task, "feedback", RSDIdentifier.vo2MaxResultIdentifier.stringValue, "hr"))
         XCTAssertTrue(checkHeartRate(taskInfo.task, "hr", false, false))
+        
+        let task = taskInfo.task
+        
+        if let question = task.findStep(with: CRFDemographicsKeys.gender.stringValue) as? ChoiceQuestion {
+            XCTAssertEqual(3, question.choices.count)
+        }
+        else {
+            XCTFail("Could not find gender demographics question.")
+        }
+        
+        if let question = task.findStep(with: CRFDemographicsKeys.birthYear.stringValue) as? SimpleQuestion,
+           let item = question.inputItem as? YearTextInputItem {
+            XCTAssertFalse(item.formatOptions?.allowFuture ?? true)
+        }
+        else {
+            XCTFail("Could not find birth year demographics question.")
+        }
     }
     
     func testDecodeTasks() {
