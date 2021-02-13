@@ -122,7 +122,7 @@ internal class CRFHeartRateSampleProcessor {
         return highConfidenceSamples.last
     }
     
-    func vo2Max(sex: CRFGender, age: Double, startTime: TimeInterval) -> Double? {
+    func vo2Max(gender: CRFGender, age: Double, startTime: TimeInterval) -> Double? {
         let highConfidenceSamples = self.bpmSamples.filter {
             $0.confidence >= CRFMinConfidence &&
                 ($0.timestamp ?? 0) >= startTime
@@ -132,7 +132,7 @@ internal class CRFHeartRateSampleProcessor {
         let meanHR = highConfidenceSamples.map({ $0.bpm }).mean()
         let beats30to60 = meanHR / 2
         let vo2Center: Double = {
-            switch sex {
+            switch gender {
             case .female:
                 return 83.477 - (0.586 * beats30to60) - (0.404 * age) - 7.030
             case .male:

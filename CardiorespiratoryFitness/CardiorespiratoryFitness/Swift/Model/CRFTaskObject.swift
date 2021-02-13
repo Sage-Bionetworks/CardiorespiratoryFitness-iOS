@@ -40,7 +40,7 @@ extension RSDIdentifier {
     static let demographics: RSDIdentifier = "demographics"
 }
 
-/// Options for the value of the demographics question about biological sex.
+/// Options for the value of the demographics question about gender.
 public enum CRFGender : String, Codable {
     case male, female, other
 }
@@ -90,14 +90,14 @@ public final class CRFTaskObject: AssessmentTaskObject, RSDTaskDesign {
         }
     }
     
-    /// The sex of the participant who doing this task.
+    /// The gender of the participant who doing this task.
     public var gender: CRFGender? {
         get {
-            guard let sex = previousRunData[CRFDemographicsKeys.gender.stringValue] as? String
+            guard let value = previousRunData[CRFDemographicsKeys.gender.stringValue] as? String
                 else {
                     return nil
             }
-            return CRFGender(rawValue: sex)
+            return CRFGender(rawValue: value)
         }
         set {
             previousRunData[CRFDemographicsKeys.gender.stringValue] = newValue?.stringValue

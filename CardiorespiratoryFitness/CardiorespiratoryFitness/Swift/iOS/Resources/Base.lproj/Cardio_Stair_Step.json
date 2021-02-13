@@ -3,7 +3,7 @@
     "type": "crf",
     "usesTrackedData": true,
     "shouldHideActions": ["goBackward", "skip"],
-    "progressMarkers": ["sex", "birthYear"],
+    "progressMarkers": ["gender", "birthYear"],
     "asyncActions":[
         {
             "identifier":"motion",
@@ -64,7 +64,7 @@
         "identifier": "demographics",
         "type": "instruction",
         "title": "Recovery HR Questions",
-        "detail": "To calculate your Recovery HR score, we first need to know a few things about you like your sex and age.",
+        "detail": "To calculate your Recovery HR score, we first need to know a few things about you like your gender and age.",
         "image": {
             "type": "fetchable",
             "imageName": "RecoveryQuestions",
@@ -105,7 +105,7 @@
             },
             "learnMore": {
                 "type": "webView",
-                "title": "Why are we asking about your sex?",
+                "title": "Why are we asking about your gender?",
                 "usesBackButton": true,
                 "url": "Demographics_questions.html",
                 "buttonTitle": "Why are we asking this?"

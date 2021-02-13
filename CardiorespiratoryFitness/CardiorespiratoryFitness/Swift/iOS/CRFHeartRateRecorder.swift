@@ -91,8 +91,8 @@ public class CRFHeartRateRecorder : RSDSampleRecorder, CRFHeartRateVideoProcesso
     }
     
     public func vo2Max() -> Double? {
-        guard let sexValue = self.taskViewModel.taskResult.findAnswerResult(with: CRFDemographicsKeys.gender.stringValue)?.value as? String,
-            let sex = CRFGender(rawValue: sexValue),
+        guard let genderValue = self.taskViewModel.taskResult.findAnswerResult(with: CRFDemographicsKeys.gender.stringValue)?.value as? String,
+            let gender = CRFGender(rawValue: genderValue),
             let birthYear = self.taskViewModel.taskResult.findAnswerResult(with: CRFDemographicsKeys.birthYear.stringValue)?.value as? Int
             else {
                 return nil
@@ -106,7 +106,7 @@ public class CRFHeartRateRecorder : RSDSampleRecorder, CRFHeartRateVideoProcesso
         }()
         let startTime = timestampOffset + 30
         let age = Double(Calendar(identifier: .iso8601).component(.year, from: Date()) - birthYear)
-        return sampleProcessor.vo2Max(sex: sex, age: age, startTime: startTime)
+        return sampleProcessor.vo2Max(gender: gender, age: age, startTime: startTime)
     }
     
     public override func requestPermissions(on viewController: Any, _ completion: @escaping RSDAsyncActionCompletionHandler) {
