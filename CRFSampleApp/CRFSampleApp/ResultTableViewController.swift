@@ -2,7 +2,7 @@
 //  ResultTableViewController.swift
 //  RSDCatalog
 //
-//  Copyright © 2018-2019 Sage Bionetworks. All rights reserved.
+//  Copyright © 2018-2021 Sage Bionetworks. All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without modification,
 // are permitted provided that the following conditions are met:
@@ -42,7 +42,7 @@ class ResultTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     func results(in section: Int) -> [RSDResult] {
-        if let collectionResult = result as? RSDCollectionResult {
+        if let collectionResult = result as? CollectionResult {
             return collectionResult.inputResults
         } else if let taskResult = result as? RSDTaskResult {
             if section == 0 {
@@ -56,7 +56,7 @@ class ResultTableViewController: UITableViewController {
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        if let _ = result as? RSDCollectionResult {
+        if let _ = result as? CollectionResult {
             return 1
         } else if let taskResult = result as? RSDTaskResult {
             return (taskResult.asyncResults?.count ?? 0) > 0 ? 2 : 1
@@ -80,13 +80,13 @@ class ResultTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ImageTableViewCell
         let result = results(in: indexPath.section)[indexPath.row]
-        if let answerResult = result as? RSDAnswerResult {
+        if let answerResult = result as? AnswerResult {
             cell = tableView.dequeueReusableCell(withIdentifier: ReuseIdentifier.answer.stringValue, for: indexPath) as! ImageTableViewCell
             cell.subtitleLabel?.text = answerResult.value != nil ? String(describing: answerResult.value!) : "nil"
         } else if let fileResult = result as? RSDFileResult {
             cell = tableView.dequeueReusableCell(withIdentifier: ReuseIdentifier.file.stringValue, for: indexPath) as! ImageTableViewCell
             cell.subtitleLabel?.text = fileResult.url != nil ? String(describing: fileResult.url!.lastPathComponent) : "nil"
-        } else if (result is RSDCollectionResult) || (result is RSDTaskResult) {
+        } else if (result is CollectionResult) || (result is RSDTaskResult) {
             cell = tableView.dequeueReusableCell(withIdentifier: ReuseIdentifier.section.stringValue, for: indexPath) as! ImageTableViewCell
         } else if let errorResult = result as? RSDErrorResult {
             cell = tableView.dequeueReusableCell(withIdentifier: ReuseIdentifier.error.stringValue, for: indexPath) as! ImageTableViewCell
@@ -99,7 +99,7 @@ class ResultTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if let _ = result as? RSDCollectionResult {
+        if let _ = result as? CollectionResult {
             return result.identifier
         }
         else {

@@ -24,6 +24,12 @@
 		F8C0582A2277923300FA59E6 /* ResearchUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8C058282277923300FA59E6 /* ResearchUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F8E672A1228E2E11001AD63F /* ResearchMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8E672A0228E2E11001AD63F /* ResearchMotion.framework */; };
 		F8E672A2228E2E11001AD63F /* ResearchMotion.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8E672A0228E2E11001AD63F /* ResearchMotion.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FF84A9A225D5F8CA00A33F45 /* ExceptionHandler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF84A9A025D5F8CA00A33F45 /* ExceptionHandler.framework */; };
+		FF84A9A325D5F8CA00A33F45 /* ExceptionHandler.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF84A9A025D5F8CA00A33F45 /* ExceptionHandler.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FF84A9A425D5F8CA00A33F45 /* Formatters.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF84A9A125D5F8CA00A33F45 /* Formatters.framework */; };
+		FF84A9A525D5F8CA00A33F45 /* Formatters.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF84A9A125D5F8CA00A33F45 /* Formatters.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FFCC067D25D5BF1C00185C5B /* CardiorespiratoryFitnessObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFCC067C25D5BF1C00185C5B /* CardiorespiratoryFitnessObjC.framework */; };
+		FFCC067E25D5BF1C00185C5B /* CardiorespiratoryFitnessObjC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FFCC067C25D5BF1C00185C5B /* CardiorespiratoryFitnessObjC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,8 +49,11 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				FFCC067E25D5BF1C00185C5B /* CardiorespiratoryFitnessObjC.framework in Embed Frameworks */,
 				F8C058242277922000FA59E6 /* CardiorespiratoryFitness.framework in Embed Frameworks */,
 				F8C058272277922700FA59E6 /* Research.framework in Embed Frameworks */,
+				FF84A9A525D5F8CA00A33F45 /* Formatters.framework in Embed Frameworks */,
+				FF84A9A325D5F8CA00A33F45 /* ExceptionHandler.framework in Embed Frameworks */,
 				F8C0582A2277923300FA59E6 /* ResearchUI.framework in Embed Frameworks */,
 				F8E672A2228E2E11001AD63F /* ResearchMotion.framework in Embed Frameworks */,
 			);
@@ -72,6 +81,9 @@
 		F8C058252277922700FA59E6 /* Research.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Research.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8C058282277923300FA59E6 /* ResearchUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ResearchUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E672A0228E2E11001AD63F /* ResearchMotion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ResearchMotion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF84A9A025D5F8CA00A33F45 /* ExceptionHandler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ExceptionHandler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF84A9A125D5F8CA00A33F45 /* Formatters.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Formatters.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFCC067C25D5BF1C00185C5B /* CardiorespiratoryFitnessObjC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CardiorespiratoryFitnessObjC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,8 +91,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFCC067D25D5BF1C00185C5B /* CardiorespiratoryFitnessObjC.framework in Frameworks */,
 				F8C058232277922000FA59E6 /* CardiorespiratoryFitness.framework in Frameworks */,
 				F8C058262277922700FA59E6 /* Research.framework in Frameworks */,
+				FF84A9A425D5F8CA00A33F45 /* Formatters.framework in Frameworks */,
+				FF84A9A225D5F8CA00A33F45 /* ExceptionHandler.framework in Frameworks */,
 				F8C058292277923300FA59E6 /* ResearchUI.framework in Frameworks */,
 				F8E672A1228E2E11001AD63F /* ResearchMotion.framework in Frameworks */,
 			);
@@ -144,12 +159,15 @@
 		F8C0582F2277926E00FA59E6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FF84A9A025D5F8CA00A33F45 /* ExceptionHandler.framework */,
+				FF84A9A125D5F8CA00A33F45 /* Formatters.framework */,
+				FFCC067C25D5BF1C00185C5B /* CardiorespiratoryFitnessObjC.framework */,
 				F8E672A0228E2E11001AD63F /* ResearchMotion.framework */,
 				F8C058282277923300FA59E6 /* ResearchUI.framework */,
 				F8C058252277922700FA59E6 /* Research.framework */,
 				F8C058222277922000FA59E6 /* CardiorespiratoryFitness.framework */,
 			);
-			path = Frameworks;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,7 +216,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Sage Bionetworks";
 				TargetAttributes = {
 					F850B54E226E590F0046C905 = {
@@ -327,6 +345,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -389,6 +408,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -426,7 +446,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KA9Z8R6M6K;
 				INFOPLIST_FILE = CRFSampleApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -446,7 +466,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KA9Z8R6M6K;
 				INFOPLIST_FILE = CRFSampleApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
