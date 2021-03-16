@@ -36,13 +36,14 @@ import ResearchUI
 import Research
 import AVKit
 import AVFoundation
+import JsonModel
 
 class FileResultViewController: UIViewController {
 
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var imageView: UIImageView!
     
-    var result: RSDFileResult?
+    var result: FileResult?
     var firstAppearance: Bool = true
     
     override func viewDidLoad() {

@@ -33,6 +33,7 @@
 
 import UIKit
 import ResearchUI
+import JsonModel
 import Research
 
 extension CRFHeartRateStep : RSDStepViewControllerVendor {
@@ -92,7 +93,7 @@ public final class CRFHeartRateStepViewController: RSDActiveStepViewController, 
     /// Add the result to the collection. This will fail to add the result if called before the step is
     /// added to the view controller.
     /// - parameter result: The result to add to the collection.
-    public func addResult(_ result: RSDResult) {
+    public func addResult(_ result: ResultData) {
         guard step != nil else { return }
         var stepResult = self.collectionResult ?? RSDCollectionResultObject(identifier: self.step.identifier)
         stepResult.appendInputResults(with: result)

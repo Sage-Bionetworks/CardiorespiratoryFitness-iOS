@@ -73,9 +73,7 @@ class AppDelegate: SBAAppDelegate, RSDTaskViewControllerDelegate {
         guard self.rootViewController?.state != .onboarding else { return }
 
         let externalIDStep = ExternalIDRegistrationStep(identifier: "enterExternalID", type: "externalID")
-        var navigator = RSDConditionalStepNavigatorObject(with: [externalIDStep])
-        navigator.progressMarkers = []
-        let task = RSDTaskObject(identifier: "signin", stepNavigator: navigator)
+        let task = AssessmentTaskObject(identifier: "signin", steps: [externalIDStep])
         let vc = RSDTaskViewController(task: task)
         vc.delegate = self
         self.transition(to: vc, state: .onboarding, animated: true)

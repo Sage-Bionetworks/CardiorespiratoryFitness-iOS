@@ -33,6 +33,7 @@
 
 import UIKit
 import ResearchUI
+import JsonModel
 import Research
 import CardiorespiratoryFitness
 
@@ -44,7 +45,7 @@ var birthYear: Int?
 class TaskPresentationViewController: UITableViewController, RSDTaskViewControllerDelegate {
     
     var taskInfo: CRFTaskInfo!
-    var result: RSDResult?
+    var result: ResultData?
     var firstAppearance: Bool = true
     
     override func viewDidAppear(_ animated: Bool) {
@@ -96,13 +97,13 @@ class TaskPresentationViewController: UITableViewController, RSDTaskViewControll
         print("\n\n=== Ready to Save: \(taskViewModel.description)")
         
         // Look to see if the sex/birthYear should be updated
-        if let answerResult = taskViewModel.taskResult.findAnswerResult(with: CRFDemographicsKeys.gender.stringValue),
+        if let answerResult = taskViewModel.taskResult.findAnswer(with: CRFDemographicsKeys.gender.stringValue),
             let value = answerResult.value as? String,
             let result = CRFGender(rawValue: value) {
             sex = result
         }
         
-        if let answerResult = taskViewModel.taskResult.findAnswerResult(with: CRFDemographicsKeys.birthYear.stringValue),
+        if let answerResult = taskViewModel.taskResult.findAnswer(with: CRFDemographicsKeys.birthYear.stringValue),
             let value = answerResult.value as? Int {
             birthYear = value
         }

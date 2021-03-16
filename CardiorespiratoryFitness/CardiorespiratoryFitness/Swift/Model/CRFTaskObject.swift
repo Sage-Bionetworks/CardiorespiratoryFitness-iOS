@@ -117,7 +117,7 @@ public final class CRFTaskObject: AssessmentTaskObject, RSDTaskDesign {
     }
     
     /// Override to check if this is one of the demographics questions.
-    public override func shouldSkipStep(_ step: RSDStep) -> (shouldSkip: Bool, stepResult: RSDResult?) {
+    public override func shouldSkipStep(_ step: RSDStep) -> (shouldSkip: Bool, stepResult: ResultData?) {
         guard hasDemographics() else { return (false, nil) }
         if let questionStep = step as? QuestionStep {
             let answerResult = questionStep.instantiateAnswerResult()

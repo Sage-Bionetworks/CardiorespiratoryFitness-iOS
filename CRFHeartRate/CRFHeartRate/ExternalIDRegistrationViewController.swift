@@ -33,22 +33,23 @@
 
 import UIKit
 import ResearchUI
+import JsonModel
 import Research
 import BridgeSDK
 import BridgeApp
 
-class ExternalIDRegistrationStep : RSDUIStepObject, RSDFormUIStep, RSDStepViewControllerVendor {
+class ExternalIDRegistrationStep : AbstractSkipQuestionStep, SimpleQuestion, QuestionStep, RSDStepViewControllerVendor {
+    
+    let inputItem: InputItemBuilder = {
+        var item = StringTextInputItemObject()
+        item.placeholder = NSLocalizedString("external ID", comment: "Localized string for the external ID prompt")
+        item.isOptional = false
+        return item
+    }()
     
     open func instantiateViewController(with parent: RSDPathComponent?) -> (UIViewController & RSDStepController)? {
         return ExternalIDRegistrationViewController(step: self, parent: parent)
     }
-    
-    let inputFields: [RSDInputField] = {
-        let prompt = NSLocalizedString("external ID", comment: "Localized string for the external ID prompt")
-        let inputField = RSDInputFieldObject(identifier: "externalId", dataType: .base(.string), uiHint: .textfield, prompt: prompt)
-        inputField.isOptional = false
-        return [inputField]
-    }()
     
     required init(identifier: String, type: RSDStepType?) {
         super.init(identifier: identifier, type: type)
@@ -61,8 +62,8 @@ class ExternalIDRegistrationStep : RSDUIStepObject, RSDFormUIStep, RSDStepViewCo
     }
     
     private func commonInit() {
-        if self.text == nil && self.title == nil {
-            self.text = NSLocalizedString("Enter your external ID to get started.", comment: "Default text for an external ID registration step.")
+        if self.title == nil {
+            self.title = NSLocalizedString("Enter your external ID to get started.", comment: "Default text for an external ID registration step.")
         }
     }
 }
@@ -71,7 +72,7 @@ class ExternalIDRegistrationViewController: RSDTableStepViewController {
     
     func signUpAndSignIn(completion: @escaping SBBNetworkManagerCompletionBlock) {
         let externalIdResultIdentifier = "externalId"
-        guard let externalId = self.stepViewModel.taskResult.findAnswerResult(with: externalIdResultIdentifier)?.value as? String
+        guard let externalId = self.stepViewModel.taskResult.findAnswer(with: externalIdResultIdentifier)?.value as? String
             else {
                 return
         }

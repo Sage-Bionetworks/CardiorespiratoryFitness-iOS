@@ -33,16 +33,24 @@
 
 import Foundation
 import AVFoundation
+import JsonModel
 import Research
 
+extension SerializableResultType {
+    public static let cameraSettings: SerializableResultType = "cameraSettings"
+}
+
 /// The camera settings to use for the heart rate recorder.
-public struct CRFCameraSettings : Codable, RSDResult, RSDArchivable, Equatable {
+public struct CRFCameraSettings : Codable, SerializableResultData, RSDArchivable, Equatable {
+    private enum CodingKeys: String, CodingKey, CaseIterable {
+        case identifier, serializableType = "type", frameRate, focusLensPosition, exposureDuration, iso, whiteBalance
+    }
     
     /// The identifier associated with these Camera settings.
     public var identifier: String = "cameraSettings"
     
     /// The result type is hardcoded as camera settings.
-    public let type: RSDResultType = "cameraSettings"
+    public let serializableType: SerializableResultType = .cameraSettings
     
     /// The start date for these camera settings. This is a required property of `RSDResult`
     /// but is ignored by the configuration.
@@ -93,23 +101,18 @@ public struct CRFCameraSettings : Codable, RSDResult, RSDArchivable, Equatable {
         }
     }
     
-    private enum CodingKeys: String, CodingKey {
-        case identifier
-        case frameRate
-        case focusLensPosition
-        case exposureDuration
-        case iso
-        case whiteBalance
-    }
-    
     /// Default initializer
     public init() {
+    }
+    
+    public func deepCopy() -> CRFCameraSettings {
+        self
     }
     
     /// Initialize the struct using a step result that maps to a collection.
     public init(stepResult: CollectionResult) {
         var wb = WhiteBalance()
-        for result in stepResult.inputResults {
+        for result in stepResult.children {
             let identifier = result.identifier.components(separatedBy: ".")
             if let value = (result as? AnswerResult)?.value as? NSNumber,
                 let key = CodingKeys(rawValue: identifier.first!) {
