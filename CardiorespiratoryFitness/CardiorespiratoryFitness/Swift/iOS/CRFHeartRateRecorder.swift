@@ -181,7 +181,6 @@ public class CRFHeartRateRecorder : RSDSampleRecorder, CRFHeartRateVideoProcesso
                                               url: url,
                                               contentType: "video/mp4",
                                               startUptime: self.clock.startSystemUptime)
-            //(identifier: self.videoIdentifier)
             fileResult.startDate = self.startDate
             fileResult.endDate = Date()
             self.appendResults(fileResult)
