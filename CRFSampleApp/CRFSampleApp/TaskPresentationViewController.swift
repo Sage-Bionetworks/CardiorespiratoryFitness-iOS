@@ -33,6 +33,7 @@
 
 import UIKit
 import ResearchUI
+import JsonModel
 import Research
 import CardiorespiratoryFitness
 
@@ -44,7 +45,7 @@ var birthYear: Int?
 class TaskPresentationViewController: UITableViewController, RSDTaskViewControllerDelegate {
     
     var taskInfo: CRFTaskInfo!
-    var result: RSDResult?
+    var result: ResultData?
     var firstAppearance: Bool = true
     
     override func viewDidAppear(_ animated: Bool) {

@@ -33,6 +33,7 @@
 
 import UIKit
 import ResearchUI
+import JsonModel
 import Research
 
 class ParticipantIDStepViewController: RSDTableStepViewController {
@@ -59,7 +60,7 @@ class ParticipantIDStepViewController: RSDTableStepViewController {
     override func goForward() {
         guard validateAndSave() else { return }
         guard let collectionResult = self.stepViewModel.findStepResult() as? RSDCollectionResult,
-            let answerResult = collectionResult.inputResults.first as? RSDAnswerResult,
+            let answerResult = collectionResult.children.first as? RSDAnswerResult,
             let participantID = answerResult.value as? String
             else {
                 fatalError("Attempting to go forward without an answer result.")

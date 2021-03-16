@@ -32,6 +32,7 @@
 //
 
 import UIKit
+import JsonModel
 import Research
 
 /// Custom subclass of the active step that can decode configuration details specific to the heart rate
@@ -124,7 +125,7 @@ open class CRFHeartRateStep : RSDActiveUIStepObject, RSDRestartableRecorderConfi
     }
     
     /// This step has multiple results so use a collection result to store them.
-    override open func instantiateStepResult() -> RSDResult {
+    override open func instantiateStepResult() -> ResultData {
         return RSDCollectionResultObject(identifier: self.identifier)
     }
 }

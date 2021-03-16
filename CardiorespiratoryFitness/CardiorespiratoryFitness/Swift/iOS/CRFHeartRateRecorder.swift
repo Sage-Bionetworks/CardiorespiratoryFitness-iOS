@@ -35,6 +35,7 @@ import Foundation
 import UIKit
 import AVFoundation
 import CardiorespiratoryFitnessObjC
+import JsonModel
 import Research
 
 /// A hardcoded value used as the min confidence to include a recording.
@@ -462,13 +463,13 @@ public class CRFHeartRateRecorder : RSDSampleRecorder, CRFHeartRateVideoProcesso
 
 }
 
-public struct CRFHeartRateSamplesResult : RSDResult, RSDArchivable {
+public struct CRFHeartRateSamplesResult : ResultData, RSDArchivable {
     
     /// The identifier for this result.
     public let identifier: String
     
     /// The result type.
-    public var type: RSDResultType = "heartRateSamples"
+    public var serializableType: SerializableResultType = "heartRateSamples"
     
     /// Start date.
     public var startDate: Date = Date()

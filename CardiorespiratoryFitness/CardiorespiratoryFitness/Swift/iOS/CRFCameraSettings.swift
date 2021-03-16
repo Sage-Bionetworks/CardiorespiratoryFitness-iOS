@@ -33,16 +33,17 @@
 
 import Foundation
 import AVFoundation
+import JsonModel
 import Research
 
 /// The camera settings to use for the heart rate recorder.
-public struct CRFCameraSettings : Codable, RSDResult, RSDArchivable, Equatable {
+public struct CRFCameraSettings : Codable, ResultData, RSDArchivable, Equatable {
     
     /// The identifier associated with these Camera settings.
     public var identifier: String = "cameraSettings"
     
     /// The result type is hardcoded as camera settings.
-    public let type: RSDResultType = "cameraSettings"
+    public let serializableType: SerializableResultType = "cameraSettings"
     
     /// The start date for these camera settings. This is a required property of `RSDResult`
     /// but is ignored by the configuration.
@@ -109,7 +110,7 @@ public struct CRFCameraSettings : Codable, RSDResult, RSDArchivable, Equatable {
     /// Initialize the struct using a step result that maps to a collection.
     public init(stepResult: CollectionResult) {
         var wb = WhiteBalance()
-        for result in stepResult.inputResults {
+        for result in stepResult.children {
             let identifier = result.identifier.components(separatedBy: ".")
             if let value = (result as? AnswerResult)?.value as? NSNumber,
                 let key = CodingKeys(rawValue: identifier.first!) {

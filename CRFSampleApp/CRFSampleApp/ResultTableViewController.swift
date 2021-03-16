@@ -33,17 +33,18 @@
 
 import UIKit
 import ResearchUI
+import JsonModel
 import Research
 
 class ResultTableViewController: UITableViewController {
 
-    var result: RSDResult!
+    var result: ResultData!
 
     // MARK: - Table view data source
     
-    func results(in section: Int) -> [RSDResult] {
+    func results(in section: Int) -> [ResultData] {
         if let collectionResult = result as? CollectionResult {
-            return collectionResult.inputResults
+            return collectionResult.children
         } else if let taskResult = result as? RSDTaskResult {
             if section == 0 {
                 return taskResult.stepHistory
@@ -83,7 +84,7 @@ class ResultTableViewController: UITableViewController {
         if let answerResult = result as? AnswerResult {
             cell = tableView.dequeueReusableCell(withIdentifier: ReuseIdentifier.answer.stringValue, for: indexPath) as! ImageTableViewCell
             cell.subtitleLabel?.text = answerResult.value != nil ? String(describing: answerResult.value!) : "nil"
-        } else if let fileResult = result as? RSDFileResult {
+        } else if let fileResult = result as? FileResult {
             cell = tableView.dequeueReusableCell(withIdentifier: ReuseIdentifier.file.stringValue, for: indexPath) as! ImageTableViewCell
             cell.subtitleLabel?.text = fileResult.url != nil ? String(describing: fileResult.url!.lastPathComponent) : "nil"
         } else if (result is CollectionResult) || (result is RSDTaskResult) {

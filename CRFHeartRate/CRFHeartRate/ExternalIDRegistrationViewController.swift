@@ -33,6 +33,7 @@
 
 import UIKit
 import ResearchUI
+import JsonModel
 import Research
 import BridgeSDK
 import BridgeApp
