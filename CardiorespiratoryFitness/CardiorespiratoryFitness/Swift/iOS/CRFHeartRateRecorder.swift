@@ -92,9 +92,9 @@ public class CRFHeartRateRecorder : RSDSampleRecorder, CRFHeartRateVideoProcesso
     }
     
     public func vo2Max() -> Double? {
-        guard let genderValue = self.taskViewModel.taskResult.findAnswerResult(with: CRFDemographicsKeys.gender.stringValue)?.value as? String,
+        guard let genderValue = self.taskViewModel.taskResult.findAnswer(with: CRFDemographicsKeys.gender.stringValue)?.value as? String,
             let gender = CRFGender(rawValue: genderValue),
-            let birthYear = self.taskViewModel.taskResult.findAnswerResult(with: CRFDemographicsKeys.birthYear.stringValue)?.value as? Int
+            let birthYear = self.taskViewModel.taskResult.findAnswer(with: CRFDemographicsKeys.birthYear.stringValue)?.value as? Int
             else {
                 return nil
         }
@@ -177,12 +177,13 @@ public class CRFHeartRateRecorder : RSDSampleRecorder, CRFHeartRateVideoProcesso
         if let url = self._videoProcessor?.videoURL {
 
             // Create and add the result
-            var fileResult = RSDFileResultObject(identifier: self.videoIdentifier)
+            var fileResult = FileResultObject(identifier: self.videoIdentifier,
+                                              url: url,
+                                              contentType: "video/mp4",
+                                              startUptime: self.clock.startSystemUptime)
+            //(identifier: self.videoIdentifier)
             fileResult.startDate = self.startDate
             fileResult.endDate = Date()
-            fileResult.url = url
-            fileResult.startUptime = self.clock.startSystemUptime
-            fileResult.contentType = "video/mp4"
             self.appendResults(fileResult)
 
             // Close the video recorder
@@ -463,26 +464,39 @@ public class CRFHeartRateRecorder : RSDSampleRecorder, CRFHeartRateVideoProcesso
 
 }
 
-public struct CRFHeartRateSamplesResult : ResultData, RSDArchivable {
+extension SerializableResultType {
+    public static let heartRateSamples: SerializableResultType = "heartRateSamples"
+}
+
+public struct CRFHeartRateSamplesResult : SerializableResultData, RSDArchivable {
+    private enum CodingKeys : String, CodingKey, CaseIterable {
+        case identifier, serializableType = "type", startDate, endDate, samples
+    }
     
     /// The identifier for this result.
     public let identifier: String
     
     /// The result type.
-    public var serializableType: SerializableResultType = "heartRateSamples"
+    public private(set) var serializableType: SerializableResultType = .heartRateSamples
     
     /// Start date.
-    public var startDate: Date = Date()
+    public var startDate: Date
     
     /// End date.
-    public var endDate: Date = Date()
+    public var endDate: Date
     
     /// The samples for this result.
     public let samples: [CRFHeartRateBPMSample]
     
-    public init(identifier: String, samples: [CRFHeartRateBPMSample]) {
+    public init(identifier: String, samples: [CRFHeartRateBPMSample], startDate: Date = Date(), endDate: Date = Date()) {
         self.identifier = identifier
         self.samples = samples
+        self.startDate = startDate
+        self.endDate = endDate
+    }
+    
+    public func deepCopy() -> CRFHeartRateSamplesResult {
+        self
     }
     
     public func buildArchiveData(at stepPath: String?) throws -> (manifest: RSDFileManifest, data: Data)? {

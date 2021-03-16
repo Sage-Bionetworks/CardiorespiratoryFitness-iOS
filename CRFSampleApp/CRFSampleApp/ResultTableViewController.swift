@@ -89,7 +89,7 @@ class ResultTableViewController: UITableViewController {
             cell.subtitleLabel?.text = fileResult.url != nil ? String(describing: fileResult.url!.lastPathComponent) : "nil"
         } else if (result is CollectionResult) || (result is RSDTaskResult) {
             cell = tableView.dequeueReusableCell(withIdentifier: ReuseIdentifier.section.stringValue, for: indexPath) as! ImageTableViewCell
-        } else if let errorResult = result as? RSDErrorResult {
+        } else if let errorResult = result as? ErrorResult {
             cell = tableView.dequeueReusableCell(withIdentifier: ReuseIdentifier.error.stringValue, for: indexPath) as! ImageTableViewCell
             cell.subtitleLabel?.text = errorResult.errorDescription
         } else {
@@ -122,7 +122,7 @@ class ResultTableViewController: UITableViewController {
             vc.navigationItem.title = vc.title
         }
         else if let vc = segue.destination as? FileResultViewController {
-            vc.result = results(in: indexPath.section)[indexPath.row] as? RSDFileResult
+            vc.result = results(in: indexPath.section)[indexPath.row] as? FileResult
             vc.title = vc.result!.identifier
             vc.navigationItem.title = vc.title
         }

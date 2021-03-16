@@ -59,8 +59,8 @@ class ParticipantIDStepViewController: RSDTableStepViewController {
     
     override func goForward() {
         guard validateAndSave() else { return }
-        guard let collectionResult = self.stepViewModel.findStepResult() as? RSDCollectionResult,
-            let answerResult = collectionResult.children.first as? RSDAnswerResult,
+        guard let collectionResult = self.stepViewModel.findStepResult() as? CollectionResult,
+            let answerResult = collectionResult.children.first as? AnswerResult,
             let participantID = answerResult.value as? String
             else {
                 fatalError("Attempting to go forward without an answer result.")
