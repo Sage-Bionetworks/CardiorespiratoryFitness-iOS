@@ -3,8 +3,8 @@ set -ex
 if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then     # on pull requests
     echo "Build on PR"
     FASTLANE_EXPLICIT_OPEN_SIMULATOR=2 bundle exec fastlane test scheme:"CRFSampleApp"
-elif [[ -z "$TRAVIS_TAG" && "$TRAVIS_BRANCH" == "master" ]]; then  # non-tag commits to master branch
-    echo "Build on merge to master"
+elif [[ -z "$TRAVIS_TAG" && "$TRAVIS_BRANCH" == "main" ]]; then  # non-tag commits to main branch
+    echo "Build on merge to main"
     git clone https://github.com/Sage-Bionetworks/iOSPrivateProjectInfo.git ../iOSPrivateProjectInfo
     FASTLANE_EXPLICIT_OPEN_SIMULATOR=2 bundle exec fastlane test scheme:"CRFSampleApp"
     bundle exec fastlane keychains
