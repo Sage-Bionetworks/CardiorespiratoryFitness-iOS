@@ -26,8 +26,10 @@ let package = Package(
                  from: "1.2.0"),
         .package(name: "SageResearch",
                  url: "https://github.com/Sage-Bionetworks/SageResearch.git",
-                 "4.0.0"..<"4.1.0"),
-        
+                 from: "4.1.0"),
+        .package(name: "MobilePassiveData",
+                 url: "https://github.com/Sage-Bionetworks/MobilePassiveData-SDK.git",
+                 from: "1.0.0"),
     ],
     targets: [
         .target(
@@ -36,7 +38,8 @@ let package = Package(
                            "JsonModel",
                            .product(name: "Research", package: "SageResearch"),
                            .product(name: "ResearchUI", package: "SageResearch"),
-                           .product(name: "ResearchMotion", package: "SageResearch"),
+                           .product(name: "MobilePassiveData", package: "MobilePassiveData"),
+                           .product(name: "MotionSensor", package: "MobilePassiveData"),
             ],
             path: "CardiorespiratoryFitness/CardiorespiratoryFitness/Swift",
             resources: [
