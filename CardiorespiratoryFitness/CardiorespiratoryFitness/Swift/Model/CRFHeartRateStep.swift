@@ -34,10 +34,11 @@
 import UIKit
 import JsonModel
 import Research
+import MobilePassiveData
 
 /// Custom subclass of the active step that can decode configuration details specific to the heart rate
 /// recorder used by this step view controller.
-open class CRFHeartRateStep : RSDActiveUIStepObject, RSDRestartableRecorderConfiguration {
+open class CRFHeartRateStep : RSDActiveUIStepObject, RestartableRecorderConfiguration {
     private enum CodingKeys : String, CodingKey {
         case cameraSettings, isResting, isTraining, shouldDeletePrevious
     }
@@ -60,8 +61,8 @@ open class CRFHeartRateStep : RSDActiveUIStepObject, RSDRestartableRecorderConfi
     public private(set) var shouldDeletePrevious: Bool = true
     
     /// This recorder requires permission to use the camera.
-    public var permissionTypes: [RSDPermissionType] {
-        return [RSDStandardPermissionType.camera]
+    public var permissionTypes: [PermissionType] {
+        return [StandardPermissionType.camera]
     }
     
     /// The start and stop identifers are for this step.

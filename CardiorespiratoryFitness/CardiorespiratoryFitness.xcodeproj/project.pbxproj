@@ -41,7 +41,6 @@
 		F8C0581F22778E3200FA59E6 /* ResearchUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C0581E22778E3200FA59E6 /* ResearchUI.framework */; };
 		F8C0582122778E4C00FA59E6 /* Research_UnitTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C0582022778E4C00FA59E6 /* Research_UnitTest.framework */; };
 		F8D71AF5224D462F00DA49BC /* CRFHRRecoveryStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D71AF4224D462F00DA49BC /* CRFHRRecoveryStepViewController.swift */; };
-		F8E6729F228E2DF6001AD63F /* ResearchMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8E6729E228E2DF6001AD63F /* ResearchMotion.framework */; };
 		F8E68EE32252A30900CF0811 /* CRFTaskObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E68EE22252A30900CF0811 /* CRFTaskObject.swift */; };
 		F8E68EF122531E5400CF0811 /* TaskObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E68EF022531E5400CF0811 /* TaskObjectTests.swift */; };
 		FFCC05E825D5AD6E00185C5B /* Bundle+module.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC05E725D5AD6E00185C5B /* Bundle+module.swift */; };
@@ -153,7 +152,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8E6729F228E2DF6001AD63F /* ResearchMotion.framework in Frameworks */,
 				F8C0581F22778E3200FA59E6 /* ResearchUI.framework in Frameworks */,
 				FFCC067425D5BEFE00185C5B /* CardiorespiratoryFitnessObjC.framework in Frameworks */,
 				F8C0581B22778E2700FA59E6 /* Research.framework in Frameworks */,
@@ -847,6 +845,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -873,6 +873,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -938,6 +940,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.sagebase.CardiorespiratoryFitnessObjC;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -962,6 +965,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.sagebase.CardiorespiratoryFitnessObjC;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

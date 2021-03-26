@@ -35,6 +35,7 @@ import UIKit
 import ResearchUI
 import JsonModel
 import Research
+import MobilePassiveData
 
 extension CRFHeartRateStep : RSDStepViewControllerVendor {
     
@@ -89,6 +90,10 @@ public final class CRFHeartRateStepViewController: RSDActiveStepViewController, 
     
     /// This step has multiple results so use a collection result to store them.
     public private(set) var collectionResult: CollectionResult?
+    
+    public func findAnswerValue(with identifier: String) -> JsonElement? {
+        self.stepViewModel.rootPathComponent.taskResult.findAnswer(with: identifier)?.jsonValue
+    }
     
     /// Add the result to the collection. This will fail to add the result if called before the step is
     /// added to the view controller.
@@ -164,22 +169,34 @@ public final class CRFHeartRateStepViewController: RSDActiveStepViewController, 
     }
     
     private func _startCamera() {
-        guard isVisible, let taskPath = self.stepViewModel.parentTaskPath else { return }
+        guard isVisible,
+              let recorder = CRFHeartRateRecorder(configuration: (self.step as? CRFHeartRateStep) ?? CRFHeartRateStep(identifier: self.step.identifier), stepViewModel: self.stepViewModel),
+              let taskController = self.taskController,
+              let taskPath = stepViewModel.parentTaskPath
+        else {
+            return
+        }
         
-        // Create a recorder that runs only during this step
-        let config = (self.step as? CRFHeartRateStep) ?? CRFHeartRateStep(identifier: self.step.identifier)
-        bpmRecorder = CRFHeartRateRecorder(configuration: config, taskViewModel: taskPath, outputDirectory: taskPath.outputDirectory)
-        bpmRecorder!.delegate = self
+        bpmRecorder = recorder
+        recorder.delegate = self
         
         // add an observer for changes in the bpm
-        _bpmObserver = bpmRecorder!.observe(\.bpm, changeHandler: { [weak self] (recorder, _) in
+        _bpmObserver = recorder.observe(\.bpm, changeHandler: { [weak self] (recorder, _) in
             self?._updateBPMLabelOnMainQueue(recorder.bpm, recorder.confidence)
         })
         
         // Setup a listener to start the timer when the lens is covered.
-        _isCoveredObserver = bpmRecorder!.observe(\.isCoveringLens, changeHandler: { [weak self] (recorder, _) in
+        _isCoveredObserver = recorder.observe(\.isCoveringLens, changeHandler: { [weak self] (recorder, _) in
             self?._handleLensCoveredOnMainQueue(recorder.isCoveringLens)
         })
+        
+        taskController.requestPermission(for: [recorder], path: taskPath) {
+            self._startCamera_part2()
+        }
+    }
+    
+    private func _startCamera_part2() {
+        taskController?.startAsyncActionsIfNeeded()
         
         // If the user is trying for 5 seconds to cover the lens and it isn't recognized,
         // then just keep going. The result might be a 0 heart rate measurement, but we will
@@ -188,10 +205,6 @@ public final class CRFHeartRateStepViewController: RSDActiveStepViewController, 
         DispatchQueue.main.asyncAfter(deadline: delay) { [weak self] in
             self?._startCountdownIfNeeded()
         }
-        
-        // start the recorders
-        let taskController = self.stepViewModel.rootPathComponent.taskController!
-        taskController.startAsyncActions(for: [bpmRecorder!], showLoading: false, completion:{})
     }
     
     public func didFinishStartingCamera() {
@@ -262,7 +275,7 @@ public final class CRFHeartRateStepViewController: RSDActiveStepViewController, 
         addResult(confidenceResult)
     }
     
-    public func asyncAction(_ controller: RSDAsyncAction, didFailWith error: Error) {
+    public func asyncAction(_ controller: AsyncActionController, didFailWith error: Error) {
         guard let taskController = self.stepViewModel.rootPathComponent.taskController else { return }
         taskController.handleTaskFailure(with: error)
     }

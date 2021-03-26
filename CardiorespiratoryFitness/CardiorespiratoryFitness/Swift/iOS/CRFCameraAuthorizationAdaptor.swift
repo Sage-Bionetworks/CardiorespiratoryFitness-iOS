@@ -36,25 +36,26 @@
 import Foundation
 import AVFoundation
 import Research
+import MobilePassiveData
 
 /// `CRFCameraAuthorizationAdaptor` is a wrapper for the AVFoundation library that allows a general-purpose
 /// step or task to query this library for authorization if and only if that library is required by the
 /// application.
 ///
 /// Before using this adaptor with a permission step, the calling application or framework will need to
-/// register the adaptor using `RSDAuthorizationHandler.registerAdaptorIfNeeded()`.
+/// register the adaptor using `PermissionAuthorizationHandler.registerAdaptorIfNeeded()`.
 ///
-/// - seealso: `RSDPermissionsStepViewController`
-public class CRFAVAuthorization : RSDAuthorizationAdaptor {
+/// - seealso: `PermissionsStepViewController`
+public class CRFAVAuthorization : PermissionAuthorizationAdaptor {
     
     public static let shared = CRFAVAuthorization()
     
     /// This adaptor is intended for checking for motion sensor permissions.
-    public var permissions: [RSDPermissionType] = [RSDStandardPermissionType.camera,
-                                                   RSDStandardPermissionType.microphone]
+    public var permissions: [PermissionType] = [StandardPermissionType.camera,
+                                                   StandardPermissionType.microphone]
     
     private func _mediaType(for permission: String) -> AVMediaType? {
-        guard let permissionType = RSDStandardPermissionType(rawValue: permission)
+        guard let permissionType = StandardPermissionType(rawValue: permission)
             else {
                 return nil
         }
@@ -69,7 +70,7 @@ public class CRFAVAuthorization : RSDAuthorizationAdaptor {
     }
     
     /// Returns authorization status for `.camera` and `.microphone` permissions.
-    public func authorizationStatus(for permission: String) -> RSDAuthorizationStatus {
+    public func authorizationStatus(for permission: String) -> PermissionAuthorizationStatus {
         guard let mediaType = _mediaType(for: permission)
             else {
                 assertionFailure("This is not a recognized audiovisual permission.")
@@ -92,11 +93,11 @@ public class CRFAVAuthorization : RSDAuthorizationAdaptor {
     }
     
     /// Request authorization to access either video or audio.
-    public func requestAuthorization(for permission: RSDPermission, _ completion: @escaping ((RSDAuthorizationStatus, Error?) -> Void)) {
+    public func requestAuthorization(for permission: Permission, _ completion: @escaping ((PermissionAuthorizationStatus, Error?) -> Void)) {
         guard let mediaType = _mediaType(for: permission.identifier)
             else {
                 assertionFailure("This is not a recognized audiovisual permission.")
-                let error = RSDPermissionError.notAuthorized(permission, .denied)
+                let error = PermissionError.notAuthorized(permission, .denied)
                 completion(.denied, error)
                 return
         }
@@ -105,7 +106,7 @@ public class CRFAVAuthorization : RSDAuthorizationAdaptor {
             if granted {
                 completion(.authorized, nil)
             } else {
-                let error = RSDPermissionError.notAuthorized(permission, .denied)
+                let error = PermissionError.notAuthorized(permission, .denied)
                 completion(.denied, error)
             }
         }

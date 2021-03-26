@@ -37,6 +37,7 @@ import AVFoundation
 import CardiorespiratoryFitnessObjC
 import JsonModel
 import Research
+import MobilePassiveData
 
 /// A hardcoded value used as the min confidence to include a recording.
 public let CRFMinConfidence = 0.5
@@ -44,7 +45,7 @@ public let CRFMinConfidence = 0.5
 /// The minimum "red level" (number of pixels that are "red" dominant) to qualify as having the lens covered.
 public let CRFMinRedLevel = 0.9
 
-public protocol CRFHeartRateRecorderDelegate : RSDAsyncActionDelegate {
+public protocol CRFHeartRateRecorderDelegate : AsyncActionControllerDelegate {
     
     /// An optional view that can be used to show the user's finger while the lens is uncovered.
     var previewView: UIView! { get }
@@ -53,9 +54,23 @@ public protocol CRFHeartRateRecorderDelegate : RSDAsyncActionDelegate {
     func didFinishStartingCamera()
 }
 
-public class CRFHeartRateRecorder : RSDSampleRecorder, CRFHeartRateVideoProcessorDelegate, AVCaptureVideoDataOutputSampleBufferDelegate {
+public class CRFHeartRateRecorder : SampleRecorder, CRFHeartRateVideoProcessorDelegate, AVCaptureVideoDataOutputSampleBufferDelegate {
+    
+    init?(configuration: CRFHeartRateStep, stepViewModel: RSDStepViewPathComponent) {
+        guard let outputDirectory = stepViewModel.parentTaskPath?.outputDirectory
+        else {
+            return nil
+        }
+        self.stepViewModel = stepViewModel
+        super.init(configuration: configuration,
+                   outputDirectory: outputDirectory,
+                   initialStepPath: stepViewModel.fullPath,
+                   sectionIdentifier: stepViewModel.sectionIdentifier())
+    }
     
     fileprivate static var current: CRFHeartRateRecorder?
+    
+    private weak var stepViewModel: RSDStepViewPathComponent!
     
     /// A delegate method for the view controller.
     public var crfDelegate: CRFHeartRateRecorderDelegate? {
@@ -68,7 +83,7 @@ public class CRFHeartRateRecorder : RSDSampleRecorder, CRFHeartRateVideoProcesso
     
     /// Flag that indicates that the user's finger is recognized as covering the flash.
     @objc dynamic public private(set) var isCoveringLens: Bool = false
-
+    
     /// Last calculated heartrate.
     @objc dynamic public private(set) var bpm: Int = 0
     
@@ -92,10 +107,12 @@ public class CRFHeartRateRecorder : RSDSampleRecorder, CRFHeartRateVideoProcesso
     }
     
     public func vo2Max() -> Double? {
-        guard let genderValue = self.taskViewModel.taskResult.findAnswer(with: CRFDemographicsKeys.gender.stringValue)?.value as? String,
-            let gender = CRFGender(rawValue: genderValue),
-            let birthYear = self.taskViewModel.taskResult.findAnswer(with: CRFDemographicsKeys.birthYear.stringValue)?.value as? Int
-            else {
+        guard let genderValue = self.delegate?.findAnswerValue(with: CRFDemographicsKeys.gender.stringValue),
+              case .string(let genderString) = genderValue,
+              let gender = CRFGender(rawValue: genderString),
+              let birthYearValue = self.delegate?.findAnswerValue(with: CRFDemographicsKeys.birthYear.stringValue),
+              case .integer(let birthYear) = birthYearValue
+        else {
                 return nil
         }
         let timestampOffset: Double = {
@@ -110,12 +127,12 @@ public class CRFHeartRateRecorder : RSDSampleRecorder, CRFHeartRateVideoProcesso
         return sampleProcessor.vo2Max(gender: gender, age: age, startTime: startTime)
     }
     
-    public override func requestPermissions(on viewController: Any, _ completion: @escaping RSDAsyncActionCompletionHandler) {
+    public override func requestPermissions(on viewController: Any, _ completion: @escaping AsyncActionCompletionHandler) {
         
         let status = AVCaptureDevice.authorizationStatus(for: .video)
         if status == .denied || status == .restricted {
-            let authStatus: RSDAuthorizationStatus = (status == .denied) ? .denied : .restricted
-            let error = RSDPermissionError.notAuthorized(RSDStandardPermission.camera, authStatus)
+            let authStatus: PermissionAuthorizationStatus = (status == .denied) ? .denied : .restricted
+            let error = PermissionError.notAuthorized(StandardPermission.camera, authStatus)
             self.updateStatus(to: .failed, error: error)
             completion(self, nil, error)
             return
@@ -132,14 +149,14 @@ public class CRFHeartRateRecorder : RSDSampleRecorder, CRFHeartRateVideoProcesso
                 self.updateStatus(to: .permissionGranted, error: nil)
                 completion(self, nil, nil)
             } else {
-                let error = RSDPermissionError.notAuthorized(RSDStandardPermission.camera, .denied)
+                let error = PermissionError.notAuthorized(StandardPermission.camera, .denied)
                 self.updateStatus(to: .failed, error: error)
                 completion(self, nil, error)
             }
         }
     }
     
-    public override func startRecorder(_ completion: @escaping ((RSDAsyncActionStatus, Error?) -> Void)) {
+    public override func startRecorder(_ completion: @escaping ((AsyncActionStatus, Error?) -> Void)) {
         do {
             try self._startSampling()
             completion(.running, nil)
@@ -149,7 +166,7 @@ public class CRFHeartRateRecorder : RSDSampleRecorder, CRFHeartRateVideoProcesso
         }
     }
     
-    public override func stopRecorder(_ completion: @escaping ((RSDAsyncActionStatus) -> Void)) {
+    public override func stopRecorder(_ completion: @escaping ((AsyncActionStatus) -> Void)) {
         
         updateStatus(to: .processingResults, error: nil)
         
@@ -161,7 +178,7 @@ public class CRFHeartRateRecorder : RSDSampleRecorder, CRFHeartRateVideoProcesso
         // Append the camera settings - but append them to the top-level result
         // because we only want to include them once.
         if let settings = self.heartRateConfiguration?.cameraSettings,
-            let topPath = self.taskViewModel.rootPathComponent {
+           let topPath = self.stepViewModel.rootPathComponent {
             topPath.taskResult.appendAsyncResult(with: settings)
         }
         
@@ -233,12 +250,16 @@ public class CRFHeartRateRecorder : RSDSampleRecorder, CRFHeartRateVideoProcesso
         return telephoto ?? AVCaptureDevice.default(AVCaptureDevice.DeviceType.builtInWideAngleCamera, for: AVMediaType.video, position: .back)
     }
     
+    private var identifierPrefix: String {
+        self.sectionIdentifier ?? ""
+    }
+    
     private var videoIdentifier: String {
-        return "\(self.sectionIdentifier)\(self.configuration.identifier)_video"
+        return "\(identifierPrefix)\(self.configuration.identifier)_video"
     }
     
     override public var defaultLoggerIdentifier: String {
-        return "\(self.sectionIdentifier)\(self.configuration.identifier)_rgb"
+        return "\(identifierPrefix)\(self.configuration.identifier)_rgb"
     }
     
     private func _startSampling() throws {
@@ -401,7 +422,7 @@ public class CRFHeartRateRecorder : RSDSampleRecorder, CRFHeartRateVideoProcesso
         
         // Check that the flash is on (sometime it doesn't turn on when it is suppose to).
         if self.status <= .running, let device = _captureDevice, device.torchMode != .on {
-            let time = RSDClock.uptime()
+            let time = SystemClock.uptime()
             if (_flashTime == nil) || (time - _flashTime! >= 0.5) {
                 _flashTime = time
                 _flashRetryCount += 1
@@ -433,7 +454,7 @@ public class CRFHeartRateRecorder : RSDSampleRecorder, CRFHeartRateVideoProcesso
         
         // mark a change in whether or not the lens is covered
         let coveringLens = sample.isCoveringLens
-        if coveringLens != self.isCoveringLens {
+        if coveringLens != self.isCoveringLens, self.clock.runningDuration() > 2 {
             DispatchQueue.main.async {
                 self.isCoveringLens = coveringLens
                 if let previewLayer = self._videoPreviewLayer {
@@ -510,7 +531,7 @@ public enum CRFPixelChannel : String, Codable {
     case red, green, blue
 }
 
-public struct CRFHeartRateBPMSample : RSDSampleRecord, RSDDelimiterSeparatedEncodable {
+public struct CRFHeartRateBPMSample : SampleRecord, RSDDelimiterSeparatedEncodable {
     
     private enum CodingKeys : String, CodingKey, CaseIterable {
         case timestamp, bpm, confidence, channel
@@ -548,7 +569,7 @@ public struct CRFHeartRateBPMSample : RSDSampleRecord, RSDDelimiterSeparatedEnco
     public var stepPath: String { return "" }
 }
 
-extension CRFPixelSample : RSDSampleRecord, RSDDelimiterSeparatedEncodable {
+extension CRFPixelSample : SampleRecord, RSDDelimiterSeparatedEncodable {
     
     private enum CodingKeys : String, CodingKey, CaseIterable {
         case presentationTimestamp = "timestamp", red, green, blue, isCoveringLens

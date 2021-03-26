@@ -33,9 +33,10 @@
 
 import UIKit
 import JsonModel
-import ResearchMotion
 import ResearchUI
 import Research
+import MotionSensor
+import MobilePassiveData
 
 extension RSDStepType {
     
@@ -61,8 +62,8 @@ open class CRFFactory: RSDFactory {
         }
         
         if !_didRegisterPermissions {
-            RSDAuthorizationHandler.registerAdaptorIfNeeded(RSDMotionAuthorization.shared)
-            RSDAuthorizationHandler.registerAdaptorIfNeeded(CRFAVAuthorization.shared)
+            PermissionAuthorizationHandler.registerAdaptorIfNeeded(MotionAuthorization.shared)
+            PermissionAuthorizationHandler.registerAdaptorIfNeeded(CRFAVAuthorization.shared)
         }
         
         // Register custom  step types
