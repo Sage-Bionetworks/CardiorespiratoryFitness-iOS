@@ -247,7 +247,7 @@ internal class CRFHeartRateSampleProcessor {
     // in the filters before calculating.
     
     func calculateHeartRate(_ input: [Double], samplingRate: Double) -> (heartRate: Double, confidence: Double) {
-        let window = Int(ceil(CRFHeartRateWindowSeconds * samplingRate))
+        let window = Int(round(CRFHeartRateWindowSeconds * samplingRate))
         guard let filtered = getFilteredSignal(input, samplingRate: Int(round(samplingRate))),
             filtered.count >= window
             else {
