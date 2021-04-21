@@ -48,6 +48,9 @@ public enum CRFTaskIdentifier : String, Codable, CaseIterable {
     /// Stair step VO2 max test.
     case stairStep = "Heart Rate Recovery"
     
+    /// Heart snapshot does the stair step VO2 max test without demograhics questions
+    case heartSnapshot = "HeartSnapshot"
+    
     func task(with factory: CRFFactory) -> RSDTaskObject {
         do {
             let transformer = CRFTaskTransformer(self)
@@ -108,6 +111,8 @@ public struct CRFTaskInfo : RSDTaskInfo, RSDEmbeddedIconVendor {
             self.icon = try! RSDImageWrapper(imageName: "heartRateIcon", bundle: Bundle(for: CRFFactory.self))
         case .stairStep:
             self.icon = try! RSDImageWrapper(imageName: "stairStepIcon", bundle: Bundle(for: CRFFactory.self))
+        case .heartSnapshot:
+            self.icon = try! RSDImageWrapper(imageName: "heartSnapshotIcon", bundle: Bundle(for: CRFFactory.self))
         }
     }
     
@@ -137,6 +142,8 @@ public struct CRFTaskInfo : RSDTaskInfo, RSDEmbeddedIconVendor {
             return 1
         case .stairStep:
             return 5
+        case .heartSnapshot:
+            return 3
         }
     }
     
@@ -175,6 +182,8 @@ public struct CRFTaskTransformer : RSDResourceTransformer, Decodable {
             self.resourceName = "Heartrate_Resting"
         case .stairStep:
             self.resourceName = "Cardio_Stair_Step"
+        case .heartSnapshot:
+            self.resourceName = "Heart_Snapshot"
         }
     }
     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CBF48AD0262FEE2000E855C9 /* Heart_Snapshot.json in Resources */ = {isa = PBXBuildFile; fileRef = CBF48ACF262FEE1F00E855C9 /* Heart_Snapshot.json */; };
 		F80479E02257E4EC00E569AC /* CRFTorchInstructionStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80479DF2257E4EC00E569AC /* CRFTorchInstructionStepViewController.swift */; };
 		F80479E22257E52200E569AC /* CRFTorchInstructionStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80479E12257E52200E569AC /* CRFTorchInstructionStep.swift */; };
 		F836461122653EB700CCA0EF /* Tips_for_measuring.html in Resources */ = {isa = PBXBuildFile; fileRef = F836461022653EB700CCA0EF /* Tips_for_measuring.html */; };
@@ -69,6 +70,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CBF48ACF262FEE1F00E855C9 /* Heart_Snapshot.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Heart_Snapshot.json; sourceTree = "<group>"; };
 		F80479DF2257E4EC00E569AC /* CRFTorchInstructionStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRFTorchInstructionStepViewController.swift; sourceTree = "<group>"; };
 		F80479E12257E52200E569AC /* CRFTorchInstructionStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRFTorchInstructionStep.swift; sourceTree = "<group>"; };
 		F836461022653EB700CCA0EF /* Tips_for_measuring.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Tips_for_measuring.html; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 		F8D71B01224D4E3400DA49BC /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				CBF48ACF262FEE1F00E855C9 /* Heart_Snapshot.json */,
 				F880C16A2051FCD400ACB4D4 /* Cardio_Stair_Step.json */,
 				F857BAAE224BFB3B0089B150 /* Heartrate_Resting.json */,
 				F86B528F224AE8A700BB7354 /* Heartrate_Training.json */,
@@ -452,6 +455,7 @@
 				F86B5290224AE8A700BB7354 /* Heartrate_Training.json in Resources */,
 				F8D71B05224D51B400DA49BC /* Normal_HR.html in Resources */,
 				F880C1752051FCD400ACB4D4 /* ActiveTaskSteps.storyboard in Resources */,
+				CBF48AD0262FEE2000E855C9 /* Heart_Snapshot.json in Resources */,
 				F857BAAF224BFB3B0089B150 /* Heartrate_Resting.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
