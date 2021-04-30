@@ -60,6 +60,84 @@
         }
     },
     {
+        "identifier": "demographics",
+        "type": "instruction",
+        "title": "Recovery HR Questions",
+        "text": "To calculate your Recovery HR score, we first need to know a few things about you like your sex and age.",
+        "image": {
+            "type": "fetchable",
+            "imageName": "RecoveryQuestions",
+            "placementType": "iconBefore"
+        },
+        "actions": {
+            "goForward": {
+                "type": "default",
+                "buttonTitle": "Start"
+            }
+        }
+    },
+    {
+        "identifier": "sex",
+        "type": "demographics",
+        "title": "What is your sex?",
+        "inputFields": [{
+            "uiHint": "list",
+            "type": "singleChoice.string",
+            "choices": [{
+                "text": "Male",
+                "value": "male"
+            },
+            {
+                "text": "Female",
+                "value": "female"
+            },
+            {
+                "text": "Other, or prefer not to answer",
+                "value": "other"
+            }
+            ]
+        }],
+        "actions": {
+            "goForward": {
+                "type": "default",
+                "buttonTitle": "Next"
+            },
+            "goBackward": {
+                "type": "default",
+                "buttonTitle": "Back"
+            },
+            "learnMore": {
+                "type": "webView",
+                "title": "Why are we asking about your sex?",
+                "usesBackButton": true,
+                "url": "Demographics_questions.html",
+                "buttonTitle": "Why are we asking this?"
+            }
+        }
+    },
+    {
+        "identifier": "birthYear",
+        "type": "demographics",
+        "title": "What year were you born?",
+        "inputFields": [{
+            "type": "year",
+            "uiHint": "textfield",
+            "range": {
+                "allowFuture": false
+            }
+        }],
+        "actions": {
+            "goForward": {
+                "type": "default",
+                "buttonTitle": "Next"
+            },
+            "goBackward": {
+                "type": "default",
+                "buttonTitle": "Back"
+            }
+        }
+    },
+    {
         "identifier": "volumeUp",
         "type": "instruction",
         "title": "Volume turned up?",
