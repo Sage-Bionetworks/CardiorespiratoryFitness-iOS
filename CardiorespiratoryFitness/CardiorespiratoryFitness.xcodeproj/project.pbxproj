@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CBF48AD0262FEE2000E855C9 /* Heart_Snapshot.json in Resources */ = {isa = PBXBuildFile; fileRef = CBF48ACF262FEE1F00E855C9 /* Heart_Snapshot.json */; };
 		F80479E02257E4EC00E569AC /* CRFTorchInstructionStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80479DF2257E4EC00E569AC /* CRFTorchInstructionStepViewController.swift */; };
 		F80479E22257E52200E569AC /* CRFTorchInstructionStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80479E12257E52200E569AC /* CRFTorchInstructionStep.swift */; };
 		F836461122653EB700CCA0EF /* Tips_for_measuring.html in Resources */ = {isa = PBXBuildFile; fileRef = F836461022653EB700CCA0EF /* Tips_for_measuring.html */; };
@@ -30,7 +31,6 @@
 		F880C15B2051FA5F00ACB4D4 /* CRFHeartRateRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F880C1582051FA5F00ACB4D4 /* CRFHeartRateRecorder.swift */; };
 		F880C15C2051FA5F00ACB4D4 /* CRFHeartRateVideoProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = F880C1592051FA5F00ACB4D4 /* CRFHeartRateVideoProcessor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F880C15D2051FA5F00ACB4D4 /* CRFHeartRateVideoProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = F880C15A2051FA5F00ACB4D4 /* CRFHeartRateVideoProcessor.m */; };
-		F880C1712051FCD400ACB4D4 /* Cardio_Stair_Step.json in Resources */ = {isa = PBXBuildFile; fileRef = F880C16A2051FCD400ACB4D4 /* Cardio_Stair_Step.json */; };
 		F880C1752051FCD400ACB4D4 /* ActiveTaskSteps.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F880C16E2051FCD400ACB4D4 /* ActiveTaskSteps.storyboard */; };
 		F880C17F2052081600ACB4D4 /* CRFHeartRateStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = F880C17E2052081600ACB4D4 /* CRFHeartRateStep.swift */; };
 		F880C18120520CF500ACB4D4 /* CRFCameraSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F880C18020520CF500ACB4D4 /* CRFCameraSettings.swift */; };
@@ -69,6 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CBF48ACF262FEE1F00E855C9 /* Heart_Snapshot.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Heart_Snapshot.json; sourceTree = "<group>"; };
 		F80479DF2257E4EC00E569AC /* CRFTorchInstructionStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRFTorchInstructionStepViewController.swift; sourceTree = "<group>"; };
 		F80479E12257E52200E569AC /* CRFTorchInstructionStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRFTorchInstructionStep.swift; sourceTree = "<group>"; };
 		F836461022653EB700CCA0EF /* Tips_for_measuring.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Tips_for_measuring.html; sourceTree = "<group>"; };
@@ -92,7 +93,6 @@
 		F880C1582051FA5F00ACB4D4 /* CRFHeartRateRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRFHeartRateRecorder.swift; sourceTree = "<group>"; };
 		F880C1592051FA5F00ACB4D4 /* CRFHeartRateVideoProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRFHeartRateVideoProcessor.h; sourceTree = "<group>"; };
 		F880C15A2051FA5F00ACB4D4 /* CRFHeartRateVideoProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRFHeartRateVideoProcessor.m; sourceTree = "<group>"; };
-		F880C16A2051FCD400ACB4D4 /* Cardio_Stair_Step.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Cardio_Stair_Step.json; sourceTree = "<group>"; };
 		F880C16E2051FCD400ACB4D4 /* ActiveTaskSteps.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ActiveTaskSteps.storyboard; sourceTree = "<group>"; };
 		F880C1782051FE5900ACB4D4 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		F880C17A2051FE6200ACB4D4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -333,7 +333,7 @@
 		F8D71B01224D4E3400DA49BC /* JSON */ = {
 			isa = PBXGroup;
 			children = (
-				F880C16A2051FCD400ACB4D4 /* Cardio_Stair_Step.json */,
+				CBF48ACF262FEE1F00E855C9 /* Heart_Snapshot.json */,
 				F857BAAE224BFB3B0089B150 /* Heartrate_Resting.json */,
 				F86B528F224AE8A700BB7354 /* Heartrate_Training.json */,
 			);
@@ -441,7 +441,6 @@
 				F836461122653EB700CCA0EF /* Tips_for_measuring.html in Resources */,
 				F8D71B03224D4FA100DA49BC /* HR_Recovery_Score.html in Resources */,
 				F880C12F2051F2A700ACB4D4 /* Images.xcassets in Resources */,
-				F880C1712051FCD400ACB4D4 /* Cardio_Stair_Step.json in Resources */,
 				F897CF8F225523320088DFAE /* highpass_filter_params.csv in Resources */,
 				F880C14D2051F61700ACB4D4 /* stairStepAudio.m4a in Resources */,
 				F857BAAD224BE2FE0089B150 /* Heart_Snapshot.html in Resources */,
@@ -452,6 +451,7 @@
 				F86B5290224AE8A700BB7354 /* Heartrate_Training.json in Resources */,
 				F8D71B05224D51B400DA49BC /* Normal_HR.html in Resources */,
 				F880C1752051FCD400ACB4D4 /* ActiveTaskSteps.storyboard in Resources */,
+				CBF48AD0262FEE2000E855C9 /* Heart_Snapshot.json in Resources */,
 				F857BAAF224BFB3B0089B150 /* Heartrate_Resting.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

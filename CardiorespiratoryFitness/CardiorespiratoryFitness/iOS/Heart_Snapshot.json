@@ -1,5 +1,5 @@
 {
-    "identifier": "Heart Rate Recovery",
+    "identifier": "HeartSnapshot",
     "usesTrackedData": true,
     "shouldHideActions": ["goBackward", "skip"],
     "progressMarkers": ["sex", "birthYear"],
@@ -16,7 +16,7 @@
     "steps": [{
         "identifier": "introduction",
         "type": "overview",
-        "title": "Heart Rate Recovery",
+        "title": "Heart Snapshot",
         "text": "You will be stepping up and down a step for 3 minutes to raise your heart rate. Right after you finish stepping, measure your heart rate for 1 minute to see how your heart rate recovers.",
         "permissions": [{
             "permissionType": "camera",
@@ -38,7 +38,7 @@
             },
             "skip": {
                 "type": "reminder",
-                "reminderIdentifier": "Cardio Stair Step"
+                "reminderIdentifier": "HeartSnapshot"
             }
         }
     },
