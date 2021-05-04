@@ -2,7 +2,7 @@
 //  TaskObjectTests.swift
 //  CardiorespiratoryFitnessTests
 //
-//  Copyright © 2019-2021 Sage Bionetworks. All rights reserved.
+//  Copyright © 2019 Sage Bionetworks. All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without modification,
 // are permitted provided that the following conditions are met:
@@ -34,8 +34,8 @@
 import XCTest
 @testable import CardiorespiratoryFitness
 @testable import Research_UnitTest
-import Research
-import JsonModel
+
+import XCTest
 
 class TaskObjectTests: XCTestCase {
 
@@ -48,14 +48,16 @@ class TaskObjectTests: XCTestCase {
     }
     
     func testTaskNavigation_PreviousDemographics() {
-        let task = CRFTaskInfo(.stairStep).task
+        NSLocale.setCurrentTest(Locale(identifier: "en_US"))
+        
+        let task = CRFTaskInfo(.heartSnapshot).task
         let taskController = TestTaskController()
         taskController.task = task
         
         let dataStore = TestDataStoreManager()
         let previousRunTimestamp = Date(timeIntervalSinceNow: -1 * 60 * 60)
-        let json: [String : JsonSerializable] = ["birthYear" : 1956,
-                                         "gender" : "female",
+        let json: [String : RSDJSONSerializable] = ["birthYear" : 1956,
+                                         "sex" : "female",
                                          "hr_resting" : 62]
         dataStore.previous[RSDIdentifier(rawValue: task.identifier)] =
             TestData(identifier: task.identifier,
@@ -67,7 +69,7 @@ class TaskObjectTests: XCTestCase {
         
         // check that the previous run data is being set properly
         XCTAssertEqual(task.birthYear, 1956)
-        XCTAssertEqual(task.gender, .female)
+        XCTAssertEqual(task.sex, .female)
         
         taskController.goForward()
         
@@ -86,26 +88,30 @@ class TaskObjectTests: XCTestCase {
         XCTAssertNotNil(taskData.timestampDate)
         XCTAssertEqual(taskData.identifier, task.identifier)
         
-        guard let answers = taskData.json as? [String : JsonSerializable] else {
+        guard let answers = taskData.json as? [String : RSDJSONSerializable] else {
             XCTFail("\(taskData.json) not a dictionary")
             return
         }
         
         XCTAssertEqual(answers["birthYear"] as? Int, 1956)
-        XCTAssertEqual(answers["gender"] as? String, "female")
+        XCTAssertEqual(answers["sex"] as? String, "female")
     }
     
     func testTaskNavigation_SetDemographics() {
-        let task = CRFTaskInfo(.stairStep).task
+        NSLocale.setCurrentTest(Locale(identifier: "en_US"))
+        
+        let task = CRFTaskInfo(.heartSnapshot).task
         task.birthYear = 1956
-        task.gender = .female
+        task.sex = .female
         
         XCTAssertEqual(task.birthYear, 1956)
-        XCTAssertEqual(task.gender, .female)
+        XCTAssertEqual(task.sex, .female)
     }
     
     func testTaskNavigation_NoDemographics() {
-        let task = CRFTaskInfo(.stairStep).task
+        NSLocale.setCurrentTest(Locale(identifier: "en_US"))
+        
+        let task = CRFTaskInfo(.heartSnapshot).task
         let taskController = TestTaskController()
         taskController.task = task
         
@@ -113,7 +119,7 @@ class TaskObjectTests: XCTestCase {
         
         // check that the previous run data is being set properly
         XCTAssertNil(task.birthYear)
-        XCTAssertNil(task.gender)
+        XCTAssertNil(task.sex)
         
         taskController.goForward()
         
@@ -125,7 +131,9 @@ class TaskObjectTests: XCTestCase {
         XCTAssertEqual(node.identifier, "demographics")
     }
     
-    func testTaskCameraSettings() {        
+    func testTaskCameraSettings() {
+        NSLocale.setCurrentTest(Locale(identifier: "en_US"))
+        
         let task = CRFTaskInfo(.resting).task
         guard let settings = task.cameraSettings else {
             XCTFail("Unexpected null camera settings.")

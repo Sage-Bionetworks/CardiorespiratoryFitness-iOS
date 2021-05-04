@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CBF48AD0262FEE2000E855C9 /* Heart_Snapshot.json in Resources */ = {isa = PBXBuildFile; fileRef = CBF48ACF262FEE1F00E855C9 /* Heart_Snapshot.json */; };
 		F80479E02257E4EC00E569AC /* CRFTorchInstructionStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80479DF2257E4EC00E569AC /* CRFTorchInstructionStepViewController.swift */; };
 		F80479E22257E52200E569AC /* CRFTorchInstructionStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80479E12257E52200E569AC /* CRFTorchInstructionStep.swift */; };
 		F84FE3BE228E24D300563F94 /* CRFCameraAuthorizationAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84FE3BD228E24D300563F94 /* CRFCameraAuthorizationAdaptor.swift */; };
@@ -81,6 +82,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CBF48ACF262FEE1F00E855C9 /* Heart_Snapshot.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Heart_Snapshot.json; sourceTree = "<group>"; };
 		F80479DF2257E4EC00E569AC /* CRFTorchInstructionStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRFTorchInstructionStepViewController.swift; sourceTree = "<group>"; };
 		F80479E12257E52200E569AC /* CRFTorchInstructionStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRFTorchInstructionStep.swift; sourceTree = "<group>"; };
 		F84FE3BD228E24D300563F94 /* CRFCameraAuthorizationAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRFCameraAuthorizationAdaptor.swift; sourceTree = "<group>"; };
@@ -334,9 +336,9 @@
 		F8D71B01224D4E3400DA49BC /* JSON */ = {
 			isa = PBXGroup;
 			children = (
-				FFCC063125D5BAB500185C5B /* Cardio_Stair_Step.json */,
-				FFCC063625D5BABB00185C5B /* Heartrate_Resting.json */,
-				FFCC063B25D5BAC000185C5B /* Heartrate_Training.json */,
+				CBF48ACF262FEE1F00E855C9 /* Heart_Snapshot.json */,
+				F857BAAE224BFB3B0089B150 /* Heartrate_Resting.json */,
+				F86B528F224AE8A700BB7354 /* Heartrate_Training.json */,
 			);
 			name = JSON;
 			sourceTree = "<group>";
@@ -528,7 +530,6 @@
 				FFCC061625D5BA9500185C5B /* Tips_for_measuring.html in Resources */,
 				FFCC062A25D5BAAA00185C5B /* HR_Recovery_Score.html in Resources */,
 				F880C12F2051F2A700ACB4D4 /* Images.xcassets in Resources */,
-				FFCC062F25D5BAB500185C5B /* Cardio_Stair_Step.json in Resources */,
 				F897CF8F225523320088DFAE /* highpass_filter_params.csv in Resources */,
 				F880C14D2051F61700ACB4D4 /* stairStepAudio.m4a in Resources */,
 				FFCC061125D5BA9100185C5B /* Heart_Snapshot.html in Resources */,
@@ -540,6 +541,8 @@
 				FFCC062025D5BAA000185C5B /* Normal_HR.html in Resources */,
 				F880C1752051FCD400ACB4D4 /* ActiveTaskSteps.storyboard in Resources */,
 				FFCC063425D5BABB00185C5B /* Heartrate_Resting.json in Resources */,
+				CBF48AD0262FEE2000E855C9 /* Heart_Snapshot.json in Resources */,
+				F857BAAF224BFB3B0089B150 /* Heartrate_Resting.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

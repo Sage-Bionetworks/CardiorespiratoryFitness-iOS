@@ -140,15 +140,14 @@ class ModelTests: XCTestCase {
         XCTAssertTrue(checkHeartRate(taskInfo.task, "hr1", true, false))
     }
     
-    func testStairStepTask() {
+    func testHeartSnapshotStepTask() {
         NSLocale.setCurrentTest(Locale(identifier: "en_US"))
         
-        let taskInfo = CRFTaskInfo(.stairStep)
-        
-        XCTAssertEqual(taskInfo.identifier, "Heart Rate Recovery")
-        XCTAssertEqual(taskInfo.title, "Heart Rate Recovery")
-        XCTAssertEqual(taskInfo.detail, "You will be stepping up and down a step for 3 minutes to raise your heart rate. Right after you finish stepping, measure your heart rate for 1 minute to see how your heart rate recovers.")
-        XCTAssertNil(taskInfo.subtitle)
+        let taskInfo = CRFTaskInfo(.heartSnapshot)
+        XCTAssertEqual(taskInfo.identifier, "HeartSnapshot")
+        XCTAssertEqual(taskInfo.title, "Heart Snapshot")
+        XCTAssertEqual(taskInfo.subtitle, "You will be stepping up and down a step for 3 minutes to raise your heart rate. Right after you finish stepping, measure your heart rate for 1 minute to see how your heart rate recovers.")
+        XCTAssertNil(taskInfo.detail)
         XCTAssertEqual(taskInfo.estimatedMinutes, 5)
         
         XCTAssertTrue(checkFeedback(taskInfo.task, "feedback", RSDIdentifier.vo2MaxResultIdentifier.stringValue, "hr"))
