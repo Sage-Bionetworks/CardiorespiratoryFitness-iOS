@@ -63,7 +63,7 @@
         "identifier": "demographics",
         "type": "instruction",
         "title": "Recovery HR Questions",
-        "text": "To calculate your Recovery HR score, we first need to know a few things about you like your sex and age.",
+        "text": "To calculate your Recovery HR score, we first need to know a few things about you like your gender and age.",
         "image": {
             "type": "fetchable",
             "imageName": "RecoveryQuestions",
@@ -79,7 +79,7 @@
     {
         "identifier": "sex",
         "type": "demographics",
-        "title": "What is your sex?",
+        "title": "What is your gender?",
         "inputFields": [{
             "uiHint": "list",
             "type": "singleChoice.string",
@@ -92,7 +92,7 @@
                 "value": "female"
             },
             {
-                "text": "Other, or prefer not to answer",
+                "text": "Does not apply or prefer not to answer",
                 "value": "other"
             }
             ]
@@ -108,7 +108,7 @@
             },
             "learnMore": {
                 "type": "webView",
-                "title": "Why are we asking about your sex?",
+                "title": "Why are we asking about your gender?",
                 "usesBackButton": true,
                 "url": "Demographics_questions.html",
                 "buttonTitle": "Why are we asking this?"
