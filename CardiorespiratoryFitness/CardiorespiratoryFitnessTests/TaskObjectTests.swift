@@ -50,7 +50,7 @@ class TaskObjectTests: XCTestCase {
     func testTaskNavigation_PreviousDemographics() {
         NSLocale.setCurrentTest(Locale(identifier: "en_US"))
         
-        let task = CRFTaskInfo(.stairStep).task
+        let task = CRFTaskInfo(.heartSnapshot).task
         let taskController = TestTaskController()
         taskController.task = task
         
@@ -100,7 +100,7 @@ class TaskObjectTests: XCTestCase {
     func testTaskNavigation_SetDemographics() {
         NSLocale.setCurrentTest(Locale(identifier: "en_US"))
         
-        let task = CRFTaskInfo(.stairStep).task
+        let task = CRFTaskInfo(.heartSnapshot).task
         task.birthYear = 1956
         task.sex = .female
         
@@ -111,7 +111,7 @@ class TaskObjectTests: XCTestCase {
     func testTaskNavigation_NoDemographics() {
         NSLocale.setCurrentTest(Locale(identifier: "en_US"))
         
-        let task = CRFTaskInfo(.stairStep).task
+        let task = CRFTaskInfo(.heartSnapshot).task
         let taskController = TestTaskController()
         taskController.task = task
         
