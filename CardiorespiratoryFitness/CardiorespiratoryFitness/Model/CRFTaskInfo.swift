@@ -42,7 +42,7 @@ public enum CRFTaskIdentifier : String, Codable, CaseIterable {
     /// Measure your heart rate while resting.
     case resting = "Resting Heart Rate"
     
-    /// Heart snapshot does the stair step VO2 max test without demograhics questions
+    /// Heart snapshot does the stair step VO2 max test with sex and birthYear questions
     case heartSnapshot = "HeartSnapshot"
     
     func task(with factory: CRFFactory) -> RSDTaskObject {
@@ -120,7 +120,7 @@ public struct CRFTaskInfo : RSDTaskInfo, RSDEmbeddedIconVendor {
         case .resting:
             return 1
         case .heartSnapshot:
-            return 3
+            return 4
         }
     }
     
