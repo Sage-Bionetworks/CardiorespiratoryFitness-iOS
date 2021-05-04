@@ -120,7 +120,7 @@ public struct CRFTaskInfo : RSDTaskInfo, RSDEmbeddedIconVendor {
         case .resting:
             return 1
         case .heartSnapshot:
-            return 4
+            return 5
         }
     }
     

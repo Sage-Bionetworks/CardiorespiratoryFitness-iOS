@@ -169,7 +169,7 @@ class ModelTests: XCTestCase {
         XCTAssertEqual(taskInfo.title, "Heart Snapshot")
         XCTAssertEqual(taskInfo.subtitle, "You will be stepping up and down a step for 3 minutes to raise your heart rate. Right after you finish stepping, measure your heart rate for 1 minute to see how your heart rate recovers.")
         XCTAssertNil(taskInfo.detail)
-        XCTAssertEqual(taskInfo.estimatedMinutes, 4)
+        XCTAssertEqual(taskInfo.estimatedMinutes, 5)
         
         XCTAssertTrue(checkFeedback(taskInfo.task, "feedback", RSDIdentifier.vo2MaxResultIdentifier.stringValue, "hr"))
         XCTAssertTrue(checkHeartRate(taskInfo.task, "hr", false, false))
