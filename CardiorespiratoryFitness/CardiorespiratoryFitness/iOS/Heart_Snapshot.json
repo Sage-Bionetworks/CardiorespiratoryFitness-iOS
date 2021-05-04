@@ -38,7 +38,7 @@
             },
             "skip": {
                 "type": "reminder",
-                "reminderIdentifier": "Cardio Stair Step"
+                "reminderIdentifier": "HeartSnapshot"
             }
         }
     },
