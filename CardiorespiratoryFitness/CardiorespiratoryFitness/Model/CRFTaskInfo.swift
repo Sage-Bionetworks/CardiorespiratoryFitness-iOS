@@ -42,12 +42,6 @@ public enum CRFTaskIdentifier : String, Codable, CaseIterable {
     /// Measure your heart rate while resting.
     case resting = "Resting Heart Rate"
     
-    // TODO: syoung 04/02/2019 Remove commented out code. Leaving for now in case researchers change their mind again.
-    // case restingMorning = "Morning Heartrate"
-    
-    /// Stair step VO2 max test.
-    case stairStep = "Heart Rate Recovery"
-    
     /// Heart snapshot does the stair step VO2 max test without demograhics questions
     case heartSnapshot = "HeartSnapshot"
     
@@ -56,19 +50,6 @@ public enum CRFTaskIdentifier : String, Codable, CaseIterable {
             let transformer = CRFTaskTransformer(self)
             let mTask = try factory.decodeTask(with: transformer)
             let task = mTask as! RSDTaskObject
-            
-            // TODO: syoung 04/02/2019 Remove commented out code. Leaving for now in case researchers change their mind again.
-            //            if self == .restingMorning, let intro = task.findStep(with: "introduction") as? RSDUIStepObject {
-            //                intro.title = Localization.localizedString("HEARTRATE_MORNING_TITLE")
-            //                if let navigator = task.stepNavigator as? RSDCopyStepNavigator {
-            //                    let copy = navigator.copyAndRemove(["hr1", "feedback1"])
-            //                    task = CRFTaskObject(identifier: self.stringValue,
-            //                                         stepNavigator: copy,
-            //                                         schemaInfo: task.schemaInfo,
-            //                                         asyncActions: task.asyncActions,
-            //                                         usesTrackedData: task.usesTrackedData)
-            //                }
-            //            }
             return task
         }
         catch let err {
@@ -109,8 +90,6 @@ public struct CRFTaskInfo : RSDTaskInfo, RSDEmbeddedIconVendor {
         switch taskIdentifier {
         case .training, .resting:
             self.icon = try! RSDImageWrapper(imageName: "heartRateIcon", bundle: Bundle(for: CRFFactory.self))
-        case .stairStep:
-            self.icon = try! RSDImageWrapper(imageName: "stairStepIcon", bundle: Bundle(for: CRFFactory.self))
         case .heartSnapshot:
             self.icon = try! RSDImageWrapper(imageName: "heartSnapshotIcon", bundle: Bundle(for: CRFFactory.self))
         }
@@ -140,8 +119,6 @@ public struct CRFTaskInfo : RSDTaskInfo, RSDEmbeddedIconVendor {
             return 2
         case .resting:
             return 1
-        case .stairStep:
-            return 5
         case .heartSnapshot:
             return 3
         }
@@ -180,8 +157,6 @@ public struct CRFTaskTransformer : RSDResourceTransformer, Decodable {
             self.resourceName = "Heartrate_Training"
         case .resting:
             self.resourceName = "Heartrate_Resting"
-        case .stairStep:
-            self.resourceName = "Cardio_Stair_Step"
         case .heartSnapshot:
             self.resourceName = "Heart_Snapshot"
         }
