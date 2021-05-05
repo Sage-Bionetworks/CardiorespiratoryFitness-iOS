@@ -92,7 +92,7 @@ public struct CRFTaskInfo : RSDTaskInfo, RSDEmbeddedIconData {
         // Set the default image icon.
         switch taskIdentifier {
         case .training, .resting:
-            self.icon = try! RSDResourceImageDataObject(imageName: "heartRateIcon", bundle: Bundle(for: CRFFactory.self))
+            self.icon = try! RSDResourceImageDataObject(imageName: "heartRateIcon", bundle: Bundle.module)
         case .heartSnapshot:
             self.icon = try! RSDResourceImageDataObject(imageName: "heartSnapshotIcon", bundle: Bundle(for: CRFFactory.self))
         }
@@ -228,4 +228,3 @@ extension RSDTask {
         return nil
     }
 }
-
