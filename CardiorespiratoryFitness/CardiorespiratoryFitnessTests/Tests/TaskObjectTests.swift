@@ -37,6 +37,8 @@ import XCTest
 import Research
 import JsonModel
 
+import XCTest
+
 class TaskObjectTests: XCTestCase {
 
     override func setUp() {
@@ -48,7 +50,9 @@ class TaskObjectTests: XCTestCase {
     }
     
     func testTaskNavigation_PreviousDemographics() {
-        let task = CRFTaskInfo(.stairStep).task
+        NSLocale.setCurrentTest(Locale(identifier: "en_US"))
+        
+        let task = CRFTaskInfo(.heartSnapshot).task
         let taskController = TestTaskController()
         taskController.task = task
         
@@ -57,7 +61,7 @@ class TaskObjectTests: XCTestCase {
         let json: [String : JsonSerializable] = ["birthYear" : 1956,
                                          "gender" : "female",
                                          "hr_resting" : 62]
-        dataStore.previous[RSDIdentifier(rawValue: task.identifier)] =
+        dataStore.previous[ RSDIdentifier(rawValue: task.identifier)] =
             TestData(identifier: task.identifier,
                      timestampDate: previousRunTimestamp,
                      json: json )
@@ -96,7 +100,9 @@ class TaskObjectTests: XCTestCase {
     }
     
     func testTaskNavigation_SetDemographics() {
-        let task = CRFTaskInfo(.stairStep).task
+        NSLocale.setCurrentTest(Locale(identifier: "en_US"))
+        
+        let task = CRFTaskInfo(.heartSnapshot).task
         task.birthYear = 1956
         task.gender = .female
         
@@ -105,7 +111,9 @@ class TaskObjectTests: XCTestCase {
     }
     
     func testTaskNavigation_NoDemographics() {
-        let task = CRFTaskInfo(.stairStep).task
+        NSLocale.setCurrentTest(Locale(identifier: "en_US"))
+        
+        let task = CRFTaskInfo(.heartSnapshot).task
         let taskController = TestTaskController()
         taskController.task = task
         
@@ -125,7 +133,9 @@ class TaskObjectTests: XCTestCase {
         XCTAssertEqual(node.identifier, "demographics")
     }
     
-    func testTaskCameraSettings() {        
+    func testTaskCameraSettings() {
+        NSLocale.setCurrentTest(Locale(identifier: "en_US"))
+        
         let task = CRFTaskInfo(.resting).task
         guard let settings = task.cameraSettings else {
             XCTFail("Unexpected null camera settings.")
