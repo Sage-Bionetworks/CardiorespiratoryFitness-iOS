@@ -1,8 +1,9 @@
 {
     "identifier": "HeartSnapshot",
+    "type": "crf",
     "usesTrackedData": true,
     "shouldHideActions": ["goBackward", "skip"],
-    "progressMarkers": ["sex", "birthYear"],
+    "progressMarkers": ["gender", "birthYear"],
     "asyncActions":[
         {
             "identifier":"motion",
@@ -17,7 +18,7 @@
         "identifier": "introduction",
         "type": "overview",
         "title": "Heart Snapshot",
-        "text": "You will be stepping up and down a step for 3 minutes to raise your heart rate. Right after you finish stepping, measure your heart rate for 1 minute to see how your heart rate recovers.",
+        "detail": "You will be stepping up and down a step for 3 minutes to raise your heart rate. Right after you finish stepping, measure your heart rate for 1 minute to see how your heart rate recovers.",
         "permissions": [{
             "permissionType": "camera",
             "reason": "We use the camera to see your finger as blood goes through it so we can measure your heart beats."
@@ -51,7 +52,7 @@
             "placementType": "iconBefore"
         },
         "title": "Potential risks",
-        "text": "If a doctor has told you not to exercise, or if you feel that stepping up and down a step for 3 minutes will be painful or too difficult, please do not do this activity.",
+        "detail": "If a doctor has told you not to exercise, or if you feel that stepping up and down a step for 3 minutes will be painful or too difficult, please do not do this activity.",
         "actions": {
             "goForward": {
                 "type": "default",
@@ -63,7 +64,7 @@
         "identifier": "demographics",
         "type": "instruction",
         "title": "Recovery HR Questions",
-        "text": "To calculate your Recovery HR score, we first need to know a few things about you like your gender and age.",
+        "detail": "To calculate your Recovery HR score, we first need to know a few things about you like your gender and age.",
         "image": {
             "type": "fetchable",
             "imageName": "RecoveryQuestions",
@@ -77,26 +78,22 @@
         }
     },
     {
-        "identifier": "sex",
-        "type": "demographics",
+        "identifier": "gender",
+        "type": "choiceQuestion",
         "title": "What is your gender?",
-        "inputFields": [{
-            "uiHint": "list",
-            "type": "singleChoice.string",
-            "choices": [{
-                "text": "Male",
-                "value": "male"
-            },
-            {
-                "text": "Female",
-                "value": "female"
-            },
-            {
-                "text": "Does not apply or prefer not to answer",
-                "value": "other"
-            }
-            ]
-        }],
+        "uiHint": "list",
+        "choices": [{
+                        "text": "Male",
+                        "value": "male"
+                    },
+                    {
+                        "text": "Female",
+                        "value": "female"
+                    },
+                    {
+                        "text": "Does not apply or prefer not to answer",
+                        "value": "other"
+                    }],
         "actions": {
             "goForward": {
                 "type": "default",
@@ -117,15 +114,15 @@
     },
     {
         "identifier": "birthYear",
-        "type": "demographics",
+        "type": "simpleQuestion",
         "title": "What year were you born?",
-        "inputFields": [{
+        "inputItem": {
             "type": "year",
             "uiHint": "textfield",
-            "range": {
+            "formatOptions": {
                 "allowFuture": false
             }
-        }],
+        },
         "actions": {
             "goForward": {
                 "type": "default",
@@ -141,7 +138,7 @@
         "identifier": "volumeUp",
         "type": "instruction",
         "title": "Volume turned up?",
-        "text": "Bring your phone with you and turn up your phone volume so you can hear the instructions while you are stair stepping.",
+        "detail": "Bring your phone with you and turn up your phone volume so you can hear the instructions while you are stair stepping.",
         "image": {
             "type": "animated",
             "imageNames": ["VolumeTurnedUp_1", "VolumeTurnedUp_2", "VolumeTurnedUp_3"],
@@ -159,7 +156,7 @@
         "identifier": "bringPhone",
         "type": "instruction",
         "title": "Please step with your phone",
-        "text": "You will step up and down for 3 minutes. Try to step with the pace.",
+        "detail": "You will step up and down for 3 minutes. Try to step with the pace.",
         "image": {
             "type": "animated",
             "imageNames": ["stairStepSmall1", "stairStepSmall2", "stairStepSmall3", "stairStepSmall4"],
@@ -176,7 +173,7 @@
     {
         "identifier": "countdown",
         "type": "countdown",
-        "text": "Start in",
+        "title": "Start in",
         "duration": 10,
         "commands": ["playSoundOnStart", "transitionAutomatically"]
     },
@@ -184,7 +181,7 @@
         "identifier": "stairStep",
         "type": "active",
         "duration": 180,
-        "text": "Stand still",
+        "title": "Stand still",
         "image": {
             "type": "animated",
             "imageNames": ["stairStepSmall1", "stairStepSmall2", "stairStepSmall3", "stairStepSmall4"],
@@ -213,7 +210,7 @@
         "stepResultIdentifier": "hr",
         "resultIdentifier": "vo2_max",
         "title": "Recovery HR Score",
-        "text": "The score above estimates a vital sign called VO2max that is normally measured in a lab or clinic.",
+        "detail": "The score above estimates a vital sign called VO2max that is normally measured in a lab or clinic.",
         "actions": {
             "goForward": {
                 "type": "default",

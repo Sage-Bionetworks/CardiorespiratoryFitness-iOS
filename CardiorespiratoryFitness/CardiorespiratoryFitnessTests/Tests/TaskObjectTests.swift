@@ -34,6 +34,8 @@
 import XCTest
 @testable import CardiorespiratoryFitness
 @testable import Research_UnitTest
+import Research
+import JsonModel
 
 import XCTest
 
@@ -56,10 +58,10 @@ class TaskObjectTests: XCTestCase {
         
         let dataStore = TestDataStoreManager()
         let previousRunTimestamp = Date(timeIntervalSinceNow: -1 * 60 * 60)
-        let json: [String : RSDJSONSerializable] = ["birthYear" : 1956,
-                                         "sex" : "female",
+        let json: [String : JsonSerializable] = ["birthYear" : 1956,
+                                         "gender" : "female",
                                          "hr_resting" : 62]
-        dataStore.previous[RSDIdentifier(rawValue: task.identifier)] =
+        dataStore.previous[ RSDIdentifier(rawValue: task.identifier)] =
             TestData(identifier: task.identifier,
                      timestampDate: previousRunTimestamp,
                      json: json )
@@ -69,7 +71,7 @@ class TaskObjectTests: XCTestCase {
         
         // check that the previous run data is being set properly
         XCTAssertEqual(task.birthYear, 1956)
-        XCTAssertEqual(task.sex, .female)
+        XCTAssertEqual(task.gender, .female)
         
         taskController.goForward()
         
@@ -88,13 +90,13 @@ class TaskObjectTests: XCTestCase {
         XCTAssertNotNil(taskData.timestampDate)
         XCTAssertEqual(taskData.identifier, task.identifier)
         
-        guard let answers = taskData.json as? [String : RSDJSONSerializable] else {
+        guard let answers = taskData.json as? [String : JsonSerializable] else {
             XCTFail("\(taskData.json) not a dictionary")
             return
         }
         
         XCTAssertEqual(answers["birthYear"] as? Int, 1956)
-        XCTAssertEqual(answers["sex"] as? String, "female")
+        XCTAssertEqual(answers["gender"] as? String, "female")
     }
     
     func testTaskNavigation_SetDemographics() {
@@ -102,10 +104,10 @@ class TaskObjectTests: XCTestCase {
         
         let task = CRFTaskInfo(.heartSnapshot).task
         task.birthYear = 1956
-        task.sex = .female
+        task.gender = .female
         
         XCTAssertEqual(task.birthYear, 1956)
-        XCTAssertEqual(task.sex, .female)
+        XCTAssertEqual(task.gender, .female)
     }
     
     func testTaskNavigation_NoDemographics() {
@@ -119,7 +121,7 @@ class TaskObjectTests: XCTestCase {
         
         // check that the previous run data is being set properly
         XCTAssertNil(task.birthYear)
-        XCTAssertNil(task.sex)
+        XCTAssertNil(task.gender)
         
         taskController.goForward()
         

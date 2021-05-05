@@ -52,7 +52,7 @@ public enum CRFTaskIdentifier : String, Codable, CaseIterable {
         do {
             let transformer = CRFTaskTransformer(self)
             let mTask = try factory.decodeTask(with: transformer)
-            let task = mTask as! RSDTaskObject
+            let task = mTask as! CRFTaskObject
             return task
         }
         catch let err {
