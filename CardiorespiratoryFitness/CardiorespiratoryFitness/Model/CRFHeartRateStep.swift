@@ -107,12 +107,11 @@ open class CRFHeartRateStep : RSDActiveUIStepObject, RSDRestartableRecorderConfi
             learnMore.title = Localization.localizedString("HEARTRATE_LEARN_TIPS_BUTTON")
             learnMore.factoryBundle = Bundle(for: CRFHeartRateStep.self)
             learnMore.usesBackButton = true
-            if self.actions != nil {
-                self.actions![.navigation(.learnMore)] = learnMore
+            
+            if self.actions == nil {
+                self.actions = [:]
             }
-            else {
-                self.actions = [.navigation(.learnMore): learnMore]
-            }
+            self.actions![.navigation(.learnMore)] = learnMore
         }
     }
     
