@@ -120,6 +120,7 @@
             "type": "year",
             "uiHint": "textfield",
             "formatOptions": {
+                "minimumYear": 1900,
                 "allowFuture": false
             }
         },
