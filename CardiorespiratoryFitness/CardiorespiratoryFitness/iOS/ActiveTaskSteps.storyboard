@@ -15,7 +15,7 @@
         <scene sceneID="rb0-U5-PVx">
             <objects>
                 <viewController storyboardIdentifier="StairStep" id="cJG-FV-7cK" customClass="CRFStairStepViewController" customModule="CardiorespiratoryFitness" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ozR-fT-mKP" customClass="RSDStepNavigationView" customModule="ResearchUI">
+                    <view key="view" contentMode="scaleToFill" id="ozR-fT-mKP" customClass="RSDStepNavigationView" customModule="ResearchV2UI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fS4-Pb-RWv" userLabel="Header" customClass="RSDStepHeaderView" customModule="ResearchUI">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fS4-Pb-RWv" userLabel="Header" customClass="RSDStepHeaderView" customModule="ResearchV2UI">
                                 <rect key="frame" x="0.0" y="32" width="320" height="45"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hRp-75-DnJ" userLabel="Navigation Header">
@@ -109,11 +109,11 @@
         <scene sceneID="4cP-Aq-OdA">
             <objects>
                 <viewController storyboardIdentifier="HeartRate" id="8Jc-wF-FNR" customClass="CRFHeartRateStepViewController" customModule="CardiorespiratoryFitness" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="JaM-On-OUa" customClass="RSDStepNavigationView" customModule="ResearchUI">
+                    <view key="view" contentMode="scaleToFill" id="JaM-On-OUa" customClass="RSDStepNavigationView" customModule="ResearchV2UI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ybq-sF-bm4" userLabel="Header" customClass="RSDStepNavigationView" customModule="ResearchUI">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ybq-sF-bm4" userLabel="Header" customClass="RSDStepNavigationView" customModule="ResearchV2UI">
                                 <rect key="frame" x="0.0" y="32" width="320" height="38"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXm-uu-q96">
@@ -151,7 +151,7 @@
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BHB-iH-bOa" customClass="RSDUnderlinedButton" customModule="ResearchUI">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BHB-iH-bOa" customClass="RSDUnderlinedButton" customModule="ResearchV2UI">
                                         <rect key="frame" x="84.5" y="87.5" width="151" height="33.5"/>
                                         <state key="normal" title="Tips for measuring"/>
                                     </button>
@@ -169,7 +169,7 @@
                                 <rect key="frame" x="35" y="205.5" width="250" height="250"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l1n-cn-Sxa" customClass="RSDCountdownDial" customModule="ResearchUI">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l1n-cn-Sxa" customClass="RSDCountdownDial" customModule="ResearchV2UI">
                                 <rect key="frame" x="35" y="205.5" width="250" height="250"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heartRateIconCapturing" translatesAutoresizingMaskIntoConstraints="NO" id="JGX-wx-uQP">
@@ -219,7 +219,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nfb-a4-wK2">
                                 <rect key="frame" x="0.0" y="455.5" width="320" height="112.5"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mLb-aF-ynD" customClass="RSDGenericNavigationFooterView" customModule="ResearchUI">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mLb-aF-ynD" customClass="RSDGenericNavigationFooterView" customModule="ResearchV2UI">
                                         <rect key="frame" x="0.0" y="12.5" width="320" height="100"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
