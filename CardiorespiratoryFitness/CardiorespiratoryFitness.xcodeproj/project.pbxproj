@@ -55,9 +55,7 @@
 		F8E68EE32252A30900CF0811 /* CRFTaskObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E68EE22252A30900CF0811 /* CRFTaskObject.swift */; };
 		F8E68EF122531E5400CF0811 /* TaskObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E68EF022531E5400CF0811 /* TaskObjectTests.swift */; };
 		FF0062252748343F00C4A6A8 /* ResearchV2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF0062232748343F00C4A6A8 /* ResearchV2.framework */; };
-		FF0062262748343F00C4A6A8 /* ResearchV2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF0062232748343F00C4A6A8 /* ResearchV2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FF0062272748343F00C4A6A8 /* ResearchV2UI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF0062242748343F00C4A6A8 /* ResearchV2UI.framework */; };
-		FF0062282748343F00C4A6A8 /* ResearchV2UI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF0062242748343F00C4A6A8 /* ResearchV2UI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,21 +67,6 @@
 			remoteInfo = CardiorespiratoryFitness;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		FF0062292748343F00C4A6A8 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				FF0062262748343F00C4A6A8 /* ResearchV2.framework in Embed Frameworks */,
-				FF0062282748343F00C4A6A8 /* ResearchV2UI.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		CBF48ACF262FEE1F00E855C9 /* Heart_Snapshot.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Heart_Snapshot.json; sourceTree = "<group>"; };
@@ -384,7 +367,6 @@
 				F88725D52051C0F800A4B82F /* Frameworks */,
 				F88725D62051C0F800A4B82F /* Headers */,
 				F88725D72051C0F800A4B82F /* Resources */,
-				FF0062292748343F00C4A6A8 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
